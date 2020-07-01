@@ -3,11 +3,12 @@
 % 29/06/2020
 
 
+%:- use_module(library(clpfd)).
+:- use_module(library(jpl)).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cursos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),dias(C,D)),Res).
-
 
 curso(fundamentos).
 curso(introduccion).

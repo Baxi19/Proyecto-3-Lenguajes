@@ -3,11 +3,22 @@
 % 29/06/2020
 
 
+%:- use_module(library(clpfd)).
+:- use_module(library(jpl)).
+
+
+simple(str) :-
+    use_module(library(jpl)),
+    jpl_new('java.lang.String',['Hello, World'],JS),
+    format("Obtained Java String = ~q\n",[JS]),
+    (jpl_is_object(JS) -> format("JS is an object\n") ; format("JS is NOT an object\n")),
+    (atom(JS) -> format("JS is an atom\n") ; format("JS is NOT an atom\n")).
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cursos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),dias(C,D)),Res).
-
 
 curso(fundamentos).
 curso(introduccion).
