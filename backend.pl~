@@ -2,7 +2,147 @@
 % Randald Villegas Brenes
 % 29/06/2020
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cursos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),dias(C,D)),Res).
+
+
+curso(fundamentos).
+curso(introduccion).
+curso(taller).
+curso(estructuras).
+curso(poo).
+curso(arquitectura).
+curso(analisis).
+curso(bases1).
+curso(bases2).
+curso(lenguajes).
+curso(requerimientos).
+curso(ap).
+curso(compiladores).
+curso(diseno).
+curso(electiva1).
+curso(io).
+curso(operativos).
+curso(calidad).
+curso(compuSociedad).
+curso(electiva2).
+curso(ia).
+curso(redes).
+curso(proyectoS).
+curso(practica).
+
+asignatura(fundamentos,normal).
+asignatura(introduccion, normal).
+asignatura(taller, laboratorio ).
+asignatura(estructuras, laboratorio ).
+asignatura(poo,laboratorio ).
+asignatura(arquitectura, normal).
+asignatura(analisis, laboratorio ).
+asignatura(bases1,laboratorio ).
+asignatura(bases2,laboratorio ).
+asignatura(lenguajes,laboratorio ).
+asignatura(requerimientos, normal).
+asignatura(ap, normal).
+asignatura(compiladores, laboratorio ).
+asignatura(diseno, laboratorio ).
+asignatura(electiva1, laboratorio ).
+asignatura(io, normal).
+asignatura(operativos,laboratorio ).
+asignatura(calidad, laboratorio ).
+asignatura(compuSociedad, normal).
+asignatura(electiva2, laboratorio ).
+asignatura(ia, laboratorio ).
+asignatura(redes, laboratorio ).
+asignatura(proyectoS, laboratorio ).
+asignatura(practica, laboratorio).
+
+creditos(fundamentos,3).
+creditos(introduccion, 3).
+creditos(taller, 3 ).
+creditos(estructuras, 4 ).
+creditos(poo,3 ).
+creditos(arquitectura, 4).
+creditos(analisis, 4 ).
+creditos(bases1,4 ).
+creditos(bases2,3 ).
+creditos(lenguajes,4 ).
+creditos(requerimientos, 4).
+creditos(ap, 4).
+creditos(compiladores, 4 ).
+creditos(diseno, 4 ).
+creditos(electiva1, 3 ).
+creditos(io, 4).
+creditos(operativos,4 ).
+creditos(calidad, 3 ).
+creditos(compuSociedad, 2).
+creditos(electiva2, 4 ).
+creditos(ia, 4 ).
+creditos(redes, 4 ).
+creditos(proyectoS, 3 ).
+creditos(practica,12).
+
+semestre(fundamentos,1).
+semestre(introduccion, 1).
+semestre(taller,1 ).
+semestre(estructuras, 2).
+semestre(poo,2).
+semestre(arquitectura, 2).
+semestre(analisis, 3).
+semestre(bases1,3).
+semestre(bases2,4 ).
+semestre(lenguajes,4 ).
+semestre(requerimientos, 4).
+semestre(ap, 5).
+semestre(compiladores, 5 ).
+semestre(diseno, 5 ).
+semestre(electiva1, 6 ).
+semestre(io, 6).
+semestre(operativos,6).
+semestre(calidad, 6).
+semestre(compuSociedad, 6).
+semestre(electiva2, 7).
+semestre(ia, 7).
+semestre(redes, 7).
+semestre(proyectoS, 7).
+semestre(practica,8).
+
+dias(fundamentos,2).
+dias(introduccion, 2).
+dias(taller,1).
+dias(estructuras, 1).
+dias(poo,2).
+dias(arquitectura, 1).
+dias(analisis, 2).
+dias(bases1,1).
+dias(bases2,2).
+dias(lenguajes,1).
+dias(requerimientos, 2).
+dias(ap, 1).
+dias(compiladores, 2).
+dias(diseno, 1).
+dias(electiva1, 2).
+dias(io, 1).
+dias(operativos,2).
+dias(calidad, 1).
+dias(compuSociedad, 2).
+dias(electiva2, 1).
+dias(ia, 2).
+dias(redes, 1).
+dias(proyectoS, 2).
+dias(practica,5).
+
+%Para calcular los semestres, si es par o no
+par(X) :- 0 is X mod 2.
+impar(X) :- 1 is X mod 2.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %profesores
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% findall(P->A->C->D->I, (profesor(P),apellidos(P,A),cedula(P,C),disponibildad(P,D),imparte(P,I)),Res).
+
 profesor(alejandro).
 profesor(rocio).
 profesor(abel).
@@ -62,32 +202,49 @@ imparte(diego,  [fundamentos, proyecto]).
 imparte(efren,  [bases1, bases2, analisis]).
 imparte(lorena, [analisis, bases1, poo]).
 imparte(jorge,  [operativos, arquitectura]).
-imparte(marlen, [bases1, bases2, qa]).
+imparte(marlen, [bases1, bases2, calidad]).
 imparte(leo,    [bases2]).
 imparte(oscar,  [compiladores, lenguajes]).
-imparte(vera,   [introduccion, taller, computacion_sociedad]).
-imparte(rogelio,[ia, investigacion_operaciones, redes, electiva_1, electiva_2]).
+imparte(vera,   [introduccion, taller, compuSociedad]).
+imparte(rogelio,[ia, io, redes, electiva1, electiva2]).
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %aulas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %findall(A->C->T, (aula(A),capacidad(A,C), tipo(A,T)),Res).
 aula(lab-01).
 aula(lab-02).
 aula(auc-01).
 aula(mvl-01).
-aula(e  -10).
+aula(e-10).
+aula(e-11).
+aula(e-12).
+aula(e-13).
+aula(e-14).
+aula(e-15).
 
 capacidad(lab-01,20).
 capacidad(lab-02,20).
 capacidad(auc-01,24).
 capacidad(mvl-01,20).
 capacidad(e-10,  24).
+capacidad(e-11,  24).
+capacidad(e-12,  28).
+capacidad(e-13,  24).
+capacidad(e-14,  24).
+capacidad(e-15,  20).
 
 tipo(lab-01,laboratorio).
 tipo(lab-02,laboratorio).
-tipo(auc-01,aula).
+tipo(auc-01,laboratorio).
 tipo(mvl-01,laboratorio).
-tipo(e-10,  aula).
+tipo(e-10,  normal).
+tipo(e-11,  normal).
+tipo(e-12,  normal).
+tipo(e-13,  normal).
+tipo(e-14,  normal).
+tipo(e-15,  normal).
+
 
 
 %horarios semanales
@@ -139,57 +296,8 @@ horario(v,"03:15","04:05").
 
 %buscarHorario(X, 01:25","02:15").
 %buscarHorario(lunes, X, Y).
-
-
 buscarHorario(Dia, Inicio, Fin) :-
     horario(Dia, Inicio, Fin).
 
 
 
-
-% profesor(nombre, cédula, [disponibilidad de horario], [cursos que
-% imparte])
-
-
-profesor(
-    "Alejandro Alfaro Quesada",
-    209870845,
-    [martes],
-    ["Analisis Y Diseño De Algoritmos"]).
-
-% curso(Codigo,Materia,Horas,Creditos)
-
-%curso("CA3125","Analisis Y Diseño De Algoritmos",3.5, 3).
-
-%curso("IC1400","Fundamentos De Organizacion De Computadoras",3.5, 3).
-
-
-
-curso("CA3125","Analisis Y Diseño De Algoritmos",3.5, 3).
-
-
-curso(prolog,horario(lunes,9,12),profesor(eduardo,morales),lugar(ccc,8301)).
-
-
-
-% findall(O-M-T-W,(object(O),material(O,M),type(O,T),weight(O,W)),Res).
-object(obj1).
-object(obj2).
-object(obj3).
-object(obj4).
-object(obj5).
-material(obj1,wood).
-material(obj2,wood).
-material(obj3, glass).
-material(obj4, glass).
-material(obj5, iron).
-type(obj1, able).
-type(obj2, chair).
-type(obj3, mesa).
-type(obj4, jar).
-type(obj5, rattle).
-weight(obj1, 10.5).
-weight(obj2, 1.5).
-weight(obj3, 1.6).
-weight(obj4, 0.5).
-weight(obj5, 1.8).
