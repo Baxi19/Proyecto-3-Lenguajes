@@ -36,30 +36,30 @@ curso(redes).
 curso(proyectoS).
 curso(practica).
 
-asignatura(fundamentos,normal).
-asignatura(introduccion, normal).
-asignatura(taller, laboratorio ).
-asignatura(estructuras, laboratorio ).
-asignatura(poo,laboratorio ).
-asignatura(arquitectura, normal).
-asignatura(analisis, laboratorio ).
-asignatura(bases1,laboratorio ).
-asignatura(bases2,laboratorio ).
-asignatura(lenguajes,laboratorio ).
-asignatura(requerimientos, normal).
-asignatura(ap, normal).
-asignatura(compiladores, laboratorio ).
-asignatura(diseno, laboratorio ).
-asignatura(electiva1, laboratorio ).
-asignatura(io, normal).
-asignatura(operativos,laboratorio ).
-asignatura(calidad, laboratorio ).
-asignatura(compuSociedad, normal).
-asignatura(electiva2, laboratorio ).
-asignatura(ia, laboratorio ).
-asignatura(redes, laboratorio ).
-asignatura(proyectoS, laboratorio ).
-asignatura(practica, laboratorio).
+asignatura(fundamentos,  "normal").
+asignatura(introduccion, "normal").
+asignatura(taller,       "laboratorio").
+asignatura(estructuras,  "laboratorio").
+asignatura(poo,          "laboratorio" ).
+asignatura(arquitectura, "normal").
+asignatura(analisis,     "laboratorio" ).
+asignatura(bases1,       "laboratorio" ).
+asignatura(bases2,       "laboratorio" ).
+asignatura(lenguajes,    "laboratorio" ).
+asignatura(requerimientos,"normal").
+asignatura(ap,           "normal").
+asignatura(compiladores, "laboratorio" ).
+asignatura(diseno,       "laboratorio" ).
+asignatura(electiva1,    "laboratorio" ).
+asignatura(io,           "normal").
+asignatura(operativos,   "laboratorio" ).
+asignatura(calidad,      "laboratorio" ).
+asignatura(compuSociedad,"normal").
+asignatura(electiva2,    "laboratorio" ).
+asignatura(ia,           "laboratorio" ).
+asignatura(redes,        "laboratorio" ).
+asignatura(proyectoS,    "laboratorio" ).
+asignatura(practica,     "laboratorio").
 
 creditos(fundamentos,3).
 creditos(introduccion, 3).
@@ -199,18 +199,46 @@ disponibilidad(oscar,  [l, k, m, j]).
 disponibilidad(vera,   [l,k,m, j]).
 disponibilidad(rogelio,[l, k, m,v]).
 
-imparte(alejandro, [requerimientos, diseno]).
-imparte(rocio,  [fundamentos]).
-imparte(abel,   [bases1, proyecto]).
-imparte(diego,  [fundamentos, proyecto]).
-imparte(efren,  [bases1, bases2, analisis]).
-imparte(lorena, [analisis, bases1, poo]).
-imparte(jorge,  [operativos, arquitectura]).
-imparte(marlen, [bases1, bases2, calidad]).
-imparte(leo,    [bases2]).
-imparte(oscar,  [compiladores, lenguajes]).
-imparte(vera,   [introduccion, taller, compuSociedad]).
-imparte(rogelio,[ia, io, redes, electiva1, electiva2]).
+imparte(alejandro, diseno).
+imparte(alejandro, requerimientos).
+imparte(rocio,  estructuras).
+imparte(rocio,  fundamentos).
+imparte(abel,   bases1).
+imparte(abel,   proyectoS).
+imparte(abel,   io).
+imparte(abel,   ia).
+imparte(diego,  fundamentos).
+imparte(diego,  proyectoS).
+imparte(diego,  estructuras).
+imparte(efren,  bases1).
+imparte(efren,  bases2).
+imparte(efren,  analisis).
+imparte(efren,  electiva2).
+imparte(lorena, analisis).
+imparte(lorena, bases1).
+imparte(lorena, poo).
+imparte(jorge,  operativos).
+imparte(jorge,  arquitectura).
+imparte(marlen, bases1).
+imparte(marlen, bases2).
+imparte(marlen, calidad).
+imparte(marlen, poo).
+imparte(leo,    bases2).
+imparte(leo,    ap).
+imparte(leo,    electiva1).
+imparte(oscar,  compiladores).
+imparte(oscar,  lenguajes).
+imparte(oscar,  practica).
+imparte(vera,   introduccion).
+imparte(vera,   taller).
+imparte(vera,   compuSociedad).
+imparte(rogelio,ia).
+imparte(rogelio,io).
+imparte(rogelio,redes).
+imparte(rogelio,electiva1).
+imparte(rogelio,electiva2).
+imparte(rogelio,practica).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %aulas
@@ -238,16 +266,16 @@ capacidad(e-13,  24).
 capacidad(e-14,  24).
 capacidad(e-15,  20).
 
-tipo(lab-01,laboratorio).
-tipo(lab-02,laboratorio).
-tipo(auc-01,laboratorio).
-tipo(mvl-01,laboratorio).
-tipo(e-10,  normal).
-tipo(e-11,  normal).
-tipo(e-12,  normal).
-tipo(e-13,  normal).
-tipo(e-14,  normal).
-tipo(e-15,  normal).
+tipo(lab-01,"laboratorio").
+tipo(lab-02,"laboratorio").
+tipo(auc-01,"laboratorio").
+tipo(mvl-01,"laboratorio").
+tipo(e-10,  "normal").
+tipo(e-11,  "normal").
+tipo(e-12,  "normal").
+tipo(e-13,  "normal").
+tipo(e-14,  "normal").
+tipo(e-15,  "normal").
 
 
 
@@ -325,6 +353,25 @@ hora_leccion(l_8,"03:15 - 04:05" ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+buscar_aula(C,A) :-
+    Tipo = tipo(A, _),
+    write(Tipo),
+    Tipo2 = asignatura(C, _),
+    write(Tipo2).
+*/
+
+%para almacenar los horarios
+%horario(l_1, ia, leo, lab-01).
+%horario(X,Y,Z,V).
+horario(Leccion, Curso, Profesor, Aula ) :-
+    leccion(Leccion),
+    curso(Curso),
+    profesor(Profesor),
+    aula(Aula),
+    imparte(Profesor, Curso),
+    buscar_aula( Curso, Aula).
+
 
 %Se obtiene una lista con todas las lecciones disponibles
 todas_lecciones(Resultado) :-
@@ -341,3 +388,7 @@ todos_profesores(Resultado) :-
 %se obtiene una lista con la informacion de todas las aulas
 todas_aulas(Resultado) :-
     findall(Aula->Capacidad->Tipo, (aula(Aula),capacidad(Aula,Capacidad),tipo(Aula,Tipo)),Resultado).
+
+%para saber si es mienbro de una lista
+es_miembro(X,[X|_]).
+es_miembro(X,[_|T]):-es_miembro(X,T).
