@@ -4,11 +4,12 @@
 
 
 %:- use_module(library(clpfd)).
-:- use_module(library(jpl)).
+%:- use_module(library(jpl)).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cursos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),dias(C,D)),Res).
+% findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),cantidad_dias(C,D)),Res).
 
 curso(fundamentos).
 curso(introduccion).
@@ -110,30 +111,30 @@ semestre(redes, 7).
 semestre(proyectoS, 7).
 semestre(practica,8).
 
-dias(fundamentos,2).
-dias(introduccion, 2).
-dias(taller,1).
-dias(estructuras, 1).
-dias(poo,2).
-dias(arquitectura, 1).
-dias(analisis, 2).
-dias(bases1,1).
-dias(bases2,2).
-dias(lenguajes,1).
-dias(requerimientos, 2).
-dias(ap, 1).
-dias(compiladores, 2).
-dias(diseno, 1).
-dias(electiva1, 2).
-dias(io, 1).
-dias(operativos,2).
-dias(calidad, 1).
-dias(compuSociedad, 2).
-dias(electiva2, 1).
-dias(ia, 2).
-dias(redes, 1).
-dias(proyectoS, 2).
-dias(practica,5).
+cantidad_dias(fundamentos,2).
+cantidad_dias(introduccion, 2).
+cantidad_dias(taller,1).
+cantidad_dias(estructuras, 1).
+cantidad_dias(poo,2).
+cantidad_dias(arquitectura, 1).
+cantidad_dias(analisis, 2).
+cantidad_dias(bases1,1).
+cantidad_dias(bases2,2).
+cantidad_dias(lenguajes,1).
+cantidad_dias(requerimientos, 2).
+cantidad_dias(ap, 1).
+cantidad_dias(compiladores, 2).
+cantidad_dias(diseno, 1).
+cantidad_dias(electiva1, 2).
+cantidad_dias(io, 1).
+cantidad_dias(operativos,2).
+cantidad_dias(calidad, 1).
+cantidad_dias(compuSociedad, 2).
+cantidad_dias(electiva2, 1).
+cantidad_dias(ia, 2).
+cantidad_dias(redes, 1).
+cantidad_dias(proyectoS, 2).
+cantidad_dias(practica,2).
 
 %Para calcular los semestres, si es par o no
 par(X) :- 0 is X mod 2.
@@ -142,7 +143,8 @@ impar(X) :- 1 is X mod 2.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %profesores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% findall(P->A->C->D->I, (profesor(P),apellidos(P,A),cedula(P,C),disponibildad(P,D),imparte(P,I)),Res).
+% findall(P->A->C->D->I,(profesor(P),apellidos(P,A),cedula(P,C),disponibilidad(P,D),imparte(P,I)),Res).
+
 
 profesor(alejandro).
 profesor(rocio).
@@ -183,18 +185,24 @@ cedula(oscar, "5-616-612").
 cedula(vera, "4-646-654").
 cedula(rogelio, "6-545-613").
 
-disponibilidad(alejandro, [lunes, martes]).
-disponibilidad(rocio,  [miercoles]).
-disponibilidad(abel,   [lunes, viernes]).
-disponibilidad(diego,  [jueves, viernes]).
-disponibilidad(efren,  [lunes, martes, miercoles, jueves]).
-disponibilidad(lorena, [lunes, martes, miercoles, jueves]).
-disponibilidad(jorge,  [lunes, martes, miercoles, jueves]).
-disponibilidad(marlen, [lunes, martes, miercoles, jueves]).
-disponibilidad(leo,    [lunes, martes, miercoles, jueves]).
-disponibilidad(oscar,  [lunes, martes, jueves, viernes]).
-disponibilidad(vera,   [lunes, martes, miercoles, jueves]).
-disponibilidad(rogelio,[lunes, martes, jueves, viernes]).
+dia(l).
+dia(k).
+dia(m).
+dia(j).
+dia(v).
+
+disponibilidad(alejandro, [l, k]).
+disponibilidad(rocio,  [m]).
+disponibilidad(abel,   [l, v]).
+disponibilidad(diego,  [j, v]).
+disponibilidad(efren,  [l, k, m, j]).
+disponibilidad(lorena, [l, k, m, j]).
+disponibilidad(jorge,  [l, k, m,j]).
+disponibilidad(marlen, [l,k,m, j]).
+disponibilidad(leo,    [l,k, m, v]).
+disponibilidad(oscar,  [l, k, m, j]).
+disponibilidad(vera,   [l,k,m, j]).
+disponibilidad(rogelio,[l, k, m,v]).
 
 imparte(alejandro, [requerimientos, diseno]).
 imparte(rocio,  [fundamentos]).
@@ -249,56 +257,58 @@ tipo(e-15,  normal).
 
 
 %horarios semanales
-horario(l,"07:55","08:45").
-horario(l,"08:50","09:40").
-horario(l,"09:45","10:35").
-horario(l,"10:40","11:30").
-horario(l,"12:30","01:20").
-horario(l,"01:25","02:15").
-horario(l,"02:20","03:10").
-horario(l,"03:15","04:05").
+%
 
-horario(k,"07:55","08:45").
-horario(k,"08:50","09:40").
-horario(k,"09:45","10:35").
-horario(k,"10:40","11:30").
-horario(k,"12:30","01:20").
-horario(k,"01:25","02:15").
-horario(k,"02:20","03:10").
-horario(k,"03:15","04:05").
+leccion(l,"07:55","08:45").
+leccion(l,"08:50","09:40").
+leccion(l,"09:45","10:35").
+leccion(l,"10:40","11:30").
+leccion(l,"12:30","01:20").
+leccion(l,"01:25","02:15").
+leccion(l,"02:20","03:10").
+leccion(l,"03:15","04:05").
 
-horario(m,"07:55","08:45").
-horario(m,"08:50","09:40").
-horario(m,"09:45","10:35").
-horario(m,"10:40","11:30").
-horario(m,"12:30","01:20").
-horario(m,"01:25","02:15").
-horario(m,"02:20","03:10").
-horario(m,"03:15","04:05").
+leccion(k,"07:55","08:45").
+leccion(k,"08:50","09:40").
+leccion(k,"09:45","10:35").
+leccion(k,"10:40","11:30").
+leccion(k,"12:30","01:20").
+leccion(k,"01:25","02:15").
+leccion(k,"02:20","03:10").
+leccion(k,"03:15","04:05").
 
-horario(j,"07:55","08:45").
-horario(j,"08:50","09:40").
-horario(j,"09:45","10:35").
-horario(j,"10:40","11:30").
-horario(j,"12:30","01:20").
-horario(j,"01:25","02:15").
-horario(j,"02:20","03:10").
-horario(j,"03:15","04:05").
+leccion(m,"07:55","08:45").
+leccion(m,"08:50","09:40").
+leccion(m,"09:45","10:35").
+leccion(m,"10:40","11:30").
+leccion(m,"12:30","01:20").
+leccion(m,"01:25","02:15").
+leccion(m,"02:20","03:10").
+leccion(m,"03:15","04:05").
 
-horario(v,"07:55","08:45").
-horario(v,"08:50","09:40").
-horario(v,"09:45","10:35").
-horario(v,"10:40","11:30").
-horario(v,"12:30","01:20").
-horario(v,"01:25","02:15").
-horario(v,"02:20","03:10").
-horario(v,"03:15","04:05").
+leccion(j,"07:55","08:45").
+leccion(j,"08:50","09:40").
+leccion(j,"09:45","10:35").
+leccion(j,"10:40","11:30").
+leccion(j,"12:30","01:20").
+leccion(j,"01:25","02:15").
+leccion(j,"02:20","03:10").
+leccion(j,"03:15","04:05").
+
+leccion(v,"07:55","08:45").
+leccion(v,"08:50","09:40").
+leccion(v,"09:45","10:35").
+leccion(v,"10:40","11:30").
+leccion(v,"12:30","01:20").
+leccion(v,"01:25","02:15").
+leccion(v,"02:20","03:10").
+leccion(v,"03:15","04:05").
 
 
 %buscarHorario(X, 01:25","02:15").
 %buscarHorario(lunes, X, Y).
 buscarHorario(Dia, Inicio, Fin) :-
-    horario(Dia, Inicio, Fin).
+    leccion(Dia, Inicio, Fin).
 
 
 
