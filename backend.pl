@@ -277,7 +277,7 @@ tipo(e-13,  "normal").
 tipo(e-14,  "normal").
 tipo(e-15,  "normal").
 
-
+%tipo(X,Y).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %lecciones
@@ -353,24 +353,28 @@ hora_leccion(l_8,"03:15 - 04:05" ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/*
-buscar_aula(C,A) :-
-    Tipo = tipo(A, _),
-    write(Tipo),
-    Tipo2 = asignatura(C, _),
-    write(Tipo2).
-*/
+
+seleccionar_aula(C,A) :-
+    curso(C),
+    asignatura(C,Y),
+    aula(A),
+    tipo(A, Y),
+    write(Y).
+
 
 %para almacenar los horarios
 %horario(l_1, ia, leo, lab-01).
 %horario(X,Y,Z,V).
 horario(Leccion, Curso, Profesor, Aula ) :-
     leccion(Leccion),
-    curso(Curso),
     profesor(Profesor),
+    curso(Curso),
+    asignatura(Curso,Z),
     aula(Aula),
-    imparte(Profesor, Curso),
-    buscar_aula( Curso, Aula).
+    tipo(Aula, Y),
+    (Z = Y),
+    imparte(Profesor, Curso).
+    %seleccionar_aula(Curso, Aula).
 
 
 %Se obtiene una lista con todas las lecciones disponibles
