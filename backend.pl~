@@ -354,27 +354,22 @@ hora_leccion(l_8,"03:15 - 04:05" ).
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-seleccionar_aula(C,A) :-
-    curso(C),
-    asignatura(C,Y),
-    aula(A),
-    tipo(A, Y),
-    write(Y).
-
 
 %para almacenar los horarios
-%horario(l_1, ia, leo, lab-01).
-%horario(X,Y,Z,V).
-horario(Leccion, Curso, Profesor, Aula ) :-
-    leccion(Leccion),
+%horario(Leccion,Dias, Horas,Curso,Profesor,Aula).
+horario(Leccion,Dias, Horas, Curso, Profesor, Aula ) :-
+    asignatura(Curso,Tipo_curso),
+    aula(Aula),
+    tipo(Aula, Tipo_aula),
+    (Tipo_curso = Tipo_aula),
     profesor(Profesor),
     curso(Curso),
-    asignatura(Curso,Z),
-    aula(Aula),
-    tipo(Aula, Y),
-    (Z = Y),
-    imparte(Profesor, Curso).
-    %seleccionar_aula(Curso, Aula).
+    imparte(Profesor, Curso),
+    disponibilidad(Profesor, Lista),
+    leccion(Leccion),
+    dia_leccion(Leccion, Dias),
+    member(Dias, Lista),
+    hora_leccion(Leccion,Horas).
 
 
 %Se obtiene una lista con todas las lecciones disponibles
