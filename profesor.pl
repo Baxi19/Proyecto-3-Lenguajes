@@ -4,7 +4,6 @@
 % findall(Profesor->Apellidos->Cedula->Disponibilidad->Imparte,(profesor(Profesor),apellidos(Profesor,Apellidos),cedula(Profesor,Cedula),disponibilidad(Profesor,Disponibilidad),imparte(Profesor,Imparte)),Resultado).
 
 
-
 profesor(alejandro).
 profesor(rocio).
 profesor(abel).

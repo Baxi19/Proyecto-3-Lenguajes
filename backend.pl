@@ -251,59 +251,93 @@ tipo(e-15,  normal).
 
 
 
-%horarios semanales
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%lecciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% findall(Leccion->Dia->Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
 
-leccion(l,"07:55","08:45").
-leccion(l,"08:50","09:40").
-leccion(l,"09:45","10:35").
-leccion(l,"10:40","11:30").
-leccion(l,"12:30","01:20").
-leccion(l,"01:25","02:15").
-leccion(l,"02:20","03:10").
-leccion(l,"03:15","04:05").
+leccion(l_1).
+leccion(l_2).
+leccion(l_3).
+leccion(l_4).
+leccion(l_5).
+leccion(l_6).
+leccion(l_7).
+leccion(l_8).
 
-leccion(k,"07:55","08:45").
-leccion(k,"08:50","09:40").
-leccion(k,"09:45","10:35").
-leccion(k,"10:40","11:30").
-leccion(k,"12:30","01:20").
-leccion(k,"01:25","02:15").
-leccion(k,"02:20","03:10").
-leccion(k,"03:15","04:05").
+dia_leccion(l_1, l).
+dia_leccion(l_2, l).
+dia_leccion(l_3, l).
+dia_leccion(l_4, l).
+dia_leccion(l_5, l).
+dia_leccion(l_6, l).
+dia_leccion(l_7, l).
+dia_leccion(l_8, l).
 
-leccion(m,"07:55","08:45").
-leccion(m,"08:50","09:40").
-leccion(m,"09:45","10:35").
-leccion(m,"10:40","11:30").
-leccion(m,"12:30","01:20").
-leccion(m,"01:25","02:15").
-leccion(m,"02:20","03:10").
-leccion(m,"03:15","04:05").
+dia_leccion(l_1, k).
+dia_leccion(l_2, k).
+dia_leccion(l_3, k).
+dia_leccion(l_4, k).
+dia_leccion(l_5, k).
+dia_leccion(l_6, k).
+dia_leccion(l_7, k).
+dia_leccion(l_8, k).
 
-leccion(j,"07:55","08:45").
-leccion(j,"08:50","09:40").
-leccion(j,"09:45","10:35").
-leccion(j,"10:40","11:30").
-leccion(j,"12:30","01:20").
-leccion(j,"01:25","02:15").
-leccion(j,"02:20","03:10").
-leccion(j,"03:15","04:05").
+dia_leccion(l_1, m).
+dia_leccion(l_2, m).
+dia_leccion(l_3, m).
+dia_leccion(l_4, m).
+dia_leccion(l_5, m).
+dia_leccion(l_6, m).
+dia_leccion(l_7, m).
+dia_leccion(l_8, m).
 
-leccion(v,"07:55","08:45").
-leccion(v,"08:50","09:40").
-leccion(v,"09:45","10:35").
-leccion(v,"10:40","11:30").
-leccion(v,"12:30","01:20").
-leccion(v,"01:25","02:15").
-leccion(v,"02:20","03:10").
-leccion(v,"03:15","04:05").
+dia_leccion(l_1, j).
+dia_leccion(l_2, j).
+dia_leccion(l_3, j).
+dia_leccion(l_4, j).
+dia_leccion(l_5, j).
+dia_leccion(l_6, j).
+dia_leccion(l_7, j).
+dia_leccion(l_8, j).
+
+dia_leccion(l_1, v).
+dia_leccion(l_2, v).
+dia_leccion(l_3, v).
+dia_leccion(l_4, v).
+dia_leccion(l_5, v).
+dia_leccion(l_6, v).
+dia_leccion(l_7, v).
+dia_leccion(l_8, v).
+
+hora_leccion(l_1,"07:55 - 08:45").
+hora_leccion(l_2,"08:50 - 09:40" ).
+hora_leccion(l_3,"09:45 - 10:35" ).
+hora_leccion(l_4,"10:40 - 11:30" ).
+hora_leccion(l_5,"12:30 - 01:20" ).
+hora_leccion(l_6,"01:25 - 02:15" ).
+hora_leccion(l_7,"02:20 - 03:10" ).
+hora_leccion(l_8,"03:15 - 04:05" ).
 
 
-%buscarHorario(X, 01:25","02:15").
-%buscarHorario(lunes, X, Y).
-buscarHorario(Dia, Inicio, Fin) :-
-    leccion(Dia, Inicio, Fin).
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%REGLAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Se obtiene una lista con todas las lecciones disponibles
+todas_lecciones(Resultado) :-
+    findall(Leccion->Dia->Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
+
+%se obtiene una lista con todos los cursos disponibles
+todos_cursos(Resultado) :-
+    findall(Curso->Asignatura->Peso->Semestre->Dia,(curso(Curso),asignatura(Curso,Asignatura),creditos(Curso,Peso),semestre(Curso,Semestre),cantidad_dias(Curso,Dia)),Resultado).
+
+%se obtiene una lista con todos los datos de los profesores disponibles
+todos_profesores(Resultado) :-
+    findall(Profesor->Apellidos->Cedula->Disponibilidad->Imparte,(profesor(Profesor),apellidos(Profesor,Apellidos),cedula(Profesor,Cedula),disponibilidad(Profesor,Disponibilidad),imparte(Profesor,Imparte)),Resultado).
+
+%se obtiene una lista con la informacion de todas las aulas
+todas_aulas(Resultado) :-
+    findall(Aula->Capacidad->Tipo, (aula(Aula),capacidad(Aula,Capacidad),tipo(Aula,Tipo)),Resultado).
