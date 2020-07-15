@@ -2,4 +2,5 @@
 
 start :- dynamic(dia/2),
          consult('dia.pl'),
-         dia(l,X).
+         buscar(l,Y),
+         write(Y).

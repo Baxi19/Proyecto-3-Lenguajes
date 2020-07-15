@@ -136,10 +136,6 @@ cantidad_dias(redes, 1).
 cantidad_dias(proyectoS, 2).
 cantidad_dias(practica,2).
 
-%Para calcular los semestres, si es par o no
-par(X) :- 0 is X mod 2.
-impar(X) :- 1 is X mod 2.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %profesores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,10 +268,10 @@ tipo(auc-01,"laboratorio").
 tipo(mvl-01,"laboratorio").
 tipo(e-10,  "normal").
 tipo(e-11,  "normal").
-tipo(e-12,  "normal").
-tipo(e-13,  "normal").
-tipo(e-14,  "normal").
-tipo(e-15,  "normal").
+%tipo(e-12,  "normal").
+%tipo(e-13,  "normal").
+%tipo(e-14,  "normal").
+%tipo(e-15,  "normal").
 
 %tipo(X,Y).
 
@@ -288,64 +284,70 @@ leccion(l_1).
 leccion(l_2).
 leccion(l_3).
 leccion(l_4).
-leccion(l_5).
-leccion(l_6).
-leccion(l_7).
-leccion(l_8).
+%leccion(l_5).
+%leccion(l_6).
+%leccion(l_7).
+%leccion(l_8).
+
+bloque(manana_1, l_1).
+bloque(manana_2, l_2).
+bloque(tarde_1, l_3).
+bloque(tarde_2, l_4).
 
 dia_leccion(l_1, l).
 dia_leccion(l_2, l).
 dia_leccion(l_3, l).
 dia_leccion(l_4, l).
-dia_leccion(l_5, l).
-dia_leccion(l_6, l).
-dia_leccion(l_7, l).
-dia_leccion(l_8, l).
+%dia_leccion(l_5, l).
+%dia_leccion(l_6, l).
+%dia_leccion(l_7, l).
+%dia_leccion(l_8, l).
 
 dia_leccion(l_1, k).
 dia_leccion(l_2, k).
 dia_leccion(l_3, k).
 dia_leccion(l_4, k).
-dia_leccion(l_5, k).
-dia_leccion(l_6, k).
-dia_leccion(l_7, k).
-dia_leccion(l_8, k).
+%dia_leccion(l_5, k).
+%dia_leccion(l_6, k).
+%dia_leccion(l_7, k).
+%dia_leccion(l_8, k).
 
 dia_leccion(l_1, m).
 dia_leccion(l_2, m).
 dia_leccion(l_3, m).
 dia_leccion(l_4, m).
-dia_leccion(l_5, m).
-dia_leccion(l_6, m).
-dia_leccion(l_7, m).
-dia_leccion(l_8, m).
+%dia_leccion(l_5, m).
+%dia_leccion(l_6, m).
+%dia_leccion(l_7, m).
+%dia_leccion(l_8, m).
 
 dia_leccion(l_1, j).
 dia_leccion(l_2, j).
 dia_leccion(l_3, j).
 dia_leccion(l_4, j).
-dia_leccion(l_5, j).
-dia_leccion(l_6, j).
-dia_leccion(l_7, j).
-dia_leccion(l_8, j).
+%dia_leccion(l_5, j).
+%dia_leccion(l_6, j).
+%dia_leccion(l_7, j).
+%dia_leccion(l_8, j).
 
 dia_leccion(l_1, v).
 dia_leccion(l_2, v).
 dia_leccion(l_3, v).
 dia_leccion(l_4, v).
-dia_leccion(l_5, v).
-dia_leccion(l_6, v).
-dia_leccion(l_7, v).
-dia_leccion(l_8, v).
+%dia_leccion(l_5, v).
+%dia_leccion(l_6, v).
+%dia_leccion(l_7, v).
+%dia_leccion(l_8, v).
 
-hora_leccion(l_1,"07:55 - 08:45").
-hora_leccion(l_2,"08:50 - 09:40" ).
-hora_leccion(l_3,"09:45 - 10:35" ).
-hora_leccion(l_4,"10:40 - 11:30" ).
-hora_leccion(l_5,"12:30 - 01:20" ).
-hora_leccion(l_6,"01:25 - 02:15" ).
-hora_leccion(l_7,"02:20 - 03:10" ).
-hora_leccion(l_8,"03:15 - 04:05" ).
+hora_leccion(l_1,"07:55 - 09:40" ).
+%hora_leccion(l_1,"08:50 - 09:40" ).
+hora_leccion(l_2,"09:45 - 11:30" ).
+%hora_leccion(l_2,"10:40 - 11:30" ).
+hora_leccion(l_3,"12:30 - 02:15" ).
+%hora_leccion(l_3,"01:25 - 02:15" ).
+hora_leccion(l_4,"02:20 - 04:05" ).
+%hora_leccion(l_4,"03:15 - 04:05" ).
+
 
 
 
@@ -354,21 +356,35 @@ hora_leccion(l_8,"03:15 - 04:05" ).
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Para calcular los semestres, si es par o no
+par(X) :- 0 is X mod 2.
+impar(X) :- 1 is X mod 2.
 
-%para almacenar los horarios
-%horario(Leccion,Dias, Horario,Curso,Profesor,Aula).
-horario(Leccion,Dias, Horario, Curso, Profesor, Aula ) :-
+%Para buscar una leccion a que bloque pertenece
+%buscar_bloque(l_4, Bloque).
+buscar_bloque(X, Bloque) :-
+    bloque(Bloque, X),!.
+
+
+%para almacenar todos los horarios posibles por profesor y sus aulas
+% horario(Leccion,Dias, Horario,Bloque,Curso,Creditos,Semestre, Cantidad_dias, Aula,Capacidad, Profesor).
+horario(Leccion,Dia, Horario,Bloque, Curso,Creditos,Semestre, Cantidad_dias, Aula ,Capacidad, Profesor) :-
     asignatura(Curso,Tipo_curso),
     aula(Aula),
     tipo(Aula, Tipo_aula),
+    capacidad(Aula, Capacidad),
     (Tipo_curso = Tipo_aula),
     profesor(Profesor),
     curso(Curso),
+    creditos(Curso,Creditos),
+    semestre(Curso,Semestre),
+    cantidad_dias(Curso, Cantidad_dias),
     imparte(Profesor, Curso),
     disponibilidad(Profesor, Lista),
     leccion(Leccion),
-    dia_leccion(Leccion, Dias),
-    member(Dias, Lista),
+    buscar_bloque(Leccion, Bloque),
+    dia_leccion(Leccion, Dia),
+    member(Dia, Lista),
     hora_leccion(Leccion,Horario).
 
 

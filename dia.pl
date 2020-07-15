@@ -9,3 +9,4 @@ dia(v, viernes).
 dia(s, sabado).
 dia(d, domingo).
 
+buscar(X, Y) :- dia(X,Y).
