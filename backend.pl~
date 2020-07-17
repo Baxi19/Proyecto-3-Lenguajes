@@ -268,10 +268,10 @@ tipo(auc-01,"laboratorio").
 tipo(mvl-01,"laboratorio").
 tipo(e-10,  "normal").
 tipo(e-11,  "normal").
-tipo(e-12,  "normal").
-tipo(e-13,  "normal").
-tipo(e-14,  "normal").
-tipo(e-15,  "normal").
+%tipo(e-12,  "normal").
+%tipo(e-13,  "normal").
+%tipo(e-14,  "normal").
+%tipo(e-15,  "normal").
 
 %tipo(X,Y).
 
@@ -387,6 +387,26 @@ horario(Leccion,Dia, Horario,Bloque, Curso,Creditos,Semestre, Cantidad_dias, Aul
     member(Dia, Lista),
     hora_leccion(Leccion,Horario).
 
+%se obtinen todos los horarios posibles
+todos_horarios(Resultado) :-
+    findall(Asignatura->Aula->Tipo->Capacidad->Profesor->Curso->Creditos->Semestre->Cantidad_dias->Imparte->Disponibilidad->Leccion->Bloque->Dia_leccion->Hora_leccion,(
+    asignatura(Curso,Tipo_curso),
+    aula(Aula),
+    tipo(Aula, Tipo_aula),
+    capacidad(Aula, Capacidad),
+    (Tipo_curso = Tipo_aula),
+    profesor(Profesor),
+    curso(Curso),
+    creditos(Curso,Creditos),
+    semestre(Curso,Semestre),
+    cantidad_dias(Curso, Cantidad_dias),
+    imparte(Profesor, Curso),
+    disponibilidad(Profesor, Lista),
+    leccion(Leccion),
+    buscar_bloque(Leccion, Bloque),
+    dia_leccion(Leccion, Dia),
+    member(Dia, Lista),
+    hora_leccion(Leccion,Horario)),Resultado).
 
 %Se obtiene una lista con todas las lecciones disponibles
 todas_lecciones(Resultado) :-
