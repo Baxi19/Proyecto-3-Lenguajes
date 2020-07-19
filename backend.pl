@@ -4,7 +4,6 @@
 
 
 %:- use_module(library(clpfd)).
-%:- use_module(library(jpl)).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cursos
@@ -268,10 +267,6 @@ tipo(auc-01,"laboratorio").
 tipo(mvl-01,"laboratorio").
 tipo(e-10,  "normal").
 tipo(e-11,  "normal").
-%tipo(e-12,  "normal").
-%tipo(e-13,  "normal").
-%tipo(e-14,  "normal").
-%tipo(e-15,  "normal").
 
 %tipo(X,Y).
 
@@ -284,10 +279,6 @@ leccion(l_1).
 leccion(l_2).
 leccion(l_3).
 leccion(l_4).
-%leccion(l_5).
-%leccion(l_6).
-%leccion(l_7).
-%leccion(l_8).
 
 bloque(manana_1, l_1).
 bloque(manana_2, l_2).
@@ -298,58 +289,31 @@ dia_leccion(l_1, l).
 dia_leccion(l_2, l).
 dia_leccion(l_3, l).
 dia_leccion(l_4, l).
-%dia_leccion(l_5, l).
-%dia_leccion(l_6, l).
-%dia_leccion(l_7, l).
-%dia_leccion(l_8, l).
 
 dia_leccion(l_1, k).
 dia_leccion(l_2, k).
 dia_leccion(l_3, k).
 dia_leccion(l_4, k).
-%dia_leccion(l_5, k).
-%dia_leccion(l_6, k).
-%dia_leccion(l_7, k).
-%dia_leccion(l_8, k).
 
 dia_leccion(l_1, m).
 dia_leccion(l_2, m).
 dia_leccion(l_3, m).
 dia_leccion(l_4, m).
-%dia_leccion(l_5, m).
-%dia_leccion(l_6, m).
-%dia_leccion(l_7, m).
-%dia_leccion(l_8, m).
 
 dia_leccion(l_1, j).
 dia_leccion(l_2, j).
 dia_leccion(l_3, j).
 dia_leccion(l_4, j).
-%dia_leccion(l_5, j).
-%dia_leccion(l_6, j).
-%dia_leccion(l_7, j).
-%dia_leccion(l_8, j).
 
 dia_leccion(l_1, v).
 dia_leccion(l_2, v).
 dia_leccion(l_3, v).
 dia_leccion(l_4, v).
-%dia_leccion(l_5, v).
-%dia_leccion(l_6, v).
-%dia_leccion(l_7, v).
-%dia_leccion(l_8, v).
 
 hora_leccion(l_1,"07:55 - 09:40" ).
-%hora_leccion(l_1,"08:50 - 09:40" ).
 hora_leccion(l_2,"09:45 - 11:30" ).
-%hora_leccion(l_2,"10:40 - 11:30" ).
 hora_leccion(l_3,"12:30 - 02:15" ).
-%hora_leccion(l_3,"01:25 - 02:15" ).
 hora_leccion(l_4,"02:20 - 04:05" ).
-%hora_leccion(l_4,"03:15 - 04:05" ).
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
