@@ -1,8 +1,12 @@
-package ConexionProlog;
+package backend;
 
+/**
+ *
+ * @author Baxi
+ */
 
-import ClasesMenu.*;
-import ConexionSQLite.*;
+//import ClasesMenu.*;
+//import ConexionSQLite.*;
 import com.ugos.jiprolog.engine.JIPEngine;
 import com.ugos.jiprolog.engine.JIPQuery;
 import com.ugos.jiprolog.engine.JIPSyntaxErrorException;
@@ -10,16 +14,7 @@ import com.ugos.jiprolog.engine.JIPTerm;
 import com.ugos.jiprolog.engine.JIPVariable;
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Fabian
- */
 public class MetodosProlog {
     private static MetodosProlog metodosProlog = null;
     public JIPEngine jip = new JIPEngine(); 
@@ -31,7 +26,7 @@ public class MetodosProlog {
          JIPTerm queryTerm = jip.getTermParser().parseTerm(query);
          jip.asserta(queryTerm);
     }
-    
+   /* 
     // Función para insertar los hechos de la base de datos en memoria del intérprete de prolog
     public void assertFacts(){
         ArrayList<Entrada> listaEntradas = Conexion.getInstance().obtenerEntradas();
@@ -150,12 +145,13 @@ public class MetodosProlog {
             return null;
         }
     }
-    
+*/    
     public static MetodosProlog getInstance(){
         if(metodosProlog == null){
             metodosProlog = new MetodosProlog();
         }
         return metodosProlog;
     }
+
 }
 
