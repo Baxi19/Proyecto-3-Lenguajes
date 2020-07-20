@@ -13,12 +13,12 @@ public class Profesor {
     private int id;
     private String nombre;
     private String apellidos;
-    private int cedula;
+    private String cedula;
 
     public Profesor() {
     }
 
-    public Profesor(int id, String nombre, String apellidos, int cedula) {
+    public Profesor(int id, String nombre, String apellidos, String cedula) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -49,11 +49,11 @@ public class Profesor {
         this.apellidos = apellidos;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
          

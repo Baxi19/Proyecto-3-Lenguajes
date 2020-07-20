@@ -9,7 +9,7 @@ package entity;
  *
  * @author Baxi
  */
-class Curso {
+public class Curso {
     private int id;
     private String nombre;
     private String asignatura;

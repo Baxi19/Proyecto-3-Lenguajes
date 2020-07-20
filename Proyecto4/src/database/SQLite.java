@@ -6,6 +6,8 @@
 package database;
 
 import entity.Aula;
+import entity.Dia;
+import entity.Profesor;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,7 +40,7 @@ public class SQLite {
         }
         return instance;
     }
-    
+    /*------------------------------------------------------------------------*/
     // SQLite conexion
     private Connection conexion() {
         String filePath = new File("").getAbsolutePath();
@@ -53,8 +55,8 @@ public class SQLite {
         return conn;       
     }
     
-    
     /*------------------------------------------------------------------------*/
+    //metodo para consultas generico
     public DefaultTableModel executeSQL(String sql) {
         model = new DefaultTableModel();
         Runnable myRunnable
@@ -89,4 +91,47 @@ public class SQLite {
         myRunnable.run();
         return model;
     }
+    /*------------------------------------------------------------------------*/
+    //Buscar un dia por id
+    public Dia getDia(int id){
+        Dia dia = new Dia();
+        String query = "SELECT dia FROM Dia WHERE ID = " +  id;
+        try (Connection conn = this.conexion();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs   = stmt.executeQuery(query)){
+            rs.next();
+            dia.setId(id);
+            dia.setDia(rs.getString("dia"));
+            rs.close();
+            stmt.close();
+            conn.close();
+            return dia;
+        } 
+        catch (SQLException e) {
+            return null;
+        } 
+    }
+    /*------------------------------------------------------------------------*/
+    //Buscar un profesor por id
+    public Profesor getProfesor(int id){
+        Profesor profesor = new Profesor();
+        String query = "SELECT * FROM Profesor WHERE ID = " +  id;
+        try (Connection conn = this.conexion();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs   = stmt.executeQuery(query)){
+            rs.next();
+            profesor.setId(id);
+            profesor.setNombre(rs.getString("nombre"));
+            profesor.setApellidos(rs.getString("apellidos"));
+            profesor.setApellidos(rs.getString("cedula"));
+            rs.close();
+            stmt.close();
+            conn.close();
+            return profesor;
+        } 
+        catch (SQLException e) {
+            return null;
+        } 
+    }
+
 }
