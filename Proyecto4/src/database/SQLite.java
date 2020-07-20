@@ -152,6 +152,7 @@ public class SQLite {
             return false;
         }  
     }
+    
     /*------------------------------------------------------------------------*/
     //eliminar profesor
     public boolean eliminarProfesor(int id){
@@ -173,12 +174,8 @@ public class SQLite {
         }
     }
     
-    
-    
-    
-    
     /*------------------------------------------------------------------------*/
-    //agregar profesor
+    //agregar curso
     public Boolean agregarCurso(String nombre, String asignatura,int creditos,int semestre, int cantidadDias){
         String sql =    " INSERT INTO Curso(nombre, asignatura, creditos,semestre, cantidad_dias, activo ) " +
                         " VALUES( '"+ nombre + "', '" 
@@ -202,9 +199,49 @@ public class SQLite {
         }  
     }
     /*------------------------------------------------------------------------*/
-    //eliminar profesor
+    //eliminar curso
     public boolean eliminarCurso(int id){
        String query = "UPDATE Curso SET activo = 'F' WHERE ID = " + id;
+       try {
+            Connection conn = conexion();
+            Statement stmt  = conn.createStatement();
+            stmt.executeQuery(query);
+            stmt.close();
+            conn.close();
+            return true;
+        }catch (SQLException e) {
+            if(e.getMessage().equals("query does not return ResultSet")){
+                return true;
+            }else{
+                System.out.println(e.getMessage());
+                return false;
+            }    
+        }
+    }
+    
+    /*------------------------------------------------------------------------*/
+    //agregar aula
+    public Boolean agregarAula(String nombre, int capacidad, String tipo){
+        String sql =    " INSERT INTO Aula(nombre, capacidad, tipo, activo ) " +
+                        " VALUES( '"+ nombre + "', " + capacidad+ ", '"+ tipo+"','T');";
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
+    
+    /*------------------------------------------------------------------------*/
+    //eliminar aula
+    public boolean eliminarAula(int id){
+       String query = "UPDATE Aula SET activo = 'F' WHERE ID = " + id;
        try {
             Connection conn = conexion();
             Statement stmt  = conn.createStatement();
