@@ -46,6 +46,18 @@ public class WindowsCRUD extends javax.swing.JFrame {
         jButtonLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButtonLogin1 = new javax.swing.JButton();
+        jPanelCursos = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableCursos = new javax.swing.JTable();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jButtonConfirmBill6 = new javax.swing.JButton();
+        jButtonConfirmBill7 = new javax.swing.JButton();
+        CD_Cliente1 = new javax.swing.JLabel();
+        jButtonClose2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -173,6 +185,134 @@ public class WindowsCRUD extends javax.swing.JFrame {
 
         getContentPane().add(jPanelLogin);
         jPanelLogin.setBounds(0, 0, 265, 600);
+
+        jPanelCursos.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelCursos.setAlignmentX(0.0F);
+        jPanelCursos.setAlignmentY(0.0F);
+        jPanelCursos.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelCursos.setLayout(null);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Lista de Cursos");
+        jLabel8.setToolTipText("");
+        jPanelCursos.add(jLabel8);
+        jLabel8.setBounds(40, 100, 230, 28);
+
+        jTableCursos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableCursos);
+
+        jPanelCursos.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 150, 452, 250);
+
+        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Configuración de Cursos");
+        jPanelCursos.add(jLabel22);
+        jLabel22.setBounds(170, 430, 220, 17);
+
+        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel37.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Nuevo");
+        jPanelCursos.add(jLabel37);
+        jLabel37.setBounds(210, 470, 70, 40);
+
+        jLabel38.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel38.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Eliminar");
+        jPanelCursos.add(jLabel38);
+        jLabel38.setBounds(210, 520, 70, 40);
+
+        jButtonConfirmBill6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
+        jButtonConfirmBill6.setBorder(null);
+        jButtonConfirmBill6.setBorderPainted(false);
+        jButtonConfirmBill6.setContentAreaFilled(false);
+        jButtonConfirmBill6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonConfirmBill6.setRequestFocusEnabled(false);
+        jButtonConfirmBill6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonConfirmBill6.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonConfirmBill6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonConfirmBill6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConfirmBill6MouseClicked(evt);
+            }
+        });
+        jButtonConfirmBill6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmBill6ActionPerformed(evt);
+            }
+        });
+        jPanelCursos.add(jButtonConfirmBill6);
+        jButtonConfirmBill6.setBounds(290, 520, 40, 40);
+
+        jButtonConfirmBill7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
+        jButtonConfirmBill7.setBorder(null);
+        jButtonConfirmBill7.setBorderPainted(false);
+        jButtonConfirmBill7.setContentAreaFilled(false);
+        jButtonConfirmBill7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonConfirmBill7.setRequestFocusEnabled(false);
+        jButtonConfirmBill7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonConfirmBill7.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonConfirmBill7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonConfirmBill7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConfirmBill7MouseClicked(evt);
+            }
+        });
+        jButtonConfirmBill7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfirmBill7ActionPerformed(evt);
+            }
+        });
+        jPanelCursos.add(jButtonConfirmBill7);
+        jButtonConfirmBill7.setBounds(290, 470, 40, 40);
+
+        CD_Cliente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jPanelCursos.add(CD_Cliente1);
+        CD_Cliente1.setBounds(140, 410, 270, 180);
+
+        jButtonClose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose2.setBorder(null);
+        jButtonClose2.setBorderPainted(false);
+        jButtonClose2.setContentAreaFilled(false);
+        jButtonClose2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose2.setRequestFocusEnabled(false);
+        jButtonClose2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClose2MouseClicked(evt);
+            }
+        });
+        jButtonClose2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClose2ActionPerformed(evt);
+            }
+        });
+        jPanelCursos.add(jButtonClose2);
+        jButtonClose2.setBounds(470, 20, 51, 51);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel9.setText("jLabel2");
+        jPanelCursos.add(jLabel9);
+        jLabel9.setBounds(0, 0, 535, 600);
+
+        getContentPane().add(jPanelCursos);
+        jPanelCursos.setBounds(265, 0, 535, 600);
 
         jPanelProfesor.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelProfesor.setAlignmentX(0.0F);
@@ -361,7 +501,8 @@ public class WindowsCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLogin1MouseClicked
 
     private void jButtonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogin1ActionPerformed
-       
+        cerrarPaneles();
+        datosCursos();
     }//GEN-LAST:event_jButtonLogin1ActionPerformed
 
     private void jButtonLogin2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLogin2MouseClicked
@@ -406,10 +547,44 @@ public class WindowsCRUD extends javax.swing.JFrame {
         wr.show();
         
     }//GEN-LAST:event_jButtonConfirmBill5ActionPerformed
+
+    private void jButtonConfirmBill6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmBill6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonConfirmBill6MouseClicked
+
+    private void jButtonConfirmBill6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill6ActionPerformed
+        if(!jTableCursos.getSelectionModel().isSelectionEmpty()){
+            int id =(int) jTableCursos.getValueAt(jTableCursos.getSelectedRow(), 0);
+            if(SQLite.getInstance().eliminarCurso(id)){
+                JOptionPane.showMessageDialog(null, "Eliminado");
+                cerrarPaneles();
+                datosCursos();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar...");
+            }
+        } 
+    }//GEN-LAST:event_jButtonConfirmBill6ActionPerformed
+
+    private void jButtonConfirmBill7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmBill7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonConfirmBill7MouseClicked
+
+    private void jButtonConfirmBill7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill7ActionPerformed
+        WindowsCurso wc = new WindowsCurso(this);
+        wc.setVisible(true);
+    }//GEN-LAST:event_jButtonConfirmBill7ActionPerformed
+
+    private void jButtonClose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClose2MouseClicked
+
+    private void jButtonClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose2ActionPerformed
+        cerrarPaneles();
+    }//GEN-LAST:event_jButtonClose2ActionPerformed
     
     public void cerrarPaneles() {
         jPanelProfesor.setVisible(false);
-        //jPanelProducts.setVisible(false);
+        jPanelCursos.setVisible(false);
         //jPanelAditionalData.setVisible(false);
     }
     
@@ -417,6 +592,13 @@ public class WindowsCRUD extends javax.swing.JFrame {
         String sql = "SELECT id, nombre, apellidos, cedula FROM Profesor WHERE activo = 'T';";
         jTableProfesor.setModel(SQLite.getInstance().executeSQL(sql));
         jPanelProfesor.setVisible(true);
+        return  "";
+    }
+    
+    public String datosCursos(){
+        String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
+        jTableCursos.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelCursos.setVisible(true);
         return  "";
     }
     /**
@@ -471,9 +653,13 @@ public class WindowsCRUD extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CD_Cliente;
+    private javax.swing.JLabel CD_Cliente1;
     private javax.swing.JButton jButtonClose1;
+    private javax.swing.JButton jButtonClose2;
     private javax.swing.JButton jButtonConfirmBill4;
     private javax.swing.JButton jButtonConfirmBill5;
+    private javax.swing.JButton jButtonConfirmBill6;
+    private javax.swing.JButton jButtonConfirmBill7;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonLogin1;
     private javax.swing.JButton jButtonLogin2;
@@ -481,16 +667,24 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanelCursos;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelProfesor;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableCursos;
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
 

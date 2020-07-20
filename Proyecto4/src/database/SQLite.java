@@ -32,7 +32,6 @@ public class SQLite {
     public DefaultTableModel model = new DefaultTableModel();
     public ResultSet result  ;
     
-    
     /*------------------------------------------------------------------------*/
     //Patron de diseno: Singleton
     public static SQLite getInstance() {
@@ -134,33 +133,12 @@ public class SQLite {
             return null;
         } 
     }
-    
-    /*------------------------------------------------------------------------*/
-    //buscar el tama♫o de la tabla de profesores
-    public int getProfesorId(){
-        int ultimo = 0;
-        String query = "SELECT COUNT(*) FROM Profesor; ";
-        try (Connection conn = this.conexion();
-            Statement stmt  = conn.createStatement();
-            ResultSet rs   = stmt.executeQuery(query)){
-            rs.next();
-            ultimo = rs.getInt("COUNT(*)");
-            rs.close();
-            stmt.close();
-            conn.close();
-            return ultimo;
-        } 
-        catch (SQLException e) {
-            return -1;
-        } 
-    }
-    
+   
     /*------------------------------------------------------------------------*/
     //agregar profesor
     public Boolean agregarProfesor(String nombre, String apellidos, String cedula){
         String sql =    " INSERT INTO Profesor(nombre, apellidos, cedula, activo ) " +
                         " VALUES( '"+ nombre + "', '" + apellidos+ "', '"+ cedula+"','T');";
-        
         try {
             Connection conn = conexion();
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -178,6 +156,55 @@ public class SQLite {
     //eliminar profesor
     public boolean eliminarProfesor(int id){
        String query = "UPDATE Profesor SET activo = 'F' WHERE ID = " + id;
+       try {
+            Connection conn = conexion();
+            Statement stmt  = conn.createStatement();
+            stmt.executeQuery(query);
+            stmt.close();
+            conn.close();
+            return true;
+        }catch (SQLException e) {
+            if(e.getMessage().equals("query does not return ResultSet")){
+                return true;
+            }else{
+                System.out.println(e.getMessage());
+                return false;
+            }    
+        }
+    }
+    
+    
+    
+    
+    
+    /*------------------------------------------------------------------------*/
+    //agregar profesor
+    public Boolean agregarCurso(String nombre, String asignatura,int creditos,int semestre, int cantidadDias){
+        String sql =    " INSERT INTO Curso(nombre, asignatura, creditos,semestre, cantidad_dias, activo ) " +
+                        " VALUES( '"+ nombre + "', '" 
+                                    + asignatura+ "', "
+                                    + creditos+", "
+                                    + semestre + ", "
+                                    + cantidadDias+", "
+                                    + "'T');";
+        System.out.println("\n SQL = " + sql);
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
+    /*------------------------------------------------------------------------*/
+    //eliminar profesor
+    public boolean eliminarCurso(int id){
+       String query = "UPDATE Curso SET activo = 'F' WHERE ID = " + id;
        try {
             Connection conn = conexion();
             Statement stmt  = conn.createStatement();
