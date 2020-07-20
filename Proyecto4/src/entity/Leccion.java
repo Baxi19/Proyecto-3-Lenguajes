@@ -11,6 +11,7 @@ package entity;
  */
 public class Leccion {
     private int id;
+    private String leccion;
     private Dia dia;
     private String horaInicio;
     private String horaSalida;
@@ -18,8 +19,9 @@ public class Leccion {
     public Leccion() {
     }
 
-    public Leccion(int id, Dia dia, String horaInicio, String horaSalida) {
+    public Leccion(int id, String leccion, Dia dia, String horaInicio, String horaSalida) {
         this.id = id;
+        this.leccion = leccion;
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaSalida = horaSalida;
@@ -31,6 +33,14 @@ public class Leccion {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLeccion() {
+        return leccion;
+    }
+
+    public void setLeccion(String leccion) {
+        this.leccion = leccion;
     }
 
     public Dia getDia() {
@@ -56,5 +66,6 @@ public class Leccion {
     public void setHoraSalida(String horaSalida) {
         this.horaSalida = horaSalida;
     }
+
     
 }

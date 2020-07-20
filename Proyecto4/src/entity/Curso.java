@@ -11,6 +11,7 @@ package entity;
  */
 class Curso {
     private int id;
+    private String nombre;
     private String asignatura;
     private int creditos;
     private int semestre;
@@ -19,8 +20,9 @@ class Curso {
     public Curso() {
     }
 
-    public Curso(int id, String asignatura, int creditos, int semestre, int cantidadDias) {
+    public Curso(int id, String nombre, String asignatura, int creditos, int semestre, int cantidadDias) {
         this.id = id;
+        this.nombre = nombre;
         this.asignatura = asignatura;
         this.creditos = creditos;
         this.semestre = semestre;
@@ -33,6 +35,14 @@ class Curso {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getAsignatura() {
@@ -66,6 +76,7 @@ class Curso {
     public void setCantidadDias(int cantidadDias) {
         this.cantidadDias = cantidadDias;
     }
+
     
     
 }

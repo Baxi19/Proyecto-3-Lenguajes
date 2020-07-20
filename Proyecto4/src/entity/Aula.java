@@ -11,14 +11,16 @@ package entity;
  */
 public class Aula {
     private int id;
+    private String nombre;
     private int capacidad;
     private String tipo;
 
     public Aula() {
     }
 
-    public Aula(int id, int capacidad, String tipo) {
+    public Aula(int id, String nombre, int capacidad, String tipo) {
         this.id = id;
+        this.nombre = nombre;
         this.capacidad = capacidad;
         this.tipo = tipo;
     }
@@ -29,6 +31,14 @@ public class Aula {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getCapacidad() {
@@ -46,5 +56,6 @@ public class Aula {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
     
 }

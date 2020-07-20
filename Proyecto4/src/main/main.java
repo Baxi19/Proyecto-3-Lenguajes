@@ -5,6 +5,8 @@
  */
 package main;
 
+import frontend.Windows_1;
+
 
 
 /**
@@ -17,7 +19,8 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Windows_1 w1 = new Windows_1();
+        w1.setVisible(true);
     }
 
 }
