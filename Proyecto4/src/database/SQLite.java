@@ -11,6 +11,7 @@ import entity.Profesor;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public class SQLite {
     // SQLite conexion
     private Connection conexion() {
         String filePath = new File("").getAbsolutePath();
-        String url = "jdbc:sqlite:" + filePath+"\\database\\database.db";
+        String url = "jdbc:sqlite:" + filePath+"/database/database.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -133,5 +134,64 @@ public class SQLite {
             return null;
         } 
     }
-
+    
+    /*------------------------------------------------------------------------*/
+    //buscar el tama♫o de la tabla de profesores
+    public int getProfesorId(){
+        int ultimo = 0;
+        String query = "SELECT COUNT(*) FROM Profesor; ";
+        try (Connection conn = this.conexion();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs   = stmt.executeQuery(query)){
+            rs.next();
+            ultimo = rs.getInt("COUNT(*)");
+            rs.close();
+            stmt.close();
+            conn.close();
+            return ultimo;
+        } 
+        catch (SQLException e) {
+            return -1;
+        } 
+    }
+    
+    /*------------------------------------------------------------------------*/
+    //agregar profesor
+    public Boolean agregarProfesor(String nombre, String apellidos, String cedula){
+        String sql =    " INSERT INTO Profesor(nombre, apellidos, cedula, activo ) " +
+                        " VALUES( '"+ nombre + "', '" + apellidos+ "', '"+ cedula+"','T');";
+        
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
+    /*------------------------------------------------------------------------*/
+    //eliminar profesor
+    public boolean eliminarProfesor(int id){
+       String query = "UPDATE Profesor SET activo = 'F' WHERE ID = " + id;
+       try {
+            Connection conn = conexion();
+            Statement stmt  = conn.createStatement();
+            stmt.executeQuery(query);
+            stmt.close();
+            conn.close();
+            return true;
+        }catch (SQLException e) {
+            if(e.getMessage().equals("query does not return ResultSet")){
+                return true;
+            }else{
+                System.out.println(e.getMessage());
+                return false;
+            }    
+        }
+    }
 }

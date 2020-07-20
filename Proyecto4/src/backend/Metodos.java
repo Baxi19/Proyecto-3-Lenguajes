@@ -13,6 +13,7 @@ import entity.Imparte;
 import entity.Leccion;
 import entity.Profesor;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,4 +41,17 @@ public class Metodos {
         return instance;
     }
     
+    /*------------------------------------------------------------------------*/
+    public void closeSystem(){    
+        try {
+            int dialoButton = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, 
+                    "Desea cerrar el sistema?", "Salir", dialoButton);
+            if (result == 0) {
+                System.exit(0);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 }
