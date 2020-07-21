@@ -15,12 +15,12 @@ import javax.swing.ListSelectionModel;
  *
  * @author Baxi
  */
-public class WindowsAgregarImparte extends javax.swing.JFrame {
+public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
     WindowsMenu wc;
-    int profesorId, cursoId;
+    int profesorId, diaId;
     int formato = 1;
     
-    public WindowsAgregarImparte(WindowsMenu wm) {
+    public WindowsAgregarDisponibilidad(WindowsMenu wm) {
         initComponents();
         this.setSize(450,250);
         setLocationRelativeTo(null);
@@ -80,7 +80,7 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
         jLabelTitle.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitle.setText("Registrar profesor - curso");
+        jLabelTitle.setText("Registrar profesor - dia");
         getContentPane().add(jLabelTitle);
         jLabelTitle.setBounds(20, 10, 320, 28);
 
@@ -154,29 +154,30 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
        if(formato == 1){
             if(!jTable1.getSelectionModel().isSelectionEmpty()){
                 profesorId =(int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
-                datosCurso();
-                jLabelMensaje.setText("Seleccione el Curso y digite siguiente");
+                datosDia();
+                jLabelMensaje.setText("Seleccione el Dia y digite siguiente");
                 formato = 2;
             }else{
                 JOptionPane.showMessageDialog(null, "Por favor seleccione el profesor para continuar..");
             } 
        }else{
            if(!jTable1.getSelectionModel().isSelectionEmpty()){
-                cursoId =(int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
+                diaId =(int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
                 try {
-                        SQLite.getInstance().agregarImparte(profesorId, cursoId);
-                        JOptionPane.showMessageDialog(null, "Relacion de Profesor - Curso agregada correctamente!");
+                        SQLite.getInstance().agregarDisponibilidad(profesorId, diaId);
+                        JOptionPane.showMessageDialog(null, "Relacion de Profesor - Dia agregada correctamente!");
                         wc.cerrarPaneles();
-                        wc.datosImparte();
+                        wc.datosDisponibilidad();
                         this.dispose();
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
-                    }               
+                    }
+    
             }else{
-                JOptionPane.showMessageDialog(null, "Por favor seleccione el curso para continuar..");
+                JOptionPane.showMessageDialog(null, "Por favor seleccione el dia para continuar..");
             }
        }
-        
+       
     }//GEN-LAST:event_jButtonAgregarProfesorActionPerformed
 
     private void jButtonClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose1MouseClicked
@@ -193,8 +194,8 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
         return  "";
     }
     
-    protected String datosCurso(){
-        String sql = "SELECT id, nombre FROM Curso WHERE activo = 'T';";
+    protected String datosDia(){
+        String sql = "SELECT id, dia FROM Dia WHERE activo = 'T';";
         jTable1.setModel(SQLite.getInstance().executeSQL(sql));
         return  "";
     }

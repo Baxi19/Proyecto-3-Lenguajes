@@ -194,5 +194,24 @@ public class SQLite {
         }  
     } 
     
+    /*------------------------------------------------------------------------*/
+    //agregar disponibilidad
+    public Boolean agregarDisponibilidad(int profesorId, int diaId){
+        String sql =    " INSERT INTO Disponibilidad(profesor_id, dia_id, activo ) " +
+                        " VALUES( "+ profesorId + ", " + diaId+ ",'T');";
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    } 
+    
     
 }

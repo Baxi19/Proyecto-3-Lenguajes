@@ -10,6 +10,7 @@ import backend.Metodos;
 import database.SQLite;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 
 
 /**
@@ -24,7 +25,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         this.setSize(800,600);
         setLocationRelativeTo(null);
         cerrarPaneles();
-  
+        updateTable();
     }
 
     /**
@@ -50,18 +51,18 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButtonDisponibilidad = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jButtonHorario = new javax.swing.JButton();
-        jPanelImparte = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTableImparte = new javax.swing.JTable();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jButtonEliminarRelacion = new javax.swing.JButton();
-        jButtonAgregarRelacion = new javax.swing.JButton();
-        CD_Cliente3 = new javax.swing.JLabel();
-        jButtonClose4 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
+        jPanelDisponibilidad = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableDisponibilidad = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jButtonEliminarRelacionDisponibilidad = new javax.swing.JButton();
+        jButtonAgregarRelacionDisponibilidad = new javax.swing.JButton();
+        CD_Cliente4 = new javax.swing.JLabel();
+        jButtonClose5 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -98,6 +99,18 @@ public class WindowsMenu extends javax.swing.JFrame {
         CD_Cliente2 = new javax.swing.JLabel();
         jButtonClose3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jPanelImparte = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableImparte = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jButtonEliminarRelacion = new javax.swing.JButton();
+        jButtonAgregarRelacion = new javax.swing.JButton();
+        CD_Cliente3 = new javax.swing.JLabel();
+        jButtonClose4 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
         jButtonOff = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -301,20 +314,20 @@ public class WindowsMenu extends javax.swing.JFrame {
         getContentPane().add(jPanelLogin);
         jPanelLogin.setBounds(0, 0, 265, 600);
 
-        jPanelImparte.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
-        jPanelImparte.setAlignmentX(0.0F);
-        jPanelImparte.setAlignmentY(0.0F);
-        jPanelImparte.setPreferredSize(new java.awt.Dimension(535, 600));
-        jPanelImparte.setLayout(null);
+        jPanelDisponibilidad.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelDisponibilidad.setAlignmentX(0.0F);
+        jPanelDisponibilidad.setAlignmentY(0.0F);
+        jPanelDisponibilidad.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelDisponibilidad.setLayout(null);
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Profesores - Cursos");
-        jLabel15.setToolTipText("");
-        jPanelImparte.add(jLabel15);
-        jLabel15.setBounds(40, 100, 230, 28);
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Profesores - Disponibilidad");
+        jLabel17.setToolTipText("");
+        jPanelDisponibilidad.add(jLabel17);
+        jLabel17.setBounds(40, 100, 360, 28);
 
-        jTableImparte.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDisponibilidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -325,109 +338,109 @@ public class WindowsMenu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTableImparte);
+        jScrollPane5.setViewportView(jTableDisponibilidad);
 
-        jPanelImparte.add(jScrollPane4);
-        jScrollPane4.setBounds(40, 150, 452, 250);
+        jPanelDisponibilidad.add(jScrollPane5);
+        jScrollPane5.setBounds(40, 150, 452, 250);
 
-        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Configuración de Relaciones");
-        jPanelImparte.add(jLabel24);
-        jLabel24.setBounds(170, 430, 220, 17);
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Configuración de Relaciones");
+        jPanelDisponibilidad.add(jLabel25);
+        jLabel25.setBounds(170, 430, 220, 17);
 
-        jLabel41.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel41.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Nuevo");
-        jPanelImparte.add(jLabel41);
-        jLabel41.setBounds(210, 470, 70, 40);
+        jLabel43.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel43.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Nuevo");
+        jPanelDisponibilidad.add(jLabel43);
+        jLabel43.setBounds(210, 470, 70, 40);
 
-        jLabel42.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel42.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("Eliminar");
-        jPanelImparte.add(jLabel42);
-        jLabel42.setBounds(210, 520, 70, 40);
+        jLabel44.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel44.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("Eliminar");
+        jPanelDisponibilidad.add(jLabel44);
+        jLabel44.setBounds(210, 520, 70, 40);
 
-        jButtonEliminarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
-        jButtonEliminarRelacion.setBorder(null);
-        jButtonEliminarRelacion.setBorderPainted(false);
-        jButtonEliminarRelacion.setContentAreaFilled(false);
-        jButtonEliminarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonEliminarRelacion.setRequestFocusEnabled(false);
-        jButtonEliminarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEliminarRelacionDisponibilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
+        jButtonEliminarRelacionDisponibilidad.setBorder(null);
+        jButtonEliminarRelacionDisponibilidad.setBorderPainted(false);
+        jButtonEliminarRelacionDisponibilidad.setContentAreaFilled(false);
+        jButtonEliminarRelacionDisponibilidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonEliminarRelacionDisponibilidad.setRequestFocusEnabled(false);
+        jButtonEliminarRelacionDisponibilidad.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacionDisponibilidad.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacionDisponibilidad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacionDisponibilidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonEliminarRelacionMouseClicked(evt);
+                jButtonEliminarRelacionDisponibilidadMouseClicked(evt);
             }
         });
-        jButtonEliminarRelacion.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarRelacionDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarRelacionActionPerformed(evt);
+                jButtonEliminarRelacionDisponibilidadActionPerformed(evt);
             }
         });
-        jPanelImparte.add(jButtonEliminarRelacion);
-        jButtonEliminarRelacion.setBounds(290, 520, 40, 40);
+        jPanelDisponibilidad.add(jButtonEliminarRelacionDisponibilidad);
+        jButtonEliminarRelacionDisponibilidad.setBounds(290, 520, 40, 40);
 
-        jButtonAgregarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
-        jButtonAgregarRelacion.setBorder(null);
-        jButtonAgregarRelacion.setBorderPainted(false);
-        jButtonAgregarRelacion.setContentAreaFilled(false);
-        jButtonAgregarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonAgregarRelacion.setRequestFocusEnabled(false);
-        jButtonAgregarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAgregarRelacionDisponibilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
+        jButtonAgregarRelacionDisponibilidad.setBorder(null);
+        jButtonAgregarRelacionDisponibilidad.setBorderPainted(false);
+        jButtonAgregarRelacionDisponibilidad.setContentAreaFilled(false);
+        jButtonAgregarRelacionDisponibilidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAgregarRelacionDisponibilidad.setRequestFocusEnabled(false);
+        jButtonAgregarRelacionDisponibilidad.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacionDisponibilidad.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacionDisponibilidad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacionDisponibilidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonAgregarRelacionMouseClicked(evt);
+                jButtonAgregarRelacionDisponibilidadMouseClicked(evt);
             }
         });
-        jButtonAgregarRelacion.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregarRelacionDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarRelacionActionPerformed(evt);
+                jButtonAgregarRelacionDisponibilidadActionPerformed(evt);
             }
         });
-        jPanelImparte.add(jButtonAgregarRelacion);
-        jButtonAgregarRelacion.setBounds(290, 470, 40, 40);
+        jPanelDisponibilidad.add(jButtonAgregarRelacionDisponibilidad);
+        jButtonAgregarRelacionDisponibilidad.setBounds(290, 470, 40, 40);
 
-        CD_Cliente3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
-        jPanelImparte.add(CD_Cliente3);
-        CD_Cliente3.setBounds(140, 410, 270, 180);
+        CD_Cliente4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jPanelDisponibilidad.add(CD_Cliente4);
+        CD_Cliente4.setBounds(140, 410, 270, 180);
 
-        jButtonClose4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
-        jButtonClose4.setBorder(null);
-        jButtonClose4.setBorderPainted(false);
-        jButtonClose4.setContentAreaFilled(false);
-        jButtonClose4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonClose4.setRequestFocusEnabled(false);
-        jButtonClose4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClose5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose5.setBorder(null);
+        jButtonClose5.setBorderPainted(false);
+        jButtonClose5.setContentAreaFilled(false);
+        jButtonClose5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose5.setRequestFocusEnabled(false);
+        jButtonClose5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose5.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonClose4MouseClicked(evt);
+                jButtonClose5MouseClicked(evt);
             }
         });
-        jButtonClose4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClose5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClose4ActionPerformed(evt);
+                jButtonClose5ActionPerformed(evt);
             }
         });
-        jPanelImparte.add(jButtonClose4);
-        jButtonClose4.setBounds(470, 20, 51, 51);
+        jPanelDisponibilidad.add(jButtonClose5);
+        jButtonClose5.setBounds(470, 20, 51, 51);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
-        jLabel16.setText("jLabel2");
-        jPanelImparte.add(jLabel16);
-        jLabel16.setBounds(0, 0, 535, 600);
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel18.setText("jLabel2");
+        jPanelDisponibilidad.add(jLabel18);
+        jLabel18.setBounds(0, 0, 535, 600);
 
-        getContentPane().add(jPanelImparte);
-        jPanelImparte.setBounds(265, 0, 535, 600);
+        getContentPane().add(jPanelDisponibilidad);
+        jPanelDisponibilidad.setBounds(265, 0, 535, 600);
 
         jPanelProfesor.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelProfesor.setAlignmentX(0.0F);
@@ -813,6 +826,134 @@ public class WindowsMenu extends javax.swing.JFrame {
         getContentPane().add(jPanelAulas);
         jPanelAulas.setBounds(265, 0, 535, 600);
 
+        jPanelImparte.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelImparte.setAlignmentX(0.0F);
+        jPanelImparte.setAlignmentY(0.0F);
+        jPanelImparte.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelImparte.setLayout(null);
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Profesores - Cursos");
+        jLabel15.setToolTipText("");
+        jPanelImparte.add(jLabel15);
+        jLabel15.setBounds(40, 100, 230, 28);
+
+        jTableImparte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTableImparte);
+
+        jPanelImparte.add(jScrollPane4);
+        jScrollPane4.setBounds(40, 150, 452, 250);
+
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Configuración de Relaciones");
+        jPanelImparte.add(jLabel24);
+        jLabel24.setBounds(170, 430, 220, 17);
+
+        jLabel41.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel41.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Nuevo");
+        jPanelImparte.add(jLabel41);
+        jLabel41.setBounds(210, 470, 70, 40);
+
+        jLabel42.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel42.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setText("Eliminar");
+        jPanelImparte.add(jLabel42);
+        jLabel42.setBounds(210, 520, 70, 40);
+
+        jButtonEliminarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
+        jButtonEliminarRelacion.setBorder(null);
+        jButtonEliminarRelacion.setBorderPainted(false);
+        jButtonEliminarRelacion.setContentAreaFilled(false);
+        jButtonEliminarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonEliminarRelacion.setRequestFocusEnabled(false);
+        jButtonEliminarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEliminarRelacionMouseClicked(evt);
+            }
+        });
+        jButtonEliminarRelacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarRelacionActionPerformed(evt);
+            }
+        });
+        jPanelImparte.add(jButtonEliminarRelacion);
+        jButtonEliminarRelacion.setBounds(290, 520, 40, 40);
+
+        jButtonAgregarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
+        jButtonAgregarRelacion.setBorder(null);
+        jButtonAgregarRelacion.setBorderPainted(false);
+        jButtonAgregarRelacion.setContentAreaFilled(false);
+        jButtonAgregarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAgregarRelacion.setRequestFocusEnabled(false);
+        jButtonAgregarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAgregarRelacionMouseClicked(evt);
+            }
+        });
+        jButtonAgregarRelacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarRelacionActionPerformed(evt);
+            }
+        });
+        jPanelImparte.add(jButtonAgregarRelacion);
+        jButtonAgregarRelacion.setBounds(290, 470, 40, 40);
+
+        CD_Cliente3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jPanelImparte.add(CD_Cliente3);
+        CD_Cliente3.setBounds(140, 410, 270, 180);
+
+        jButtonClose4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose4.setBorder(null);
+        jButtonClose4.setBorderPainted(false);
+        jButtonClose4.setContentAreaFilled(false);
+        jButtonClose4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose4.setRequestFocusEnabled(false);
+        jButtonClose4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClose4MouseClicked(evt);
+            }
+        });
+        jButtonClose4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClose4ActionPerformed(evt);
+            }
+        });
+        jPanelImparte.add(jButtonClose4);
+        jButtonClose4.setBounds(470, 20, 51, 51);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel16.setText("jLabel2");
+        jPanelImparte.add(jLabel16);
+        jLabel16.setBounds(0, 0, 535, 600);
+
+        getContentPane().add(jPanelImparte);
+        jPanelImparte.setBounds(265, 0, 535, 600);
+
         jButtonOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/off1.png"))); // NOI18N
         jButtonOff.setBorder(null);
         jButtonOff.setBorderPainted(false);
@@ -998,7 +1139,8 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDisponibilidadMouseClicked
 
     private void jButtonDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisponibilidadActionPerformed
-        // TODO add your handling code here:
+        cerrarPaneles();
+        datosDisponibilidad();
     }//GEN-LAST:event_jButtonDisponibilidadActionPerformed
 
     private void jButtonHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorarioMouseClicked
@@ -1042,12 +1184,47 @@ public class WindowsMenu extends javax.swing.JFrame {
     private void jButtonClose4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose4ActionPerformed
         cerrarPaneles();
     }//GEN-LAST:event_jButtonClose4ActionPerformed
+
+    private void jButtonEliminarRelacionDisponibilidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarRelacionDisponibilidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEliminarRelacionDisponibilidadMouseClicked
+
+    private void jButtonEliminarRelacionDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarRelacionDisponibilidadActionPerformed
+        if(!jTableDisponibilidad.getSelectionModel().isSelectionEmpty()){
+            int id =(int) jTableDisponibilidad.getValueAt(jTableDisponibilidad.getSelectedRow(), 0);
+            if(SQLite.getInstance().eliminar(id, "Disponibilidad")){
+                JOptionPane.showMessageDialog(null, "Eliminado");
+                cerrarPaneles();
+                datosImparte();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar...");
+            }
+        } 
+    }//GEN-LAST:event_jButtonEliminarRelacionDisponibilidadActionPerformed
+
+    private void jButtonAgregarRelacionDisponibilidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarRelacionDisponibilidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAgregarRelacionDisponibilidadMouseClicked
+
+    private void jButtonAgregarRelacionDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarRelacionDisponibilidadActionPerformed
+        WindowsAgregarDisponibilidad w = new WindowsAgregarDisponibilidad(this);
+        w.setVisible(true);
+    }//GEN-LAST:event_jButtonAgregarRelacionDisponibilidadActionPerformed
+
+    private void jButtonClose5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClose5MouseClicked
+
+    private void jButtonClose5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose5ActionPerformed
+        cerrarPaneles();
+    }//GEN-LAST:event_jButtonClose5ActionPerformed
     
     protected void cerrarPaneles() {
         jPanelProfesor.setVisible(false);
         jPanelCursos.setVisible(false);
         jPanelAulas.setVisible(false);
         jPanelImparte.setVisible(false);
+        jPanelDisponibilidad.setVisible(false);
     }
     
     protected String datosProfesor(){
@@ -1087,6 +1264,34 @@ public class WindowsMenu extends javax.swing.JFrame {
         jTableImparte.setModel(SQLite.getInstance().executeSQL(sql));
         jPanelImparte.setVisible(true);
         return "";
+    }
+    
+    protected String datosDisponibilidad(){
+        String sql =    " SELECT Disponibilidad.id, Profesor.nombre, Profesor.apellidos, Dia.dia FROM Disponibilidad \n" +
+                        " INNER JOIN Dia ON Dia.id = Disponibilidad.dia_id \n" +
+                        " INNER JOIN Profesor ON Profesor.id = Disponibilidad.profesor_id \n" +
+                        " WHERE Disponibilidad.activo = 'T' ORDER BY Profesor.nombre; ";
+        jTableDisponibilidad.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelDisponibilidad.setVisible(true);
+        return  "";
+    }
+    
+    protected void updateTable(){
+        jTableProfesor.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableProfesor.setCellSelectionEnabled(true);
+        
+        jTableAulas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableAulas.setCellSelectionEnabled(true);
+        
+        jTableCursos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableCursos.setCellSelectionEnabled(true);
+        
+        jTableImparte.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableImparte.setCellSelectionEnabled(true);
+        
+        jTableDisponibilidad.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableDisponibilidad.setCellSelectionEnabled(true);
+        
     }
     /**
      * @param args the command line arguments
@@ -1159,13 +1364,16 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente1;
     private javax.swing.JLabel CD_Cliente2;
     private javax.swing.JLabel CD_Cliente3;
+    private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
+    private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;
     private javax.swing.JButton jButtonAulas;
     private javax.swing.JButton jButtonClose1;
     private javax.swing.JButton jButtonClose2;
     private javax.swing.JButton jButtonClose3;
     private javax.swing.JButton jButtonClose4;
+    private javax.swing.JButton jButtonClose5;
     private javax.swing.JButton jButtonConfirmBill4;
     private javax.swing.JButton jButtonConfirmBill5;
     private javax.swing.JButton jButtonConfirmBill6;
@@ -1174,6 +1382,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDisponibilidad;
     private javax.swing.JButton jButtonEliminarAula;
     private javax.swing.JButton jButtonEliminarRelacion;
+    private javax.swing.JButton jButtonEliminarRelacionDisponibilidad;
     private javax.swing.JButton jButtonHorario;
     private javax.swing.JButton jButtonImparte;
     private javax.swing.JButton jButtonOff;
@@ -1186,11 +1395,14 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -1200,6 +1412,8 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1208,6 +1422,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelAulas;
     private javax.swing.JPanel jPanelCursos;
+    private javax.swing.JPanel jPanelDisponibilidad;
     private javax.swing.JPanel jPanelImparte;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelProfesor;
@@ -1215,8 +1430,10 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTableAulas;
     private javax.swing.JTable jTableCursos;
+    private javax.swing.JTable jTableDisponibilidad;
     private javax.swing.JTable jTableImparte;
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
