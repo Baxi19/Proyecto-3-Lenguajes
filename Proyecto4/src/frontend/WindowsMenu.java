@@ -16,12 +16,10 @@ import javax.swing.JOptionPane;
  *
  * @author Baxi
  */
-public class WindowsCRUD extends javax.swing.JFrame {
+public class WindowsMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form W_Main
-     */
-    public WindowsCRUD() {
+    
+    public WindowsMenu() {
         initComponents();
         this.setSize(800,600);
         setLocationRelativeTo(null);
@@ -39,25 +37,31 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelLogin = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButtonAulas = new javax.swing.JButton();
+        jLabelTitulo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButtonProfesores = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButtonCursos = new javax.swing.JButton();
-        jPanelAulas = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableAulas = new javax.swing.JTable();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jButtonEliminarAula = new javax.swing.JButton();
-        jButtonAgregarAula = new javax.swing.JButton();
-        CD_Cliente2 = new javax.swing.JLabel();
-        jButtonClose3 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jButtonAulas = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButtonImparte = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jButtonDisponibilidad = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jButtonHorario = new javax.swing.JButton();
+        jPanelImparte = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableImparte = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jButtonEliminarRelacion = new javax.swing.JButton();
+        jButtonAgregarRelacion = new javax.swing.JButton();
+        CD_Cliente3 = new javax.swing.JLabel();
+        jButtonClose4 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -82,6 +86,18 @@ public class WindowsCRUD extends javax.swing.JFrame {
         CD_Cliente1 = new javax.swing.JLabel();
         jButtonClose2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jPanelAulas = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableAulas = new javax.swing.JTable();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jButtonEliminarAula = new javax.swing.JButton();
+        jButtonAgregarAula = new javax.swing.JButton();
+        CD_Cliente2 = new javax.swing.JLabel();
+        jButtonClose3 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jButtonOff = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -101,41 +117,12 @@ public class WindowsCRUD extends javax.swing.JFrame {
         jPanelLogin.setPreferredSize(new java.awt.Dimension(265, 600));
         jPanelLogin.setLayout(null);
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 148, 148));
-        jLabel3.setText("Proyecto 3 & 4");
-        jLabel3.setToolTipText("");
-        jPanelLogin.add(jLabel3);
-        jLabel3.setBounds(20, 30, 230, 42);
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Aulas");
-        jLabel6.setToolTipText("");
-        jPanelLogin.add(jLabel6);
-        jLabel6.setBounds(20, 260, 170, 28);
-
-        jButtonAulas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
-        jButtonAulas.setBorder(null);
-        jButtonAulas.setBorderPainted(false);
-        jButtonAulas.setContentAreaFilled(false);
-        jButtonAulas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonAulas.setRequestFocusEnabled(false);
-        jButtonAulas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAulas.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAulas.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAulas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonAulasMouseClicked(evt);
-            }
-        });
-        jButtonAulas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAulasActionPerformed(evt);
-            }
-        });
-        jPanelLogin.add(jButtonAulas);
-        jButtonAulas.setBounds(200, 250, 60, 50);
+        jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(153, 148, 148));
+        jLabelTitulo.setText("Proyecto 3 & 4");
+        jLabelTitulo.setToolTipText("");
+        jPanelLogin.add(jLabelTitulo);
+        jLabelTitulo.setBounds(20, 30, 230, 42);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,23 +182,139 @@ public class WindowsCRUD extends javax.swing.JFrame {
         jPanelLogin.add(jButtonCursos);
         jButtonCursos.setBounds(200, 190, 60, 50);
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Aulas");
+        jLabel6.setToolTipText("");
+        jPanelLogin.add(jLabel6);
+        jLabel6.setBounds(20, 260, 170, 28);
+
+        jButtonAulas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonAulas.setBorder(null);
+        jButtonAulas.setBorderPainted(false);
+        jButtonAulas.setContentAreaFilled(false);
+        jButtonAulas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAulas.setRequestFocusEnabled(false);
+        jButtonAulas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAulas.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAulas.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAulas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAulasMouseClicked(evt);
+            }
+        });
+        jButtonAulas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAulasActionPerformed(evt);
+            }
+        });
+        jPanelLogin.add(jButtonAulas);
+        jButtonAulas.setBounds(200, 250, 60, 50);
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Imparte");
+        jLabel12.setToolTipText("");
+        jPanelLogin.add(jLabel12);
+        jLabel12.setBounds(20, 330, 170, 28);
+
+        jButtonImparte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonImparte.setBorder(null);
+        jButtonImparte.setBorderPainted(false);
+        jButtonImparte.setContentAreaFilled(false);
+        jButtonImparte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonImparte.setRequestFocusEnabled(false);
+        jButtonImparte.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonImparte.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonImparte.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonImparte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonImparteMouseClicked(evt);
+            }
+        });
+        jButtonImparte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImparteActionPerformed(evt);
+            }
+        });
+        jPanelLogin.add(jButtonImparte);
+        jButtonImparte.setBounds(200, 310, 60, 60);
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Disponibilidad");
+        jLabel13.setToolTipText("");
+        jPanelLogin.add(jLabel13);
+        jLabel13.setBounds(20, 390, 170, 28);
+
+        jButtonDisponibilidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonDisponibilidad.setBorder(null);
+        jButtonDisponibilidad.setBorderPainted(false);
+        jButtonDisponibilidad.setContentAreaFilled(false);
+        jButtonDisponibilidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonDisponibilidad.setRequestFocusEnabled(false);
+        jButtonDisponibilidad.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonDisponibilidad.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonDisponibilidad.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonDisponibilidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonDisponibilidadMouseClicked(evt);
+            }
+        });
+        jButtonDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDisponibilidadActionPerformed(evt);
+            }
+        });
+        jPanelLogin.add(jButtonDisponibilidad);
+        jButtonDisponibilidad.setBounds(200, 380, 60, 50);
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Horario");
+        jLabel14.setToolTipText("");
+        jPanelLogin.add(jLabel14);
+        jLabel14.setBounds(20, 450, 170, 28);
+
+        jButtonHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonHorario.setBorder(null);
+        jButtonHorario.setBorderPainted(false);
+        jButtonHorario.setContentAreaFilled(false);
+        jButtonHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonHorario.setRequestFocusEnabled(false);
+        jButtonHorario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonHorario.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonHorario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonHorario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHorarioMouseClicked(evt);
+            }
+        });
+        jButtonHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHorarioActionPerformed(evt);
+            }
+        });
+        jPanelLogin.add(jButtonHorario);
+        jButtonHorario.setBounds(200, 440, 60, 50);
+
         getContentPane().add(jPanelLogin);
         jPanelLogin.setBounds(0, 0, 265, 600);
 
-        jPanelAulas.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
-        jPanelAulas.setAlignmentX(0.0F);
-        jPanelAulas.setAlignmentY(0.0F);
-        jPanelAulas.setPreferredSize(new java.awt.Dimension(535, 600));
-        jPanelAulas.setLayout(null);
+        jPanelImparte.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelImparte.setAlignmentX(0.0F);
+        jPanelImparte.setAlignmentY(0.0F);
+        jPanelImparte.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelImparte.setLayout(null);
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Lista de Aulas");
-        jLabel10.setToolTipText("");
-        jPanelAulas.add(jLabel10);
-        jLabel10.setBounds(40, 100, 230, 28);
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Profesores - Cursos");
+        jLabel15.setToolTipText("");
+        jPanelImparte.add(jLabel15);
+        jLabel15.setBounds(40, 100, 230, 28);
 
-        jTableAulas.setModel(new javax.swing.table.DefaultTableModel(
+        jTableImparte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -222,109 +325,109 @@ public class WindowsCRUD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTableAulas);
+        jScrollPane4.setViewportView(jTableImparte);
 
-        jPanelAulas.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 150, 452, 250);
+        jPanelImparte.add(jScrollPane4);
+        jScrollPane4.setBounds(40, 150, 452, 250);
 
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Configuración de Aulas");
-        jPanelAulas.add(jLabel23);
-        jLabel23.setBounds(170, 430, 220, 17);
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Configuración de Relaciones");
+        jPanelImparte.add(jLabel24);
+        jLabel24.setBounds(170, 430, 220, 17);
 
-        jLabel39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel39.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Nuevo");
-        jPanelAulas.add(jLabel39);
-        jLabel39.setBounds(210, 470, 70, 40);
+        jLabel41.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel41.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Nuevo");
+        jPanelImparte.add(jLabel41);
+        jLabel41.setBounds(210, 470, 70, 40);
 
-        jLabel40.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel40.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Eliminar");
-        jPanelAulas.add(jLabel40);
-        jLabel40.setBounds(210, 520, 70, 40);
+        jLabel42.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel42.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setText("Eliminar");
+        jPanelImparte.add(jLabel42);
+        jLabel42.setBounds(210, 520, 70, 40);
 
-        jButtonEliminarAula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
-        jButtonEliminarAula.setBorder(null);
-        jButtonEliminarAula.setBorderPainted(false);
-        jButtonEliminarAula.setContentAreaFilled(false);
-        jButtonEliminarAula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonEliminarAula.setRequestFocusEnabled(false);
-        jButtonEliminarAula.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarAula.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarAula.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
-        jButtonEliminarAula.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonEliminarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
+        jButtonEliminarRelacion.setBorder(null);
+        jButtonEliminarRelacion.setBorderPainted(false);
+        jButtonEliminarRelacion.setContentAreaFilled(false);
+        jButtonEliminarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonEliminarRelacion.setRequestFocusEnabled(false);
+        jButtonEliminarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonEliminarAulaMouseClicked(evt);
+                jButtonEliminarRelacionMouseClicked(evt);
             }
         });
-        jButtonEliminarAula.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarRelacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarAulaActionPerformed(evt);
+                jButtonEliminarRelacionActionPerformed(evt);
             }
         });
-        jPanelAulas.add(jButtonEliminarAula);
-        jButtonEliminarAula.setBounds(290, 520, 40, 40);
+        jPanelImparte.add(jButtonEliminarRelacion);
+        jButtonEliminarRelacion.setBounds(290, 520, 40, 40);
 
-        jButtonAgregarAula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
-        jButtonAgregarAula.setBorder(null);
-        jButtonAgregarAula.setBorderPainted(false);
-        jButtonAgregarAula.setContentAreaFilled(false);
-        jButtonAgregarAula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonAgregarAula.setRequestFocusEnabled(false);
-        jButtonAgregarAula.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarAula.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarAula.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
-        jButtonAgregarAula.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAgregarRelacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
+        jButtonAgregarRelacion.setBorder(null);
+        jButtonAgregarRelacion.setBorderPainted(false);
+        jButtonAgregarRelacion.setContentAreaFilled(false);
+        jButtonAgregarRelacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAgregarRelacion.setRequestFocusEnabled(false);
+        jButtonAgregarRelacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonAgregarAulaMouseClicked(evt);
+                jButtonAgregarRelacionMouseClicked(evt);
             }
         });
-        jButtonAgregarAula.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregarRelacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarAulaActionPerformed(evt);
+                jButtonAgregarRelacionActionPerformed(evt);
             }
         });
-        jPanelAulas.add(jButtonAgregarAula);
-        jButtonAgregarAula.setBounds(290, 470, 40, 40);
+        jPanelImparte.add(jButtonAgregarRelacion);
+        jButtonAgregarRelacion.setBounds(290, 470, 40, 40);
 
-        CD_Cliente2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
-        jPanelAulas.add(CD_Cliente2);
-        CD_Cliente2.setBounds(140, 410, 270, 180);
+        CD_Cliente3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jPanelImparte.add(CD_Cliente3);
+        CD_Cliente3.setBounds(140, 410, 270, 180);
 
-        jButtonClose3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
-        jButtonClose3.setBorder(null);
-        jButtonClose3.setBorderPainted(false);
-        jButtonClose3.setContentAreaFilled(false);
-        jButtonClose3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonClose3.setRequestFocusEnabled(false);
-        jButtonClose3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClose4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose4.setBorder(null);
+        jButtonClose4.setBorderPainted(false);
+        jButtonClose4.setContentAreaFilled(false);
+        jButtonClose4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose4.setRequestFocusEnabled(false);
+        jButtonClose4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonClose3MouseClicked(evt);
+                jButtonClose4MouseClicked(evt);
             }
         });
-        jButtonClose3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClose4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClose3ActionPerformed(evt);
+                jButtonClose4ActionPerformed(evt);
             }
         });
-        jPanelAulas.add(jButtonClose3);
-        jButtonClose3.setBounds(470, 20, 51, 51);
+        jPanelImparte.add(jButtonClose4);
+        jButtonClose4.setBounds(470, 20, 51, 51);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
-        jLabel11.setText("jLabel2");
-        jPanelAulas.add(jLabel11);
-        jLabel11.setBounds(0, 0, 535, 600);
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel16.setText("jLabel2");
+        jPanelImparte.add(jLabel16);
+        jLabel16.setBounds(0, 0, 535, 600);
 
-        getContentPane().add(jPanelAulas);
-        jPanelAulas.setBounds(265, 0, 535, 600);
+        getContentPane().add(jPanelImparte);
+        jPanelImparte.setBounds(265, 0, 535, 600);
 
         jPanelProfesor.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelProfesor.setAlignmentX(0.0F);
@@ -582,6 +685,134 @@ public class WindowsCRUD extends javax.swing.JFrame {
         getContentPane().add(jPanelCursos);
         jPanelCursos.setBounds(265, 0, 535, 600);
 
+        jPanelAulas.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelAulas.setAlignmentX(0.0F);
+        jPanelAulas.setAlignmentY(0.0F);
+        jPanelAulas.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelAulas.setLayout(null);
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Lista de Aulas");
+        jLabel10.setToolTipText("");
+        jPanelAulas.add(jLabel10);
+        jLabel10.setBounds(40, 100, 230, 28);
+
+        jTableAulas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableAulas);
+
+        jPanelAulas.add(jScrollPane3);
+        jScrollPane3.setBounds(40, 150, 452, 250);
+
+        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Configuración de Aulas");
+        jPanelAulas.add(jLabel23);
+        jLabel23.setBounds(170, 430, 220, 17);
+
+        jLabel39.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel39.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("Nuevo");
+        jPanelAulas.add(jLabel39);
+        jLabel39.setBounds(210, 470, 70, 40);
+
+        jLabel40.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel40.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Eliminar");
+        jPanelAulas.add(jLabel40);
+        jLabel40.setBounds(210, 520, 70, 40);
+
+        jButtonEliminarAula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete1.png"))); // NOI18N
+        jButtonEliminarAula.setBorder(null);
+        jButtonEliminarAula.setBorderPainted(false);
+        jButtonEliminarAula.setContentAreaFilled(false);
+        jButtonEliminarAula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonEliminarAula.setRequestFocusEnabled(false);
+        jButtonEliminarAula.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarAula.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarAula.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
+        jButtonEliminarAula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEliminarAulaMouseClicked(evt);
+            }
+        });
+        jButtonEliminarAula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarAulaActionPerformed(evt);
+            }
+        });
+        jPanelAulas.add(jButtonEliminarAula);
+        jButtonEliminarAula.setBounds(290, 520, 40, 40);
+
+        jButtonAgregarAula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add1.png"))); // NOI18N
+        jButtonAgregarAula.setBorder(null);
+        jButtonAgregarAula.setBorderPainted(false);
+        jButtonAgregarAula.setContentAreaFilled(false);
+        jButtonAgregarAula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAgregarAula.setRequestFocusEnabled(false);
+        jButtonAgregarAula.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarAula.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarAula.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add2.png"))); // NOI18N
+        jButtonAgregarAula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAgregarAulaMouseClicked(evt);
+            }
+        });
+        jButtonAgregarAula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarAulaActionPerformed(evt);
+            }
+        });
+        jPanelAulas.add(jButtonAgregarAula);
+        jButtonAgregarAula.setBounds(290, 470, 40, 40);
+
+        CD_Cliente2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jPanelAulas.add(CD_Cliente2);
+        CD_Cliente2.setBounds(140, 410, 270, 180);
+
+        jButtonClose3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose3.setBorder(null);
+        jButtonClose3.setBorderPainted(false);
+        jButtonClose3.setContentAreaFilled(false);
+        jButtonClose3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose3.setRequestFocusEnabled(false);
+        jButtonClose3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose3.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClose3MouseClicked(evt);
+            }
+        });
+        jButtonClose3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClose3ActionPerformed(evt);
+            }
+        });
+        jPanelAulas.add(jButtonClose3);
+        jButtonClose3.setBounds(470, 20, 51, 51);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel11.setText("jLabel2");
+        jPanelAulas.add(jLabel11);
+        jLabel11.setBounds(0, 0, 535, 600);
+
+        getContentPane().add(jPanelAulas);
+        jPanelAulas.setBounds(265, 0, 535, 600);
+
         jButtonOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/off1.png"))); // NOI18N
         jButtonOff.setBorder(null);
         jButtonOff.setBorderPainted(false);
@@ -630,10 +861,6 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void jButtonProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfesoresActionPerformed
         cerrarPaneles();
         datosProfesor();
-        //String sql = "SELECT * FROM Profesor;";
-        //jTableProfesor.setModel(SQLite.getInstance().executeSQL(sql));
-        //jPanelProfesor.setVisible(true);
-        
     }//GEN-LAST:event_jButtonProfesoresActionPerformed
 
     private void jButtonCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCursosMouseClicked
@@ -669,7 +896,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void jButtonConfirmBill4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill4ActionPerformed
         if(!jTableProfesor.getSelectionModel().isSelectionEmpty()){
             int id =(int) jTableProfesor.getValueAt(jTableProfesor.getSelectedRow(), 0);
-            if(SQLite.getInstance().eliminarProfesor(id)){
+            if(SQLite.getInstance().eliminar(id, "Profesor")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
                 cerrarPaneles();
                 datosProfesor();
@@ -684,7 +911,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConfirmBill5MouseClicked
 
     private void jButtonConfirmBill5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill5ActionPerformed
-        WindowsProfesor wr = new WindowsProfesor(this);
+        WindowsAgregarProfesor wr = new WindowsAgregarProfesor(this);
         wr.show();
         
     }//GEN-LAST:event_jButtonConfirmBill5ActionPerformed
@@ -696,7 +923,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void jButtonConfirmBill6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill6ActionPerformed
         if(!jTableCursos.getSelectionModel().isSelectionEmpty()){
             int id =(int) jTableCursos.getValueAt(jTableCursos.getSelectedRow(), 0);
-            if(SQLite.getInstance().eliminarCurso(id)){
+            if(SQLite.getInstance().eliminar(id, "Curso")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
                 cerrarPaneles();
                 datosCursos();
@@ -711,7 +938,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConfirmBill7MouseClicked
 
     private void jButtonConfirmBill7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmBill7ActionPerformed
-        WindowsCurso wc = new WindowsCurso(this);
+        WindowsAgregarCurso wc = new WindowsAgregarCurso(this);
         wc.setVisible(true);
     }//GEN-LAST:event_jButtonConfirmBill7ActionPerformed
 
@@ -730,7 +957,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void jButtonEliminarAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarAulaActionPerformed
         if(!jTableAulas.getSelectionModel().isSelectionEmpty()){
             int id =(int) jTableAulas.getValueAt(jTableAulas.getSelectedRow(), 0);
-            if(SQLite.getInstance().eliminarAula(id)){
+            if(SQLite.getInstance().eliminar(id, "Aula")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
                 cerrarPaneles();
                 datosAulas();
@@ -745,7 +972,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAgregarAulaMouseClicked
 
     private void jButtonAgregarAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarAulaActionPerformed
-        WindowsAula wa = new WindowsAula(this);
+        WindowsAgregarAula wa = new WindowsAgregarAula(this);
         wa.setVisible(true);
     }//GEN-LAST:event_jButtonAgregarAulaActionPerformed
 
@@ -756,32 +983,110 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private void jButtonClose3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose3ActionPerformed
         cerrarPaneles();
     }//GEN-LAST:event_jButtonClose3ActionPerformed
+
+    private void jButtonImparteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonImparteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonImparteMouseClicked
+
+    private void jButtonImparteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImparteActionPerformed
+        cerrarPaneles();
+        datosImparte();
+    }//GEN-LAST:event_jButtonImparteActionPerformed
+
+    private void jButtonDisponibilidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDisponibilidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDisponibilidadMouseClicked
+
+    private void jButtonDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisponibilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDisponibilidadActionPerformed
+
+    private void jButtonHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHorarioMouseClicked
+
+    private void jButtonHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHorarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHorarioActionPerformed
+
+    private void jButtonEliminarRelacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarRelacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEliminarRelacionMouseClicked
+
+    private void jButtonEliminarRelacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarRelacionActionPerformed
+        if(!jTableImparte.getSelectionModel().isSelectionEmpty()){
+            int id =(int) jTableImparte.getValueAt(jTableImparte.getSelectedRow(), 0);
+            if(SQLite.getInstance().eliminar(id, "Imparte")){
+                JOptionPane.showMessageDialog(null, "Eliminado");
+                cerrarPaneles();
+                datosImparte();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar...");
+            }
+        } 
+    }//GEN-LAST:event_jButtonEliminarRelacionActionPerformed
+
+    private void jButtonAgregarRelacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarRelacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAgregarRelacionMouseClicked
+
+    private void jButtonAgregarRelacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarRelacionActionPerformed
+        WindowsAgregarImparte wi = new WindowsAgregarImparte(this);
+        wi.setVisible(true);
+    }//GEN-LAST:event_jButtonAgregarRelacionActionPerformed
+
+    private void jButtonClose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClose4MouseClicked
+
+    private void jButtonClose4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose4ActionPerformed
+        cerrarPaneles();
+    }//GEN-LAST:event_jButtonClose4ActionPerformed
     
-    public void cerrarPaneles() {
+    protected void cerrarPaneles() {
         jPanelProfesor.setVisible(false);
         jPanelCursos.setVisible(false);
         jPanelAulas.setVisible(false);
+        jPanelImparte.setVisible(false);
     }
     
-    public String datosProfesor(){
+    protected String datosProfesor(){
         String sql = "SELECT id, nombre, apellidos, cedula FROM Profesor WHERE activo = 'T';";
         jTableProfesor.setModel(SQLite.getInstance().executeSQL(sql));
         jPanelProfesor.setVisible(true);
         return  "";
     }
     
-    public String datosCursos(){
+    protected String datosCursos(){
         String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
         jTableCursos.setModel(SQLite.getInstance().executeSQL(sql));
         jPanelCursos.setVisible(true);
         return  "";
     }
     
-    public String datosAulas(){
+    protected String datosAulas(){
         String sql = "SELECT id, nombre, capacidad, tipo FROM Aula WHERE activo = 'T';";
         jTableAulas.setModel(SQLite.getInstance().executeSQL(sql));
         jPanelAulas.setVisible(true);
         return  "";
+    }
+    
+    protected String datosImparte(){
+        String sql =    " SELECT " +
+                        " Imparte.id AS id, " +
+                        " Profesor.nombre, Profesor.apellidos "+       
+                        " AS apellido, " +
+                        " Curso.nombre" +
+                        " AS curso " +
+                        " FROM " +
+                        " Imparte " +
+                        " INNER JOIN Profesor ON Profesor.id = Imparte.profesor_id " +
+                        " INNER JOIN Curso ON Curso.id = Imparte.curso_id " +
+                        " WHERE Imparte.activo = 'T';";
+        
+        jTableImparte.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelImparte.setVisible(true);
+        return "";
     }
     /**
      * @param args the command line arguments
@@ -800,14 +1105,30 @@ public class WindowsCRUD extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WindowsCRUD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WindowsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WindowsCRUD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WindowsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WindowsCRUD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WindowsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WindowsCRUD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WindowsMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -828,7 +1149,7 @@ public class WindowsCRUD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WindowsCRUD().setVisible(true);
+                new WindowsMenu().setVisible(true);
             }
         });
     }
@@ -837,27 +1158,39 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente;
     private javax.swing.JLabel CD_Cliente1;
     private javax.swing.JLabel CD_Cliente2;
+    private javax.swing.JLabel CD_Cliente3;
     private javax.swing.JButton jButtonAgregarAula;
+    private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAulas;
     private javax.swing.JButton jButtonClose1;
     private javax.swing.JButton jButtonClose2;
     private javax.swing.JButton jButtonClose3;
+    private javax.swing.JButton jButtonClose4;
     private javax.swing.JButton jButtonConfirmBill4;
     private javax.swing.JButton jButtonConfirmBill5;
     private javax.swing.JButton jButtonConfirmBill6;
     private javax.swing.JButton jButtonConfirmBill7;
     private javax.swing.JButton jButtonCursos;
+    private javax.swing.JButton jButtonDisponibilidad;
     private javax.swing.JButton jButtonEliminarAula;
+    private javax.swing.JButton jButtonEliminarRelacion;
+    private javax.swing.JButton jButtonHorario;
+    private javax.swing.JButton jButtonImparte;
     private javax.swing.JButton jButtonOff;
     private javax.swing.JButton jButtonProfesores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -865,20 +1198,26 @@ public class WindowsCRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelAulas;
     private javax.swing.JPanel jPanelCursos;
+    private javax.swing.JPanel jPanelImparte;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelProfesor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTableAulas;
     private javax.swing.JTable jTableCursos;
+    private javax.swing.JTable jTableImparte;
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
 

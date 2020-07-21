@@ -5,7 +5,7 @@
  */
 package main;
 
-import frontend.WindowsCRUD;
+import frontend.WindowsMenu;
 
 
 
@@ -20,7 +20,7 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        WindowsCRUD w1 = new WindowsCRUD();
+        WindowsMenu w1 = new WindowsMenu();
         w1.setVisible(true);
     }
 

@@ -51,7 +51,6 @@ public class SQLite {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
         return conn;       
     }
     
@@ -91,49 +90,28 @@ public class SQLite {
         myRunnable.run();
         return model;
     }
+    
     /*------------------------------------------------------------------------*/
-    //Buscar un dia por id
-    public Dia getDia(int id){
-        Dia dia = new Dia();
-        String query = "SELECT dia FROM Dia WHERE ID = " +  id;
-        try (Connection conn = this.conexion();
+    //eliminar 
+    public boolean eliminar(int id, String tabla){
+       String query = "UPDATE "+ tabla +" SET activo = 'F' WHERE ID = " + id;
+       try {
+            Connection conn = conexion();
             Statement stmt  = conn.createStatement();
-            ResultSet rs   = stmt.executeQuery(query)){
-            rs.next();
-            dia.setId(id);
-            dia.setDia(rs.getString("dia"));
-            rs.close();
+            stmt.executeQuery(query);
             stmt.close();
             conn.close();
-            return dia;
-        } 
-        catch (SQLException e) {
-            return null;
-        } 
+            return true;
+        }catch (SQLException e) {
+            if(e.getMessage().equals("query does not return ResultSet")){
+                return true;
+            }else{
+                System.out.println(e.getMessage());
+                return false;
+            }    
+        }
     }
-    /*------------------------------------------------------------------------*/
-    //Buscar un profesor por id
-    public Profesor getProfesor(int id){
-        Profesor profesor = new Profesor();
-        String query = "SELECT * FROM Profesor WHERE ID = " +  id;
-        try (Connection conn = this.conexion();
-            Statement stmt  = conn.createStatement();
-            ResultSet rs   = stmt.executeQuery(query)){
-            rs.next();
-            profesor.setId(id);
-            profesor.setNombre(rs.getString("nombre"));
-            profesor.setApellidos(rs.getString("apellidos"));
-            profesor.setApellidos(rs.getString("cedula"));
-            rs.close();
-            stmt.close();
-            conn.close();
-            return profesor;
-        } 
-        catch (SQLException e) {
-            return null;
-        } 
-    }
-   
+    
     /*------------------------------------------------------------------------*/
     //agregar profesor
     public Boolean agregarProfesor(String nombre, String apellidos, String cedula){
@@ -151,27 +129,6 @@ public class SQLite {
             System.out.println(e);
             return false;
         }  
-    }
-    
-    /*------------------------------------------------------------------------*/
-    //eliminar profesor
-    public boolean eliminarProfesor(int id){
-       String query = "UPDATE Profesor SET activo = 'F' WHERE ID = " + id;
-       try {
-            Connection conn = conexion();
-            Statement stmt  = conn.createStatement();
-            stmt.executeQuery(query);
-            stmt.close();
-            conn.close();
-            return true;
-        }catch (SQLException e) {
-            if(e.getMessage().equals("query does not return ResultSet")){
-                return true;
-            }else{
-                System.out.println(e.getMessage());
-                return false;
-            }    
-        }
     }
     
     /*------------------------------------------------------------------------*/
@@ -198,26 +155,6 @@ public class SQLite {
             return false;
         }  
     }
-    /*------------------------------------------------------------------------*/
-    //eliminar curso
-    public boolean eliminarCurso(int id){
-       String query = "UPDATE Curso SET activo = 'F' WHERE ID = " + id;
-       try {
-            Connection conn = conexion();
-            Statement stmt  = conn.createStatement();
-            stmt.executeQuery(query);
-            stmt.close();
-            conn.close();
-            return true;
-        }catch (SQLException e) {
-            if(e.getMessage().equals("query does not return ResultSet")){
-                return true;
-            }else{
-                System.out.println(e.getMessage());
-                return false;
-            }    
-        }
-    }
     
     /*------------------------------------------------------------------------*/
     //agregar aula
@@ -239,23 +176,23 @@ public class SQLite {
     }
     
     /*------------------------------------------------------------------------*/
-    //eliminar aula
-    public boolean eliminarAula(int id){
-       String query = "UPDATE Aula SET activo = 'F' WHERE ID = " + id;
-       try {
+    //agregar imparte
+    public Boolean agregarImparte(int profesorId, int cursoId){
+        String sql =    " INSERT INTO Imparte(profesor_id, curso_id, activo ) " +
+                        " VALUES( "+ profesorId + ", " + cursoId+ ",'T');";
+        try {
             Connection conn = conexion();
-            Statement stmt  = conn.createStatement();
-            stmt.executeQuery(query);
-            stmt.close();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
             conn.close();
             return true;
-        }catch (SQLException e) {
-            if(e.getMessage().equals("query does not return ResultSet")){
-                return true;
-            }else{
-                System.out.println(e.getMessage());
-                return false;
-            }    
         }
-    }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    } 
+    
+    
 }

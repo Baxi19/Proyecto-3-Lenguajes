@@ -14,11 +14,11 @@ import javax.swing.JOptionPane;
  *
  * @author Baxi
  */
-public class WindowsCurso extends javax.swing.JFrame {
-    WindowsCRUD wc;
+public class WindowsAgregarAula extends javax.swing.JFrame {
+    WindowsMenu wc;
     
     
-    public WindowsCurso(WindowsCRUD wm) {
+    public WindowsAgregarAula(WindowsMenu wm) {
         initComponents();
         this.setSize(450,250);
         setLocationRelativeTo(null);
@@ -42,15 +42,11 @@ public class WindowsCurso extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jComboBoxSemestre = new javax.swing.JComboBox<>();
-        jComboBoxAsignatura = new javax.swing.JComboBox<>();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        jTextFieldCapacidad = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jComboBoxCreditos = new javax.swing.JComboBox<>();
-        jComboBoxDias = new javax.swing.JComboBox<>();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        jButtonAgregarCurso = new javax.swing.JButton();
+        jButtonAgregarAula = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -85,7 +81,7 @@ public class WindowsCurso extends javax.swing.JFrame {
         jLabelTitle.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitle.setText("Registrar nuevo curso");
+        jLabelTitle.setText("Registrar nueva aula");
         getContentPane().add(jLabelTitle);
         jLabelTitle.setBounds(20, 10, 320, 28);
 
@@ -94,7 +90,7 @@ public class WindowsCurso extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Nombre");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(60, 50, 80, 30);
+        jLabel20.setBounds(20, 50, 80, 30);
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,56 +98,33 @@ public class WindowsCurso extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextFieldNombre);
-        jTextFieldNombre.setBounds(160, 60, 140, 20);
+        jTextFieldNombre.setBounds(110, 60, 230, 20);
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Asignatura");
+        jLabel24.setText("Capacidad");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(60, 150, 80, 30);
+        jLabel24.setBounds(20, 90, 80, 30);
 
-        jComboBoxSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
-        getContentPane().add(jComboBoxSemestre);
-        jComboBoxSemestre.setBounds(160, 90, 140, 20);
-
-        jComboBoxAsignatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Laboratorio" }));
-        getContentPane().add(jComboBoxAsignatura);
-        jComboBoxAsignatura.setBounds(160, 150, 140, 20);
-
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Dias");
-        getContentPane().add(jLabel23);
-        jLabel23.setBounds(60, 180, 80, 30);
-
-        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("Creditos");
-        getContentPane().add(jLabel25);
-        jLabel25.setBounds(60, 120, 80, 30);
+        jTextFieldCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCapacidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldCapacidad);
+        jTextFieldCapacidad.setBounds(110, 100, 230, 20);
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Semestre");
+        jLabel22.setText("Tipo");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(60, 80, 80, 30);
+        jLabel22.setBounds(20, 140, 80, 30);
 
-        jComboBoxCreditos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        getContentPane().add(jComboBoxCreditos);
-        jComboBoxCreditos.setBounds(160, 120, 140, 20);
-
-        jComboBoxDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
-        jComboBoxDias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxDiasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBoxDias);
-        jComboBoxDias.setBounds(160, 180, 140, 20);
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Laboratorio" }));
+        getContentPane().add(jComboBoxTipo);
+        jComboBoxTipo.setBounds(110, 140, 230, 20);
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -160,27 +133,27 @@ public class WindowsCurso extends javax.swing.JFrame {
         getContentPane().add(jLabel21);
         jLabel21.setBounds(360, 150, 70, 30);
 
-        jButtonAgregarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar.png"))); // NOI18N
-        jButtonAgregarCurso.setBorder(null);
-        jButtonAgregarCurso.setBorderPainted(false);
-        jButtonAgregarCurso.setContentAreaFilled(false);
-        jButtonAgregarCurso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonAgregarCurso.setRequestFocusEnabled(false);
-        jButtonAgregarCurso.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAgregarCurso.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAgregarCurso.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonAgregarCurso.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonAgregarAula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar.png"))); // NOI18N
+        jButtonAgregarAula.setBorder(null);
+        jButtonAgregarAula.setBorderPainted(false);
+        jButtonAgregarAula.setContentAreaFilled(false);
+        jButtonAgregarAula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAgregarAula.setRequestFocusEnabled(false);
+        jButtonAgregarAula.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAgregarAula.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAgregarAula.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonAgregarAula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonAgregarCursoMouseClicked(evt);
+                jButtonAgregarAulaMouseClicked(evt);
             }
         });
-        jButtonAgregarCurso.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregarAula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAgregarCursoActionPerformed(evt);
+                jButtonAgregarAulaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAgregarCurso);
-        jButtonAgregarCurso.setBounds(350, 180, 80, 70);
+        getContentPane().add(jButtonAgregarAula);
+        jButtonAgregarAula.setBounds(350, 180, 80, 70);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hydrogen.jpg"))); // NOI18N
         bg.setMaximumSize(new java.awt.Dimension(450, 250));
@@ -196,31 +169,41 @@ public class WindowsCurso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jButtonAgregarCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarCursoMouseClicked
-        
-    }//GEN-LAST:event_jButtonAgregarCursoMouseClicked
+    private void jTextFieldCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCapacidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCapacidadActionPerformed
 
-    private void jButtonAgregarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarCursoActionPerformed
-        if (!jTextFieldNombre.getText().isEmpty()) {
-            try {
-                SQLite.getInstance().agregarCurso(
-                        jTextFieldNombre.getText(),
-                        jComboBoxAsignatura.getSelectedItem().toString(),
-                        Integer.parseInt(jComboBoxCreditos.getSelectedItem().toString()),
-                        Integer.parseInt(jComboBoxSemestre.getSelectedItem().toString()),
-                        Integer.parseInt(jComboBoxDias.getSelectedItem().toString()));
-                JOptionPane.showMessageDialog(null, "Curso agregado correctamente!");
-                wc.cerrarPaneles();
-                wc.datosCursos();
-                this.dispose();
-            } catch (Exception e) {
-                System.out.println("\nError = " + e);
-                JOptionPane.showMessageDialog(null, e);
+    private void jButtonAgregarAulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarAulaMouseClicked
+        
+    }//GEN-LAST:event_jButtonAgregarAulaMouseClicked
+
+    private void jButtonAgregarAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarAulaActionPerformed
+        if(!jTextFieldNombre.getText().isEmpty()){
+            if(!jTextFieldCapacidad.getText().isEmpty()){
+                int capacidad ;
+                try {
+                    capacidad = Integer.parseInt(jTextFieldCapacidad.getText());
+                } catch (Exception e) {
+                   JOptionPane.showMessageDialog(null, "Debe ingresar la capacidad en numeros"); 
+                   return;
+                }
+                try {
+                    SQLite.getInstance().agregarAula(jTextFieldNombre.getText(), capacidad, jComboBoxTipo.getSelectedItem().toString());
+                    JOptionPane.showMessageDialog(null, "Aula agregada correctamente!");
+                    wc.cerrarPaneles();
+                    wc.datosAulas();
+                    this.dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Debe ingresar una capacidad");
             }
-        } else {
+        }else{
             JOptionPane.showMessageDialog(null, "Debe ingresar un nombre..!");
         }
-    }//GEN-LAST:event_jButtonAgregarCursoActionPerformed
+    }//GEN-LAST:event_jButtonAgregarAulaActionPerformed
 
     private void jButtonClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose1MouseClicked
         this.dispose();
@@ -230,29 +213,21 @@ public class WindowsCurso extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonClose1ActionPerformed
 
-    private void jComboBoxDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDiasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxDiasActionPerformed
-
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonAgregarCurso;
+    private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonClose1;
-    private javax.swing.JComboBox<String> jComboBoxAsignatura;
-    private javax.swing.JComboBox<String> jComboBoxCreditos;
-    private javax.swing.JComboBox<String> jComboBoxDias;
-    private javax.swing.JComboBox<String> jComboBoxSemestre;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JTextField jTextFieldCapacidad;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
