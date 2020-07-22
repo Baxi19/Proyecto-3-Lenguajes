@@ -6,12 +6,13 @@
 package entity;
 
 import patterns.Decorador;
+import patterns.Clase;
 
 /**
  *
  * @author Baxi
  */
-public class Dia extends Decorador{
+public class Dia extends Decorador implements Clase{
     private int id;
     private String dia;
 
@@ -62,6 +63,11 @@ public class Dia extends Decorador{
     @Override
     public String toString() {
         return "Dia{" + "id=" + id + ", dia=" + dia + '}';
+    }
+
+    @Override
+    public String getClase() {
+        return "Dia";
     }
 
     

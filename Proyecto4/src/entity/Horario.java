@@ -6,12 +6,13 @@
 package entity;
 
 import patterns.Decorador;
+import patterns.Clase;
 
 /**
  *
  * @author Baxi
  */
-public class Horario extends Decorador {
+public class Horario extends Decorador implements Clase{
     private int id;
     private Leccion leccion;
     private Curso curso;
@@ -102,5 +103,10 @@ public class Horario extends Decorador {
     @Override
     public String toString() {
         return "Horario{" + "leccion=" + leccion + ", curso=" + curso + ", profesor=" + profesor + ", aula=" + aula + '}';
+    }
+
+    @Override
+    public String getClase() {
+        return "Horario";
     }
 }
