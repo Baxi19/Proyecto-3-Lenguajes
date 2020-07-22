@@ -69,12 +69,12 @@
         <Component class="javax.swing.JLabel" name="jLabelTitulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="36" style="1"/>
+              <Font name="Times New Roman" size="28" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="94" green="94" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Proyecto 3 &amp; 4"/>
+            <Property name="text" type="java.lang.String" value="Gu&#xed;a de Horarios"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Constraints>
@@ -346,12 +346,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Horario"/>
+            <Property name="text" type="java.lang.String" value="Consultas Prolog"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="450" width="170" height="-1"/>
+              <AbsoluteConstraints x="20" y="450" width="190" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

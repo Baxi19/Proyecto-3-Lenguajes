@@ -144,12 +144,12 @@ public class WindowsMenu extends javax.swing.JFrame {
         jPanelLogin.setPreferredSize(new java.awt.Dimension(265, 600));
         jPanelLogin.setLayout(null);
 
-        jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 28)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(153, 148, 148));
-        jLabelTitulo.setText("Proyecto 3 & 4");
+        jLabelTitulo.setText("Guía de Horarios");
         jLabelTitulo.setToolTipText("");
         jPanelLogin.add(jLabelTitulo);
-        jLabelTitulo.setBounds(20, 30, 230, 42);
+        jLabelTitulo.setBounds(20, 30, 230, 33);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,10 +298,10 @@ public class WindowsMenu extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Horario");
+        jLabel14.setText("Consultas Prolog");
         jLabel14.setToolTipText("");
         jPanelLogin.add(jLabel14);
-        jLabel14.setBounds(20, 450, 170, 28);
+        jLabel14.setBounds(20, 450, 190, 28);
 
         jButtonHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
         jButtonHorario.setBorder(null);
