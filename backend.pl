@@ -187,11 +187,11 @@ disponibilidad(abel,   [l, v]).
 disponibilidad(diego,  [j, v]).
 disponibilidad(efren,  [l, k, m, j]).
 disponibilidad(lorena, [l, k, m, j]).
-disponibilidad(jorge,  [l, k, m,j]).
-disponibilidad(marlen, [l,k,m, j]).
-disponibilidad(leo,    [l,k, m, v]).
+disponibilidad(jorge,  [l, k, m, j]).
+disponibilidad(marlen, [l, k, m, j]).
+disponibilidad(leo,    [l, k, m, v]).
 disponibilidad(oscar,  [l, k, m, j]).
-disponibilidad(vera,   [l,k,m, j]).
+disponibilidad(vera,   [l, k, m, j]).
 disponibilidad(rogelio,[l, k, m,v]).
 
 imparte(alejandro, diseno).
@@ -267,8 +267,6 @@ tipo(auc-01,"laboratorio").
 tipo(mvl-01,"laboratorio").
 tipo(e-10,  "normal").
 tipo(e-11,  "normal").
-
-%tipo(X,Y).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %lecciones
