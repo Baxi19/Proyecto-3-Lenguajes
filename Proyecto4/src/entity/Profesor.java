@@ -5,32 +5,40 @@
  */
 package entity;
 
+import patterns.Decorador;
+
 /**
  *
  * @author Baxi
  */
-public class Profesor {
+public class Profesor extends Decorador{
     private int id;
     private String nombre;
     private String apellidos;
     private String cedula;
 
     public Profesor() {
+        super();
     }
 
-    public Profesor(int id, String nombre, String apellidos, String cedula) {
+    public Profesor(String nombre, String apellidos, String cedula) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+    }
+    
+    public Profesor( int id, String nombre, String apellidos, String cedula) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cedula = cedula;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public Profesor(int id, String nombre, String apellidos, String cedula, String nombreClase) {
+        super(id, nombreClase);
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
     }
 
     public String getNombre() {
@@ -56,5 +64,30 @@ public class Profesor {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-         
+
+  
+    public int getId() {
+        return id;
+    }
+
+   
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getNombreClase() {
+        return nombreClase;
+    }
+
+    @Override
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", cedula=" + cedula + '}';
+    }
+     
 }

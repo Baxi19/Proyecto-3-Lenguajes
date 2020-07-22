@@ -5,11 +5,13 @@
  */
 package entity;
 
+import patterns.Decorador;
+
 /**
  *
  * @author Baxi
  */
-public class Leccion {
+public class Leccion extends Decorador{
     private int id;
     private String leccion;
     private Dia dia;
@@ -17,22 +19,30 @@ public class Leccion {
     private String horaSalida;
 
     public Leccion() {
+        super();
     }
 
-    public Leccion(int id, String leccion, Dia dia, String horaInicio, String horaSalida) {
-        this.id = id;
+    public Leccion(String leccion, Dia dia, String horaInicio, String horaSalida) {
         this.leccion = leccion;
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaSalida = horaSalida;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public Leccion( int id,String leccion, Dia dia, String horaInicio, String horaSalida) {
         this.id = id;
+        this.leccion = leccion;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaSalida = horaSalida;
+    }
+    
+    public Leccion( int id,String leccion, Dia dia, String horaInicio, String horaSalida, String nombreClase) {
+        super(id, nombreClase);
+        this.leccion = leccion;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaSalida = horaSalida;
     }
 
     public String getLeccion() {
@@ -68,4 +78,31 @@ public class Leccion {
     }
 
     
+    public int getId() {
+        return id;
+    }
+
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getNombreClase() {
+        return nombreClase;
+    }
+
+    @Override
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
+    }
+
+    @Override
+    public String toString() {
+        return "Leccion{" + "id=" + id + ", leccion=" + leccion + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaSalida=" + horaSalida + '}';
+    }
+
+    
+    
+        
 }

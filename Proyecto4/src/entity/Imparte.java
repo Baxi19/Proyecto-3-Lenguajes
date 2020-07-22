@@ -5,30 +5,36 @@
  */
 package entity;
 
+import patterns.Decorador;
+
 /**
  *
  * @author Baxi
  */
-public class Imparte {
+public class Imparte extends Decorador{
     private int id;
     private Profesor profesor;
     private Curso curso;
 
     public Imparte() {
+        super();
     }
 
-    public Imparte(int id, Profesor profesor, Curso curso) {
-        this.id = id;
+    public Imparte(Profesor profesor, Curso curso) {
         this.profesor = profesor;
         this.curso = curso;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public Imparte( int id, Profesor profesor, Curso curso) {
         this.id = id;
+        this.profesor = profesor;
+        this.curso = curso;
+    }
+    
+    public Imparte( int id, Profesor profesor, Curso curso, String nombreClase) {
+        super(id, nombreClase);
+        this.profesor = profesor;
+        this.curso = curso;
     }
 
     public Profesor getProfesor() {
@@ -46,7 +52,32 @@ public class Imparte {
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
-    
+
+  
+    public int getId() {
+        return id;
+    }
+
+   
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getNombreClase() {
+        return nombreClase;
+    }
+
+    @Override
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
+    }
+
+    @Override
+    public String toString() {
+        return "Imparte{" + "id=" + id + ", profesor=" + profesor + ", curso=" + curso + '}';
+    }
+
     
     
 }

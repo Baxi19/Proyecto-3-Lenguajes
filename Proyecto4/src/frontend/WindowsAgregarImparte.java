@@ -201,8 +201,7 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
     
     protected void updateTable(){
         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setCellSelectionEnabled(true);
-        
+        jTable1.setAutoCreateRowSorter(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;

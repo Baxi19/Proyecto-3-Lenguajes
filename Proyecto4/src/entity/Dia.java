@@ -5,19 +5,39 @@
  */
 package entity;
 
+import patterns.Decorador;
+
 /**
  *
  * @author Baxi
  */
-public class Dia {
+public class Dia extends Decorador{
     private int id;
     private String dia;
 
     public Dia() {
+        super();
     }
 
+    public Dia(String dia) {
+        this.dia = dia;
+    }
+    
     public Dia(int id, String dia) {
         this.id = id;
+        this.dia = dia;
+    }
+    
+    public Dia(int id, String dia,  String nombreClase) {
+        super(id, nombreClase);
+        this.dia = dia;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
         this.dia = dia;
     }
 
@@ -29,12 +49,21 @@ public class Dia {
         this.id = id;
     }
 
-    public String getDia() {
-        return dia;
+    @Override
+    public String getNombreClase() {
+        return nombreClase;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    @Override
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
     }
+
+    @Override
+    public String toString() {
+        return "Dia{" + "id=" + id + ", dia=" + dia + '}';
+    }
+
+    
     
 }

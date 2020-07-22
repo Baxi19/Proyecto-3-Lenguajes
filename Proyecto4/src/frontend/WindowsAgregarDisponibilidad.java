@@ -38,22 +38,25 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButtonClose1 = new javax.swing.JButton();
         jLabelTitle = new javax.swing.JLabel();
-        jLabelMensaje = new javax.swing.JLabel();
+        jButtonClose1 = new javax.swing.JButton();
+        jLabelMensaje1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabelSiguiente = new javax.swing.JLabel();
         jButtonAgregarProfesor = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
-        jButton2.setText("jButton2");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setSize(new java.awt.Dimension(467, 3));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTitle.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setText("Registrar profesor - dia");
+        getContentPane().add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 320, -1));
 
         jButtonClose1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
         jButtonClose1.setBorder(null);
@@ -74,22 +77,13 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
                 jButtonClose1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonClose1);
-        jButtonClose1.setBounds(370, 10, 70, 60);
+        getContentPane().add(jButtonClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 70, 60));
 
-        jLabelTitle.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitle.setText("Registrar profesor - dia");
-        getContentPane().add(jLabelTitle);
-        jLabelTitle.setBounds(20, 10, 320, 28);
-
-        jLabelMensaje.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelMensaje.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabelMensaje.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelMensaje.setText("Seleccione el Profesor y digite siguiente");
-        getContentPane().add(jLabelMensaje);
-        jLabelMensaje.setBounds(20, 50, 270, 30);
+        jLabelMensaje1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMensaje1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabelMensaje1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMensaje1.setText("Seleccione el Profesor y seleccione siguiente");
+        getContentPane().add(jLabelMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 320, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,15 +98,13 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 320, 130);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 130));
 
         jLabelSiguiente.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSiguiente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabelSiguiente.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSiguiente.setText("Siguiente");
-        getContentPane().add(jLabelSiguiente);
-        jLabelSiguiente.setBounds(360, 150, 70, 30);
+        getContentPane().add(jLabelSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 70, 30));
 
         jButtonAgregarProfesor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar.png"))); // NOI18N
         jButtonAgregarProfesor.setBorder(null);
@@ -133,15 +125,13 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
                 jButtonAgregarProfesorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAgregarProfesor);
-        jButtonAgregarProfesor.setBounds(350, 180, 80, 70);
+        getContentPane().add(jButtonAgregarProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 80, 70));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hydrogen.jpg"))); // NOI18N
         bg.setMaximumSize(new java.awt.Dimension(450, 250));
         bg.setMinimumSize(new java.awt.Dimension(450, 250));
         bg.setPreferredSize(new java.awt.Dimension(450, 250));
-        getContentPane().add(bg);
-        bg.setBounds(0, 0, 450, 250);
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,7 +145,7 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
             if(!jTable1.getSelectionModel().isSelectionEmpty()){
                 profesorId =(int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
                 datosDia();
-                jLabelMensaje.setText("Seleccione el Dia y digite siguiente");
+                jLabelMensaje1.setText("Seleccione el Dia y digite siguiente");
                 formato = 2;
             }else{
                 JOptionPane.showMessageDialog(null, "Por favor seleccione el profesor para continuar..");
@@ -202,15 +192,13 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
     
     protected void updateTable(){
         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setCellSelectionEnabled(true);
-        
+        jTable1.setAutoCreateRowSorter(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregarProfesor;
     private javax.swing.JButton jButtonClose1;
-    private javax.swing.JLabel jLabelMensaje;
+    private javax.swing.JLabel jLabelMensaje1;
     private javax.swing.JLabel jLabelSiguiente;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;

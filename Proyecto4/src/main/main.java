@@ -5,7 +5,11 @@
  */
 package main;
 
+import patterns.Singleton;
+import database.SQLite;
+import entity.*;
 import frontend.WindowsMenu;
+import java.util.ArrayList;
 
 
 

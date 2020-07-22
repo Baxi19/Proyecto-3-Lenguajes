@@ -5,11 +5,13 @@
  */
 package entity;
 
+import patterns.Decorador;
+
 /**
  *
  * @author Baxi
  */
-public class Horario {
+public class Horario extends Decorador {
     private int id;
     private Leccion leccion;
     private Curso curso;
@@ -17,6 +19,15 @@ public class Horario {
     private Aula aula;
 
     public Horario() {
+        super();
+    }
+    
+    /*Constructores clase hija*/
+    public Horario(Leccion leccion, Curso curso, Profesor profesor, Aula aula) {
+        this.leccion = leccion;
+        this.curso = curso;
+        this.profesor = profesor;
+        this.aula = aula;
     }
 
     public Horario(int id, Leccion leccion, Curso curso, Profesor profesor, Aula aula) {
@@ -26,13 +37,14 @@ public class Horario {
         this.profesor = profesor;
         this.aula = aula;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    /*Constructor clase padre*/
+    public Horario(int id, Leccion leccion, Curso curso, Profesor profesor, Aula aula,  String nombreClase) {
+        super(id, nombreClase);
+        this.leccion = leccion;
+        this.curso = curso;
+        this.profesor = profesor;
+        this.aula = aula;
     }
 
     public Leccion getLeccion() {
@@ -66,6 +78,29 @@ public class Horario {
     public void setAula(Aula aula) {
         this.aula = aula;
     }
+
     
-    
+    public int getId() {
+        return id;
+    }
+
+  
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String getNombreClase() {
+        return nombreClase;
+    }
+
+    @Override
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase = nombreClase;
+    }
+
+    @Override
+    public String toString() {
+        return "Horario{" + "leccion=" + leccion + ", curso=" + curso + ", profesor=" + profesor + ", aula=" + aula + '}';
+    }
 }
