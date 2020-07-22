@@ -6,6 +6,7 @@
 package frontend;
 
 
+import backend.SingletonProlog;
 import patterns.Singleton;
 import database.SQLite;
 import java.awt.Color;
@@ -54,6 +55,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButtonHorario = new javax.swing.JButton();
         jPanelHorarios = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableCursosHorario = new javax.swing.JTable();
         jLabel26 = new javax.swing.JLabel();
@@ -340,6 +342,15 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel19.setToolTipText("");
         jPanelHorarios.add(jLabel19);
         jLabel19.setBounds(40, 100, 330, 28);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanelHorarios.add(jButton1);
+        jButton1.setBounds(30, 460, 73, 23);
 
         jTableCursosHorario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1390,6 +1401,10 @@ public class WindowsMenu extends javax.swing.JFrame {
     private void jButtonClose6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose6ActionPerformed
         cerrarPaneles();
     }//GEN-LAST:event_jButtonClose6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println(SingletonProlog.getInstance().consulta("horario(Leccion,Dias, Horario,Bloque,Curso,Creditos,Semestre, Cantidad_dias, Aula,Capacidad, Profesor)."));
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     protected void cerrarPaneles() {
         jPanelProfesor.setVisible(false);
@@ -1549,6 +1564,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente3;
     private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JLabel CD_Cliente5;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;

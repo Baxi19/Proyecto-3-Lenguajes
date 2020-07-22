@@ -12,24 +12,25 @@ import java.util.ArrayList;
  * @author Baxi
  */
 public class Tabla {
-    protected String sql;
+    protected String consulta;
     protected ArrayList<String> atributos;
     protected ArrayList<String> datos;
 
-    public Tabla(String sql) {
-        this.sql = sql;
+    public Tabla(String consulta) {
+        this.consulta = consulta;
         this.atributos = new ArrayList<>();
         this.datos = new ArrayList<>();
     }
 
-    public String getSql() {
-        return sql;
+    public String getConsulta() {
+        return consulta;
     }
 
-    public void setSql(String sql) {
-        this.sql = sql;
+    public void setConsulta(String consulta) {
+        this.consulta = consulta;
     }
 
+    
     public ArrayList<String> getAtributos() {
         return atributos;
     }
@@ -48,7 +49,7 @@ public class Tabla {
 
     @Override
     public String toString() {
-        return "Tabla{" + "sql=" + sql + ", atributos=" + atributos + ", datos=" + datos + '}';
+        return "Tabla{" + "consulta=" + consulta + ", atributos=" + atributos + ", datos=" + datos + '}';
     }
     
     

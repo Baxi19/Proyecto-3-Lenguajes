@@ -48,7 +48,7 @@ public class SingletonProlog {
          JIPTerm queryTerm = interpreteProlog.getTermParser().parseTerm(query);
          interpreteProlog.asserta(queryTerm);
     }
-   
+    /*------------------------------------------------------------------------*/
     // Metodo que agrega los hechos de la base de datos en memoria del intérprete de prolog
     public void assertDatosProlog(){
         assertCurso(Singleton.getInstance().listaCursos);
@@ -61,7 +61,8 @@ public class SingletonProlog {
         assertHorario(Singleton.getInstance().listaHorarios);
         
     }
-    
+    /*------------------------------------------------------------------------*/
+    //metodo para obtener los datos que retorna prolog
     public ArrayList<Tabla> consulta(String query){
         JIPTerm queryTerm = null;
         // intentamos consultar el archivo
@@ -108,169 +109,177 @@ public class SingletonProlog {
             return null;
         }
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertCurso(ArrayList<Curso> lista) {
         lista.stream().map((curso) -> 
-            "curso(" + 
+            "curso('" + 
                     curso.getNombre() +
-                ").").forEachOrdered((hecho) -> {
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((curso) -> 
-            "asignatura(" + 
-                    curso.getNombre() + ", '"+
+            "asignatura('" + 
+                    curso.getNombre() + "', '"+
                     curso.getAsignatura() +
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((curso) -> 
-            "creditos(" + 
-                    curso.getNombre() + ", "+
+            "creditos('" + 
+                    curso.getNombre() + "', "+
                     curso.getCreditos()+
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((curso) -> 
-            "semestre(" + 
-                    curso.getNombre() + ", "+
+            "semestre('" + 
+                    curso.getNombre() + "', "+
                     curso.getSemestre()+
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((curso) -> 
-            "cantidad_dias(" + 
-                    curso.getNombre() + ", "+
+            "cantidad_dias('" + 
+                    curso.getNombre() + "', "+
                     curso.getCantidadDias()+
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertAula(ArrayList<Aula> lista) {
         lista.stream().map((aula) -> 
-            "aula(" + 
+            "aula('" + 
                     aula.getNombre() +
-                ").").forEachOrdered((hecho) -> {
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((aula) -> 
-            "capacidad(" + 
-                    aula.getNombre() + ", "+
+            "capacidad('" + 
+                    aula.getNombre() + "', "+
                     aula.getCapacidad() +
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((aula) -> 
-            "tipo(" + 
-                    aula.getNombre() + ", '"+
+            "tipo('" + 
+                    aula.getNombre() + "', '"+
                     aula.getTipo() +
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertProfesor(ArrayList<Profesor> lista) {
         lista.stream().map((profesor) -> 
-            "profesor(" + 
+            "profesor('" + 
                     profesor.getNombre() +
-                ").").forEachOrdered((hecho) -> {
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((profesor) -> 
-            "apellidos(" + 
-                    profesor.getNombre() + ", '"+
+            "apellidos('" + 
+                    profesor.getNombre() + "', '"+
                     profesor.getApellidos() +
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((profesor) -> 
-            "cedula(" + 
-                    profesor.getNombre() + ", '"+
+            "cedula('" + 
+                    profesor.getNombre() + "', '"+
                     profesor.getCedula() +
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertDia(ArrayList<Dia> lista) {
         lista.stream().map((dia) -> 
-            "dia(" + 
+            "dia('" + 
                     dia.getDia()+
-                ").").forEachOrdered((hecho) -> {
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((dia) -> 
-            "dia_id(" + 
-                    dia.getDia() + ", "+
+            "dia_id('" + 
+                    dia.getDia() + "', "+
                     dia.getId() +
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertLeccion(ArrayList<Leccion> lista) {
         lista.stream().map((leccion) -> 
-            "leccion(" + 
+            "leccion('" + 
                     leccion.getLeccion()+
-                ").").forEachOrdered((hecho) -> {
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((leccion) -> 
-            "dia_leccion(" + 
-                    leccion.getLeccion()+ ", "+
+            "dia_leccion('" + 
+                    leccion.getLeccion()+ "', "+
                     leccion.getDia().getId()+
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((leccion) -> 
-            "hora_inicio(" + 
-                    leccion.getLeccion()+ ", '"+
+            "hora_inicio('" + 
+                    leccion.getLeccion()+ "', '"+
                     leccion.getHoraInicio()+
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         
         lista.stream().map((leccion) -> 
-            "hora_salida(" + 
-                    leccion.getLeccion()+ ", '"+
+            "hora_salida('" + 
+                    leccion.getLeccion()+ "', '"+
                     leccion.getHoraSalida()+
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertDisponibilidad(ArrayList<Disponibilidad> lista) {
         lista.stream().map((disponibilidad) -> 
-            "disponibilidad(" + 
-                    disponibilidad.getProfesor().getNombre()+ ", "+
+            "disponibilidad('" + 
+                    disponibilidad.getProfesor().getNombre()+ "', "+
                     disponibilidad.getDia().getId() +
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertImparte(ArrayList<Imparte> lista) {
         lista.stream().map((imparte) -> 
-            "imparte(" + 
-                    imparte.getProfesor().getNombre()+ ", "+
+            "imparte('" + 
+                    imparte.getProfesor().getNombre()+ "', "+
                     imparte.getCurso().getId() +
                 ").").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
             
         });
     }
-
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
     private void assertHorario(ArrayList<Horario> lista) {
         
     }

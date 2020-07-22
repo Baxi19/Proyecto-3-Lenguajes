@@ -5,7 +5,7 @@
 
 %:- use_module(library(clpfd)).
 
-:- module(prolog_vm,[ vm_list/1]).
+:- module(prolog_vm).
 :- use_module(library(jpl)).
 
 

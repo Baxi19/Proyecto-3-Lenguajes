@@ -5,8 +5,8 @@
 
 %:- use_module(library(clpfd)).
 
-:- module(prolog_vm).
-:- use_module(library(jpl)).
+%:- module(prolog_vm).
+%:- use_module(library(jpl)).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
