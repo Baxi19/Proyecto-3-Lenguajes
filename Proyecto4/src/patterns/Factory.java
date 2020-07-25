@@ -9,6 +9,6 @@ package patterns;
  *
  * @author Baxi
  */
-public interface Clase {
+public interface Factory {
     String getClase();
 }

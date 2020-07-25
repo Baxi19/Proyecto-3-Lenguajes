@@ -6,36 +6,34 @@
 package entity;
 
 import patterns.Decorador;
-import patterns.Clase;
+import patterns.Factory;
 
 /**
  *
  * @author Baxi
  */
-public class Imparte extends Decorador implements Clase{
+public class Imparte  implements Factory, Decorador{
     private int id;
     private Profesor profesor;
     private Curso curso;
 
     public Imparte() {
-        super();
+       
     }
 
-    public Imparte(Profesor profesor, Curso curso) {
-        this.profesor = profesor;
-        this.curso = curso;
-    }
-
-    public Imparte( int id, Profesor profesor, Curso curso) {
+    public Imparte(int id, Profesor profesor, Curso curso) {
         this.id = id;
         this.profesor = profesor;
         this.curso = curso;
     }
     
-    public Imparte( int id, Profesor profesor, Curso curso, String nombreClase) {
-        super(id, nombreClase);
-        this.profesor = profesor;
-        this.curso = curso;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Profesor getProfesor() {
@@ -54,34 +52,20 @@ public class Imparte extends Decorador implements Clase{
         this.curso = curso;
     }
 
-  
-    public int getId() {
-        return id;
-    }
-
-   
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNombreClase() {
-        return nombreClase;
-    }
-
-    @Override
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
-    }
-
     @Override
     public String toString() {
         return "Imparte{" + "id=" + id + ", profesor=" + profesor + ", curso=" + curso + '}';
     }
-
+    
+   
     @Override
     public String getClase() {
         return "Imparte";
+    }
+
+    @Override
+    public String getHecho() {
+        return  "";
     }
 
     

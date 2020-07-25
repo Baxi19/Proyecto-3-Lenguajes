@@ -6,13 +6,13 @@
 package entity;
 
 import patterns.Decorador;
-import patterns.Clase;
+import patterns.Factory;
 
 /**
  *
  * @author Baxi
  */
-public class Curso extends Decorador implements Clase{
+public class Curso implements Decorador, Factory{
     private int id;
     private String nombre;
     private String asignatura;
@@ -21,17 +21,9 @@ public class Curso extends Decorador implements Clase{
     private int cantidadDias;
 
     public Curso() {
-        super();
+        
     }
 
-    public Curso(String nombre, String asignatura, int creditos, int semestre, int cantidadDias) {
-        this.nombre = nombre;
-        this.asignatura = asignatura;
-        this.creditos = creditos;
-        this.semestre = semestre;
-        this.cantidadDias = cantidadDias;
-    }
-    
     public Curso(int id, String nombre, String asignatura, int creditos, int semestre, int cantidadDias) {
         this.id = id;
         this.nombre = nombre;
@@ -40,14 +32,13 @@ public class Curso extends Decorador implements Clase{
         this.semestre = semestre;
         this.cantidadDias = cantidadDias;
     }
-    
-    public Curso(int id, String nombre, String asignatura, int creditos, int semestre, int cantidadDias,  String nombreClase) {
-        super(id, nombreClase);
-        this.nombre = nombre;
-        this.asignatura = asignatura;
-        this.creditos = creditos;
-        this.semestre = semestre;
-        this.cantidadDias = cantidadDias;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -90,34 +81,27 @@ public class Curso extends Decorador implements Clase{
         this.cantidadDias = cantidadDias;
     }
 
-    
-    public int getId() {
-        return id;
-    }
-
-    
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNombreClase() {
-        return nombreClase;
-    }
-
-    @Override
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
-    }
-
     @Override
     public String toString() {
         return "Curso{" + "id=" + id + ", nombre=" + nombre + ", asignatura=" + asignatura + ", creditos=" + creditos + ", semestre=" + semestre + ", cantidadDias=" + cantidadDias + '}';
     }
+
+    
     
     @Override
     public String getClase() {
         return "Curso";
+    }
+
+    @Override
+    public String getHecho() {
+        return  "curso('" + 
+                    getNombre() + "', '"+
+                    getAsignatura() + "', " +
+                    getCreditos() +  ", " +  
+                    getSemestre() +  ", " +  
+                    getCantidadDias()+         
+                ").";
     }
 
     

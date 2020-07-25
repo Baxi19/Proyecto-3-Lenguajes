@@ -9,6 +9,7 @@ import patterns.Singleton;
 import database.SQLite;
 import entity.*;
 import frontend.WindowsMenu;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -23,7 +24,9 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        
+           
         WindowsMenu w1 = new WindowsMenu();
         w1.setVisible(true);
     }

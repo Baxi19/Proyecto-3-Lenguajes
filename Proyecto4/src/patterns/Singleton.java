@@ -31,7 +31,7 @@ public class Singleton {
     public ArrayList<Imparte> listaImparte = new ArrayList<>();
     public ArrayList<Leccion> listaLeccion = new ArrayList<>();
     public ArrayList<Profesor> listaProfesores = new ArrayList<>();
-    
+    public ArrayList<String> listaHechos = new ArrayList<>();
     /*------------------------------------------------------------------------*/
     //Patron de diseno: Singleton
     public static Singleton getInstance() {

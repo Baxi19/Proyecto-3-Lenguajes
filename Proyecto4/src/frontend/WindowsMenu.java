@@ -10,6 +10,7 @@ import backend.SingletonProlog;
 import patterns.Singleton;
 import database.SQLite;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
@@ -27,7 +28,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cerrarPaneles();
         updateTable();
-        cargarDatosListas();
+        //cargarDatosListas();
     }
 
     /**
@@ -55,6 +56,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButtonHorario = new javax.swing.JButton();
         jPanelHorarios = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableCursosHorario = new javax.swing.JTable();
@@ -66,7 +68,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         CD_Cliente5 = new javax.swing.JLabel();
         jButtonClose6 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -343,6 +344,15 @@ public class WindowsMenu extends javax.swing.JFrame {
         jPanelHorarios.add(jLabel19);
         jLabel19.setBounds(40, 100, 330, 28);
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanelHorarios.add(jButton2);
+        jButton2.setBounds(430, 450, 73, 23);
+
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -463,10 +473,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel20.setText("jLabel2");
         jPanelHorarios.add(jLabel20);
         jLabel20.setBounds(0, 0, 535, 600);
-
-        jCheckBox1.setText("jCheckBox1");
-        jPanelHorarios.add(jCheckBox1);
-        jCheckBox1.setBounds(430, 450, 81, 23);
 
         getContentPane().add(jPanelHorarios);
         jPanelHorarios.setBounds(265, 0, 535, 600);
@@ -1403,8 +1409,23 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClose6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println(SingletonProlog.getInstance().consulta("horario(Leccion,Dias, Horario,Bloque,Curso,Creditos,Semestre, Cantidad_dias, Aula,Capacidad, Profesor)."));
+        cargarDatosListas();
+        SingletonProlog.getInstance().crearArchivo("backend",Singleton.getInstance().listaHechos);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        cargarDatosListas();
+        SingletonProlog.getInstance().assertDatosProlog();
+        System.out.println(SingletonProlog.getInstance().consulta("leccion(X,Y,Z,A)."));    
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private Boolean imprime(ArrayList lista){
+        System.out.println("");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).toString());
+        }
+        return true;
+    }
     
     protected void cerrarPaneles() {
         jPanelProfesor.setVisible(false);
@@ -1565,6 +1586,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JLabel CD_Cliente5;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;
@@ -1590,7 +1612,6 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonImparte;
     private javax.swing.JButton jButtonOff;
     private javax.swing.JButton jButtonProfesores;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1650,22 +1671,18 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
 
-    private Boolean cargarDatosListas() {
-        try {
-            SQLite.getInstance().obtenerAula();
-            SQLite.getInstance().obtenerProfesor();
-            SQLite.getInstance().obtenerCurso();
-            SQLite.getInstance().obtenerDias();
-            SQLite.getInstance().obtenerLeccion();
-            SQLite.getInstance().obtenerDisponibilidad();
-            SQLite.getInstance().obtenerImparte();
-            SQLite.getInstance().obtenerHorario();
-            return true;
-        } catch (Exception e) {
-            System.out.println("Error = "  + e);
-            return false;
-        }
+    private String cargarDatosListas() {
         
+        SQLite.getInstance().obtenerAula();
+        SQLite.getInstance().obtenerProfesor();
+        SQLite.getInstance().obtenerCurso();
+        SQLite.getInstance().obtenerDias();
+        SQLite.getInstance().obtenerLeccion();
+        SQLite.getInstance().obtenerDisponibilidad();
+        SQLite.getInstance().obtenerImparte();
+
+        return "";
+      
     }
 
  

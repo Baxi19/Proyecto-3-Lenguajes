@@ -19,7 +19,7 @@ import entity.Profesor;
  * @author Baxi
  */
 public class ClaseFactory {
-    public static Clase getClase(String tipoClase){
+    public static Factory getClase(String tipoClase){
         if (tipoClase == null) {
             return null;
         }

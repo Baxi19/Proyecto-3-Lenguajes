@@ -235,13 +235,13 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaAulas.add(
-                        new Aula(resultadoConsulta.getInt("id"), 
+                Aula item = new Aula(resultadoConsulta.getInt("id"), 
                                 resultadoConsulta.getString("nombre"), 
                                 resultadoConsulta.getInt("capacidad"), 
                                 resultadoConsulta.getString("tipo")
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaAulas.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -262,15 +262,15 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaCursos.add(
-                        new Curso(resultadoConsulta.getInt("id"), 
+                Curso item = new Curso(resultadoConsulta.getInt("id"), 
                                 resultadoConsulta.getString("nombre"), 
                                 resultadoConsulta.getString("asignatura"), 
                                 resultadoConsulta.getInt("creditos"),
                                 resultadoConsulta.getInt("semestre"),
                                 resultadoConsulta.getInt("cantidad_dias")
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaCursos.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -291,11 +291,11 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaDias.add(
-                        new Dia(resultadoConsulta.getInt("id"), 
+                Dia item = new Dia(resultadoConsulta.getInt("id"), 
                                 resultadoConsulta.getString("dia")
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaDias.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -316,14 +316,14 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaLeccion.add(
-                        new Leccion(resultadoConsulta.getInt("id"), 
+                Leccion item = new Leccion(resultadoConsulta.getInt("id"), 
                                 resultadoConsulta.getString("leccion"), 
                                 Singleton.getInstance().buscarDia(resultadoConsulta.getInt("dia_id")), 
                                 resultadoConsulta.getString("hora_inicio"),
                                 resultadoConsulta.getString("hora_salida")
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaLeccion.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -344,13 +344,13 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaProfesores.add(
-                        new Profesor(resultadoConsulta.getInt("id"), 
+                Profesor item = new Profesor(resultadoConsulta.getInt("id"), 
                                 resultadoConsulta.getString("nombre"),  
                                 resultadoConsulta.getString("apellidos"),
                                 resultadoConsulta.getString("cedula")
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaProfesores.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -371,12 +371,12 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaImparte.add(
-                        new Imparte(resultadoConsulta.getInt("id"), 
+                Imparte item =new Imparte(resultadoConsulta.getInt("id"), 
                                 Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor_id")),
                                 Singleton.getInstance().buscarCurso(resultadoConsulta.getInt("curso_id"))
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaImparte.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -397,12 +397,12 @@ public class SQLite {
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
-                Singleton.getInstance().listaDisponibilidades.add(
-                        new Disponibilidad(resultadoConsulta.getInt("id"), 
+                Disponibilidad item = new Disponibilidad(resultadoConsulta.getInt("id"), 
                                 Singleton.getInstance().buscarDia(resultadoConsulta.getInt("dia_id")),
                                 Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor_id"))
-                        )
-                );  
+                        );
+                Singleton.getInstance().listaHechos.add(item.getHecho());
+                Singleton.getInstance().listaDisponibilidades.add(item);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -430,17 +430,7 @@ public class SQLite {
                         .withProfesor(Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor_id")))
                         .withAula(Singleton.getInstance().buscarAula(resultadoConsulta.getInt("aula_id")))
                         .build();
-                Singleton.getInstance().listaHorarios.add(
-                        horario
-                        /*
-                        new Horario(resultadoConsulta.getInt("id"), 
-                                Singleton.getInstance().buscarLeccion(resultadoConsulta.getInt("leccion_id")),
-                                Singleton.getInstance().buscarCurso(resultadoConsulta.getInt("curso_id")),
-                                Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor_id")),
-                                Singleton.getInstance().buscarAula(resultadoConsulta.getInt("aula_id"))
-                        )
-                        */
-                );  
+                Singleton.getInstance().listaHorarios.add(horario);  
             }
             resultadoConsulta.close();
             statement.close();
@@ -451,7 +441,5 @@ public class SQLite {
             return false;
         }
     } 
-    
-    
-    
+
 }

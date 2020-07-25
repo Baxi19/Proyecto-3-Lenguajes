@@ -6,44 +6,36 @@
 package entity;
 
 import patterns.Decorador;
-import patterns.Clase;
+import patterns.Factory;
 
 /**
  *
  * @author Baxi
  */
-public class Aula extends Decorador implements Clase{
+public class Aula implements Decorador, Factory{
     private int id;
     private String nombre;
     private int capacidad;
     private String tipo;
 
     public Aula() {
-        super();
     }
-    
+
     public Aula(int id, String nombre, int capacidad, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.tipo = tipo;
     }
-    
-    public Aula(String nombre, int capacidad, String tipo) {
-        this.nombre = nombre;
-        this.capacidad = capacidad;
-        this.tipo = tipo;
+
+    public int getId() {
+        return id;
     }
-    
-    
-    
-    public Aula(int id, String nombre, int capacidad, String tipo, String nombreClase) {
-        super(id, nombreClase);
-        this.nombre = nombre;
-        this.capacidad = capacidad;
-        this.tipo = tipo;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -68,27 +60,6 @@ public class Aula extends Decorador implements Clase{
         this.tipo = tipo;
     }
 
-    
-    public int getId() {
-        return id;
-    }
-
-    
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNombreClase() {
-        return nombreClase;
-    }
-
-    
-    @Override
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
-    }
-
     @Override
     public String toString() {
         return "Aula{" + "id=" + id + ", nombre=" + nombre + ", capacidad=" + capacidad + ", tipo=" + tipo + '}';
@@ -97,6 +68,17 @@ public class Aula extends Decorador implements Clase{
     @Override
     public String getClase() {
         return "Aula";
+    }
+
+    @Override
+    public String getHecho() {
+        return  "aula('" + 
+                    getNombre() + "', "+
+                    getCapacidad() + ", '"+
+                    getTipo() +
+                    "').";
+
+         
     }
 
     

@@ -17,7 +17,7 @@ public class FactoryPatternTest {
 
     // Probando el Factory
     public void nombreClase(String tipoClase) {
-        Clase clase = ClaseFactory.getClase(tipoClase);
+        Factory clase = ClaseFactory.getClase(tipoClase);
         clase.getClase();
 
     }

@@ -6,13 +6,13 @@
 package entity;
 
 import patterns.Decorador;
-import patterns.Clase;
+import patterns.Factory;
 
 /**
  *
  * @author Baxi
  */
-public class Leccion extends Decorador implements Clase{
+public class Leccion implements Decorador, Factory{
     private int id;
     private String leccion;
     private Dia dia;
@@ -20,30 +20,22 @@ public class Leccion extends Decorador implements Clase{
     private String horaSalida;
 
     public Leccion() {
-        super();
     }
 
-    public Leccion(String leccion, Dia dia, String horaInicio, String horaSalida) {
-        this.leccion = leccion;
-        this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaSalida = horaSalida;
-    }
-
-    public Leccion( int id,String leccion, Dia dia, String horaInicio, String horaSalida) {
+    public Leccion(int id, String leccion, Dia dia, String horaInicio, String horaSalida) {
         this.id = id;
         this.leccion = leccion;
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaSalida = horaSalida;
     }
-    
-    public Leccion( int id,String leccion, Dia dia, String horaInicio, String horaSalida, String nombreClase) {
-        super(id, nombreClase);
-        this.leccion = leccion;
-        this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaSalida = horaSalida;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLeccion() {
@@ -78,26 +70,6 @@ public class Leccion extends Decorador implements Clase{
         this.horaSalida = horaSalida;
     }
 
-    
-    public int getId() {
-        return id;
-    }
-
-    
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNombreClase() {
-        return nombreClase;
-    }
-
-    @Override
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
-    }
-
     @Override
     public String toString() {
         return "Leccion{" + "id=" + id + ", leccion=" + leccion + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaSalida=" + horaSalida + '}';
@@ -106,6 +78,16 @@ public class Leccion extends Decorador implements Clase{
     @Override
     public String getClase() {
         return "Leccion";
+    }
+
+    @Override
+    public String getHecho() {
+        return  "leccion('" + 
+                    getLeccion()+ "', '"+
+                    getDia().getDia()+ "', '"+
+                    getHoraInicio()+ "', '"+
+                    getHoraSalida()+
+                "').";
     }
 
     

@@ -1,412 +1,233 @@
-% Proyecto #3 de Lenguajes de Programacion.
-% Randald Villegas Brenes
-% 29/06/2020
 
-
-%:- use_module(library(clpfd)).
-
-%:- module(prolog_vm).
-%:- use_module(library(jpl)).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% cursos
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% findall(C->A->V->S->D,(curso(C),asignatura(C,A),creditos(C,V),semestre(C,S),cantidad_dias(C,D)),Res).
-
-curso(fundamentos).
-curso(introduccion).
-curso(taller).
-curso(estructuras).
-curso(poo).
-curso(arquitectura).
-curso(analisis).
-curso(bases1).
-curso(bases2).
-curso(lenguajes).
-curso(requerimientos).
-curso(ap).
-curso(compiladores).
-curso(diseno).
-curso(electiva1).
-curso(io).
-curso(operativos).
-curso(calidad).
-curso(compuSociedad).
-curso(electiva2).
-curso(ia).
-curso(redes).
-curso(proyectoS).
-curso(practica).
-
-asignatura(fundamentos,  "normal").
-asignatura(introduccion, "normal").
-asignatura(taller,       "laboratorio").
-asignatura(estructuras,  "laboratorio").
-asignatura(poo,          "laboratorio" ).
-asignatura(arquitectura, "normal").
-asignatura(analisis,     "laboratorio" ).
-asignatura(bases1,       "laboratorio" ).
-asignatura(bases2,       "laboratorio" ).
-asignatura(lenguajes,    "laboratorio" ).
-asignatura(requerimientos,"normal").
-asignatura(ap,           "normal").
-asignatura(compiladores, "laboratorio" ).
-asignatura(diseno,       "laboratorio" ).
-asignatura(electiva1,    "laboratorio" ).
-asignatura(io,           "normal").
-asignatura(operativos,   "laboratorio" ).
-asignatura(calidad,      "laboratorio" ).
-asignatura(compuSociedad,"normal").
-asignatura(electiva2,    "laboratorio" ).
-asignatura(ia,           "laboratorio" ).
-asignatura(redes,        "laboratorio" ).
-asignatura(proyectoS,    "laboratorio" ).
-asignatura(practica,     "laboratorio").
-
-creditos(fundamentos,3).
-creditos(introduccion, 3).
-creditos(taller, 3 ).
-creditos(estructuras, 4 ).
-creditos(poo,3 ).
-creditos(arquitectura, 4).
-creditos(analisis, 4 ).
-creditos(bases1,4 ).
-creditos(bases2,3 ).
-creditos(lenguajes,4 ).
-creditos(requerimientos, 4).
-creditos(ap, 4).
-creditos(compiladores, 4 ).
-creditos(diseno, 4 ).
-creditos(electiva1, 3 ).
-creditos(io, 4).
-creditos(operativos,4 ).
-creditos(calidad, 3 ).
-creditos(compuSociedad, 2).
-creditos(electiva2, 4 ).
-creditos(ia, 4 ).
-creditos(redes, 4 ).
-creditos(proyectoS, 3 ).
-creditos(practica,12).
-
-semestre(fundamentos,1).
-semestre(introduccion, 1).
-semestre(taller,1 ).
-semestre(estructuras, 2).
-semestre(poo,2).
-semestre(arquitectura, 2).
-semestre(analisis, 3).
-semestre(bases1,3).
-semestre(bases2,4 ).
-semestre(lenguajes,4 ).
-semestre(requerimientos, 4).
-semestre(ap, 5).
-semestre(compiladores, 5 ).
-semestre(diseno, 5 ).
-semestre(electiva1, 6 ).
-semestre(io, 6).
-semestre(operativos,6).
-semestre(calidad, 6).
-semestre(compuSociedad, 6).
-semestre(electiva2, 7).
-semestre(ia, 7).
-semestre(redes, 7).
-semestre(proyectoS, 7).
-semestre(practica,8).
-
-cantidad_dias(fundamentos,2).
-cantidad_dias(introduccion, 2).
-cantidad_dias(taller,1).
-cantidad_dias(estructuras, 1).
-cantidad_dias(poo,2).
-cantidad_dias(arquitectura, 1).
-cantidad_dias(analisis, 2).
-cantidad_dias(bases1,1).
-cantidad_dias(bases2,2).
-cantidad_dias(lenguajes,1).
-cantidad_dias(requerimientos, 2).
-cantidad_dias(ap, 1).
-cantidad_dias(compiladores, 2).
-cantidad_dias(diseno, 1).
-cantidad_dias(electiva1, 2).
-cantidad_dias(io, 1).
-cantidad_dias(operativos,2).
-cantidad_dias(calidad, 1).
-cantidad_dias(compuSociedad, 2).
-cantidad_dias(electiva2, 1).
-cantidad_dias(ia, 2).
-cantidad_dias(redes, 1).
-cantidad_dias(proyectoS, 2).
-cantidad_dias(practica,2).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%profesores
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% findall(P->A->C->D->I,(profesor(P),apellidos(P,A),cedula(P,C),disponibilidad(P,D),imparte(P,I)),Res).
-
-
-profesor(alejandro).
-profesor(rocio).
-profesor(abel).
-profesor(diego).
-profesor(efren).
-profesor(lorena).
-profesor(jorge).
-profesor(marlen).
-profesor(leo).
-profesor(oscar).
-profesor(vera).
-profesor(rogelio).
-
-apellidos(alejandro, "Alfaro Quesada").
-apellidos(rocio, "Quiros Oviedo").
-apellidos(abel, "Mendez Porras").
-apellidos(diego, "Rojas Vega").
-apellidos(efren, "Jimenez Delgado").
-apellidos(lorena, "Valerio Solis").
-apellidos(jorge, "Alfaro Velasco").
-apellidos(marlen, "Trevi�o Villalobos").
-apellidos(leo, "Viquez Acu�a").
-apellidos(oscar, "Viquez Acu�a").
-apellidos(vera, "Gamboa Guzman").
-apellidos(rogelio, "Gonzalez Quiros").
-
-cedula(alejandro, "1-846-952").
-cedula(rocio, "1-951-912").
-cedula(abel, "7-511-626").
-cedula(diego, "6-625-518").
-cedula(efren, "3-818-292").
-cedula(lorena, "6-514-651").
-cedula(jorge, "2-651-611").
-cedula(marlen, "6-515-321").
-cedula(leo, "3-216-566").
-cedula(oscar, "5-616-612").
-cedula(vera, "4-646-654").
-cedula(rogelio, "6-545-613").
-
-
-disponibilidad(alejandro, [l, k]).
-disponibilidad(rocio,  [m]).
-disponibilidad(abel,   [l, v]).
-disponibilidad(diego,  [j, v]).
-disponibilidad(efren,  [l, k, m, j]).
-disponibilidad(lorena, [l, k, m, j]).
-disponibilidad(jorge,  [l, k, m,j]).
-disponibilidad(marlen, [l,k,m, j]).
-disponibilidad(leo,    [l,k, m, v]).
-disponibilidad(oscar,  [l, k, m, j]).
-disponibilidad(vera,   [l,k,m, j]).
-disponibilidad(rogelio,[l, k, m,v]).
-
-imparte(alejandro, diseno).
-imparte(alejandro, requerimientos).
-imparte(rocio,  estructuras).
-imparte(rocio,  fundamentos).
-imparte(abel,   bases1).
-imparte(abel,   proyectoS).
-imparte(abel,   io).
-imparte(abel,   ia).
-imparte(diego,  fundamentos).
-imparte(diego,  proyectoS).
-imparte(diego,  estructuras).
-imparte(efren,  bases1).
-imparte(efren,  bases2).
-imparte(efren,  analisis).
-imparte(efren,  electiva2).
-imparte(lorena, analisis).
-imparte(lorena, bases1).
-imparte(lorena, poo).
-imparte(jorge,  operativos).
-imparte(jorge,  arquitectura).
-imparte(marlen, bases1).
-imparte(marlen, bases2).
-imparte(marlen, calidad).
-imparte(marlen, poo).
-imparte(leo,    bases2).
-imparte(leo,    ap).
-imparte(leo,    electiva1).
-imparte(oscar,  compiladores).
-imparte(oscar,  lenguajes).
-imparte(oscar,  practica).
-imparte(vera,   introduccion).
-imparte(vera,   taller).
-imparte(vera,   compuSociedad).
-imparte(rogelio,ia).
-imparte(rogelio,io).
-imparte(rogelio,redes).
-imparte(rogelio,electiva1).
-imparte(rogelio,electiva2).
-imparte(rogelio,practica).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%aulas
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%findall(A->C->T, (aula(A),capacidad(A,C), tipo(A,T)),Res).
-aula(lab-01).
-aula(lab-02).
-aula(auc-01).
-aula(mvl-01).
-aula(e-10).
-aula(e-11).
-aula(e-12).
-aula(e-13).
-aula(e-14).
-aula(e-15).
-
-capacidad(lab-01,20).
-capacidad(lab-02,20).
-capacidad(auc-01,24).
-capacidad(mvl-01,20).
-capacidad(e-10,  24).
-capacidad(e-11,  24).
-capacidad(e-12,  28).
-capacidad(e-13,  24).
-capacidad(e-14,  24).
-capacidad(e-15,  20).
-
-tipo(lab-01,"laboratorio").
-tipo(lab-02,"laboratorio").
-tipo(auc-01,"laboratorio").
-tipo(mvl-01,"laboratorio").
-tipo(e-10,  "normal").
-tipo(e-11,  "normal").
-%tipo(e-12,  "normal").
-%tipo(e-13,  "normal").
-%tipo(e-14,  "normal").
-%tipo(e-15,  "normal").
-
-%tipo(X,Y).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%lecciones
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% findall(Leccion->Dia->Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
-
-leccion(l_1).
-leccion(l_2).
-leccion(l_3).
-leccion(l_4).
-%leccion(l_5).
-%leccion(l_6).
-%leccion(l_7).
-%leccion(l_8).
-
-bloque(manana_1, l_1).
-bloque(manana_2, l_2).
-bloque(tarde_1, l_3).
-bloque(tarde_2, l_4).
-
-dia_leccion(l_1, l).
-dia_leccion(l_2, l).
-dia_leccion(l_3, l).
-dia_leccion(l_4, l).
-%dia_leccion(l_5, l).
-%dia_leccion(l_6, l).
-%dia_leccion(l_7, l).
-%dia_leccion(l_8, l).
-
-dia_leccion(l_1, k).
-dia_leccion(l_2, k).
-dia_leccion(l_3, k).
-dia_leccion(l_4, k).
-%dia_leccion(l_5, k).
-%dia_leccion(l_6, k).
-%dia_leccion(l_7, k).
-%dia_leccion(l_8, k).
-
-dia_leccion(l_1, m).
-dia_leccion(l_2, m).
-dia_leccion(l_3, m).
-dia_leccion(l_4, m).
-%dia_leccion(l_5, m).
-%dia_leccion(l_6, m).
-%dia_leccion(l_7, m).
-%dia_leccion(l_8, m).
-
-dia_leccion(l_1, j).
-dia_leccion(l_2, j).
-dia_leccion(l_3, j).
-dia_leccion(l_4, j).
-%dia_leccion(l_5, j).
-%dia_leccion(l_6, j).
-%dia_leccion(l_7, j).
-%dia_leccion(l_8, j).
-
-dia_leccion(l_1, v).
-dia_leccion(l_2, v).
-dia_leccion(l_3, v).
-dia_leccion(l_4, v).
-%dia_leccion(l_5, v).
-%dia_leccion(l_6, v).
-%dia_leccion(l_7, v).
-%dia_leccion(l_8, v).
-
-hora_leccion(l_1,"07:55 - 09:40" ).
-%hora_leccion(l_1,"08:50 - 09:40" ).
-hora_leccion(l_2,"09:45 - 11:30" ).
-%hora_leccion(l_2,"10:40 - 11:30" ).
-hora_leccion(l_3,"12:30 - 02:15" ).
-%hora_leccion(l_3,"01:25 - 02:15" ).
-hora_leccion(l_4,"02:20 - 04:05" ).
-%hora_leccion(l_4,"03:15 - 04:05" ).
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%REGLAS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Para calcular los semestres, si es par o no
-par(X) :- 0 is X mod 2.
-impar(X) :- 1 is X mod 2.
-
-%Para buscar una leccion a que bloque pertenece
-%buscar_bloque(l_4, Bloque).
-buscar_bloque(X, Bloque) :-
-    bloque(Bloque, X),!.
-
-
-%para almacenar todos los horarios posibles por profesor y sus aulas
-% horario(Leccion,Dias, Horario,Bloque,Curso,Creditos,Semestre, Cantidad_dias, Aula,Capacidad, Profesor).
-horario(Leccion,Dia, Horario,Bloque, Curso,Creditos,Semestre, Cantidad_dias, Aula ,Capacidad, Profesor) :-
-    asignatura(Curso,Tipo_curso),
-    aula(Aula),
-    tipo(Aula, Tipo_aula),
-    capacidad(Aula, Capacidad),
-    (Tipo_curso = Tipo_aula),
-    profesor(Profesor),
-    curso(Curso),
-    creditos(Curso,Creditos),
-    semestre(Curso,Semestre),
-    cantidad_dias(Curso, Cantidad_dias),
-    imparte(Profesor, Curso),
-    disponibilidad(Profesor, Lista),
-    leccion(Leccion),
-    buscar_bloque(Leccion, Bloque),
-    dia_leccion(Leccion, Dia),
-    member(Dia, Lista),
-    hora_leccion(Leccion,Horario).
-
-
-%Se obtiene una lista con todas las lecciones disponibles
-todas_lecciones(Resultado) :-
-    findall(Leccion->Dia->Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
-
-%se obtiene una lista con todos los cursos disponibles
-todos_cursos(Resultado) :-
-    findall(Curso->Asignatura->Peso->Semestre->Dia,(curso(Curso),asignatura(Curso,Asignatura),creditos(Curso,Peso),semestre(Curso,Semestre),cantidad_dias(Curso,Dia)),Resultado).
-
-%se obtiene una lista con todos los datos de los profesores disponibles
-todos_profesores(Resultado) :-
-    findall(Profesor->Apellidos->Cedula->Disponibilidad->Imparte,(profesor(Profesor),apellidos(Profesor,Apellidos),cedula(Profesor,Cedula),disponibilidad(Profesor,Disponibilidad),imparte(Profesor,Imparte)),Resultado).
-
-%se obtiene una lista con la informacion de todas las aulas
-todas_aulas(Resultado) :-
-    findall(Aula->Capacidad->Tipo, (aula(Aula),capacidad(Aula,Capacidad),tipo(Aula,Tipo)),Resultado).
-
-%para saber si es mienbro de una lista
-es_miembro(X,[X|_]).
-es_miembro(X,[_|T]):-es_miembro(X,T).
+aula('lab-01', id_aula('lab-01', 1).
+capacidad('lab-01', 20).
+tipo('lab-01', 'laboratorio').
+aula('lab-02', id_aula('lab-02', 2).
+capacidad('lab-02', 20).
+tipo('lab-02', 'laboratorio').
+aula('auc-01', id_aula('auc-01', 3).
+capacidad('auc-01', 24).
+tipo('auc-01', 'laboratorio').
+aula('mvl-01', id_aula('mvl-01', 4).
+capacidad('mvl-01', 20).
+tipo('mvl-01', 'laboratorio').
+aula('e-10', id_aula('e-10', 5).
+capacidad('e-10', 24).
+tipo('e-10', 'normal').
+aula('e-11', id_aula('e-11', 6).
+capacidad('e-11', 24).
+tipo('e-11', 'normal').
+aula('e-12', id_aula('e-12', 7).
+capacidad('e-12', 28).
+tipo('e-12', 'normal').
+aula('A-03', id_aula('A-03', 11).
+capacidad('A-03', 35).
+tipo('A-03', 'Normal').
+profesor('alejandro').
+id_profesor('alejandro', 1).
+apellidos('alejandro', 'Alfaro Quesada').
+cedula('alejandro', '1-846-952').
+profesor('rocio').
+id_profesor('rocio', 2).
+apellidos('rocio', 'Quiros Oviedo').
+cedula('rocio', '1-951-912').
+profesor('abel').
+id_profesor('abel', 3).
+apellidos('abel', 'Mendez Porras').
+cedula('abel', '7-511-626').
+profesor('diego').
+id_profesor('diego', 4).
+apellidos('diego', 'Rojas Vega').
+cedula('diego', '6-625-518').
+profesor('efren').
+id_profesor('efren', 5).
+apellidos('efren', 'Jimenez Delgado').
+cedula('efren', '3-818-292').
+profesor('lorena').
+id_profesor('lorena', 6).
+apellidos('lorena', 'Valerio Solis').
+cedula('lorena', '6-514-651').
+profesor('jorge').
+id_profesor('jorge', 7).
+apellidos('jorge', 'Alfaro Velasco').
+cedula('jorge', '2-651-611').
+profesor('marlen').
+id_profesor('marlen', 8).
+apellidos('marlen', 'Treviño Villalobos').
+cedula('marlen', '6-515-321').
+profesor('leo').
+id_profesor('leo', 9).
+apellidos('leo', 'Viquez Acuña').
+cedula('leo', '3-216-566').
+profesor('oscar').
+id_profesor('oscar', 10).
+apellidos('oscar', 'Viquez Acuña').
+cedula('oscar', '5-616-612').
+profesor('vera').
+id_profesor('vera', 11).
+apellidos('vera', 'Gamboa Guzman').
+cedula('vera', '4-646-654').
+profesor('rogelio').
+id_profesor('rogelio', 12).
+apellidos('rogelio', 'Gonzalez Quiros').
+cedula('rogelio', '6-545-613').
+profesor('Meylin').
+id_profesor('Meylin', 29).
+apellidos('Meylin', 'Gomez Aguilar').
+cedula('Meylin', '207810024').
+curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').
+id_dia('Lunes', 1).
+dia('Martes').
+id_dia('Martes', 2).
+dia('Miercoles').
+id_dia('Miercoles', 3).
+dia('Jueves').
+id_dia('Jueves', 4).
+dia('Viernes').
+id_dia('Viernes', 5).
+dia('Sabado').
+id_dia('Sabado', 6).
+dia('Domingo').
+id_dia('Domingo', 7).
+leccion('l1').
+id_leccion('l1', 1).
+dia_id('l1', 1).
+hora_inicio('l1', '07:55').
+hora_salida('l1', '09:40').
+leccion('l2').
+id_leccion('l2', 2).
+dia_id('l2', 1).
+hora_inicio('l2', '09:45').
+hora_salida('l2', '11:30').
+leccion('l3').
+id_leccion('l3', 3).
+dia_id('l3', 1).
+hora_inicio('l3', '12:30').
+hora_salida('l3', '02:15').
+leccion('l4').
+id_leccion('l4', 4).
+dia_id('l4', 1).
+hora_inicio('l4', '02:20').
+hora_salida('l4', '04:05').
+leccion('l1').
+id_leccion('l1', 5).
+dia_id('l1', 2).
+hora_inicio('l1', '07:55').
+hora_salida('l1', '09:40').
+leccion('l2').
+id_leccion('l2', 6).
+dia_id('l2', 2).
+hora_inicio('l2', '09:45').
+hora_salida('l2', '11:30').
+leccion('l3').
+id_leccion('l3', 7).
+dia_id('l3', 2).
+hora_inicio('l3', '12:30').
+hora_salida('l3', '02:15').
+leccion('l4').
+id_leccion('l4', 8).
+dia_id('l4', 2).
+hora_inicio('l4', '02:20').
+hora_salida('l4', '04:05').
+leccion('l1').
+id_leccion('l1', 9).
+dia_id('l1', 3).
+hora_inicio('l1', '07:55').
+hora_salida('l1', '09:40').
+leccion('l2').
+id_leccion('l2', 10).
+dia_id('l2', 3).
+hora_inicio('l2', '09:45').
+hora_salida('l2', '11:30').
+leccion('l3').
+id_leccion('l3', 11).
+dia_id('l3', 3).
+hora_inicio('l3', '12:30').
+hora_salida('l3', '02:15').
+leccion('l4').
+id_leccion('l4', 12).
+dia_id('l4', 3).
+hora_inicio('l4', '02:20').
+hora_salida('l4', '04:05').
+leccion('l1').
+id_leccion('l1', 13).
+dia_id('l1', 4).
+hora_inicio('l1', '07:55').
+hora_salida('l1', '09:40').
+leccion('l2').
+id_leccion('l2', 14).
+dia_id('l2', 4).
+hora_inicio('l2', '09:45').
+hora_salida('l2', '11:30').
+leccion('l3').
+id_leccion('l3', 15).
+dia_id('l3', 4).
+hora_inicio('l3', '12:30').
+hora_salida('l3', '02:15').
+leccion('l4').
+id_leccion('l4', 16).
+dia_id('l4', 4).
+hora_inicio('l4', '02:20').
+hora_salida('l4', '04:05').
+leccion('l1').
+id_leccion('l1', 17).
+dia_id('l1', 5).
+hora_inicio('l1', '07:55').
+hora_salida('l1', '09:40').
+leccion('l2').
+id_leccion('l2', 18).
+dia_id('l2', 5).
+hora_inicio('l2', '09:45').
+hora_salida('l2', '11:30').
+leccion('l3').
+id_leccion('l3', 19).
+dia_id('l3', 5).
+hora_inicio('l3', '12:30').
+hora_salida('l3', '02:15').
+leccion('l4').
+id_leccion('l4', 20).
+dia_id('l4', 5).
+hora_inicio('l4', '02:20').
+hora_salida('l4', '04:05').
+disponibilidad('alejandro', 'Lunes').
+disponibilidad('alejandro', 'Martes').
+disponibilidad('rocio', 'Miercoles').
+disponibilidad('abel', 'Lunes').
+disponibilidad('abel', 'Viernes').
+disponibilidad('diego', 'Jueves').
+disponibilidad('diego', 'Viernes').
+disponibilidad('efren', 'Lunes').
+disponibilidad('efren', 'Martes').
+disponibilidad('efren', 'Miercoles').
+disponibilidad('efren', 'Jueves').
+disponibilidad('lorena', 'Lunes').
+disponibilidad('lorena', 'Martes').
+disponibilidad('lorena', 'Miercoles').
+disponibilidad('lorena', 'Jueves').
+disponibilidad('jorge', 'Lunes').
+disponibilidad('jorge', 'Martes').
+disponibilidad('jorge', 'Miercoles').
+disponibilidad('jorge', 'Jueves').
+disponibilidad('marlen', 'Lunes').
+disponibilidad('marlen', 'Martes').
+disponibilidad('marlen', 'Miercoles').
+disponibilidad('marlen', 'Jueves').
+disponibilidad('leo', 'Lunes').
+disponibilidad('leo', 'Martes').
+disponibilidad('leo', 'Miercoles').
+disponibilidad('leo', 'Viernes').
+disponibilidad('oscar', 'Lunes').
+disponibilidad('oscar', 'Martes').
+disponibilidad('oscar', 'Miercoles').
+disponibilidad('oscar', 'Jueves').
+disponibilidad('vera', 'Lunes').
+disponibilidad('vera', 'Martes').
+disponibilidad('vera', 'Miercoles').
+disponibilidad('vera', 'Jueves').
+disponibilidad('rogelio', 'Lunes').
+disponibilidad('rogelio', 'Martes').
+disponibilidad('rogelio', 'Miercoles').
+disponibilidad('rogelio', 'Viernes').
+disponibilidad('Meylin', 'Sabado').
+imparte('alejandro', 'requerimientos').
+aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').imparte('alejandro', 'requerimientos').aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').aula('lab-01', 20, 'laboratorio').aula('lab-02', 20, 'laboratorio').aula('auc-01', 24, 'laboratorio').aula('mvl-01', 20, 'laboratorio').aula('e-10', 24, 'normal').aula('e-11', 24, 'normal').aula('e-12', 28, 'normal').aula('A-03', 35, 'Normal').profesor('alejandro', 'Alfaro Quesada', '1-846-952').profesor('rocio', 'Quiros Oviedo', '1-951-912').profesor('abel', 'Mendez Porras', '7-511-626').profesor('diego', 'Rojas Vega', '6-625-518').profesor('efren', 'Jimenez Delgado', '3-818-292').profesor('lorena', 'Valerio Solis', '6-514-651').profesor('jorge', 'Alfaro Velasco', '2-651-611').profesor('marlen', 'Treviño Villalobos', '6-515-321').profesor('leo', 'Viquez Acuña', '3-216-566').profesor('oscar', 'Viquez Acuña', '5-616-612').profesor('vera', 'Gamboa Guzman', '4-646-654').profesor('rogelio', 'Gonzalez Quiros', '6-545-613').profesor('Meylin', 'Gomez Aguilar', '207810024').curso('fundamentos', 'normal', 3, 1, 2).curso('introduccion', 'normal', 3, 1, 2).curso('taller', 'laboratorio', 3, 1, 1).curso('estructuras', 'laboratorio', 4, 2, 1).curso('poo', 'laboratorio', 3, 2, 2).curso('arquitectura', 'normal', 4, 2, 1).curso('analisis', 'laboratorio', 4, 3, 2).curso('bases1', 'laboratorio', 4, 3, 1).curso('bases2', 'laboratorio', 3, 4, 2).curso('lenguajes', 'laboratorio', 4, 4, 1).curso('requerimientos', 'normal', 4, 4, 2).curso('ap', 'normal', 4, 5, 1).curso('compiladores', 'laboratorio', 4, 5, 2).curso('electiva1', 'laboratorio', 3, 6, 2).curso('io', 'normal', 4, 6, 1).curso('operativos', 'laboratorio', 4, 6, 2).curso('calidad', 'laboratorio', 3, 6, 1).curso('compuSociedad', 'normal', 2, 6, 2).curso('electiva2', 'laboratorio', 4, 7, 1).curso('ia', 'laboratorio', 4, 7, 2).curso('redes', 'laboratorio', 4, 7, 1).curso('proyectoS', 'laboratorio', 3, 7, 2).curso('practica', 'empresa', 12, 8, 2).curso('Diseno de instalaciones', 'Normal', 4, 1, 1).dia('Lunes').dia('Martes').dia('Miercoles').dia('Jueves').dia('Viernes').dia('Sabado').dia('Domingo').leccion('l1', 'Lunes', '07:55', '09:40').leccion('l2', 'Lunes', '09:45', '11:30').leccion('l3', 'Lunes', '12:30', '02:15').leccion('l4', 'Lunes', '02:20', '04:05').leccion('l1', 'Martes', '07:55', '09:40').leccion('l2', 'Martes', '09:45', '11:30').leccion('l3', 'Martes', '12:30', '02:15').leccion('l4', 'Martes', '02:20', '04:05').leccion('l1', 'Miercoles', '07:55', '09:40').leccion('l2', 'Miercoles', '09:45', '11:30').leccion('l3', 'Miercoles', '12:30', '02:15').leccion('l4', 'Miercoles', '02:20', '04:05').leccion('l1', 'Jueves', '07:55', '09:40').leccion('l2', 'Jueves', '09:45', '11:30').leccion('l3', 'Jueves', '12:30', '02:15').leccion('l4', 'Jueves', '02:20', '04:05').leccion('l1', 'Viernes', '07:55', '09:40').leccion('l2', 'Viernes', '09:45', '11:30').leccion('l3', 'Viernes', '12:30', '02:15').leccion('l4', 'Viernes', '02:20', '04:05').disponibilidad('alejandro', 'Lunes').disponibilidad('alejandro', 'Martes').disponibilidad('rocio', 'Miercoles').disponibilidad('abel', 'Lunes').disponibilidad('abel', 'Viernes').disponibilidad('diego', 'Jueves').disponibilidad('diego', 'Viernes').disponibilidad('efren', 'Lunes').disponibilidad('efren', 'Martes').disponibilidad('efren', 'Miercoles').disponibilidad('efren', 'Jueves').disponibilidad('lorena', 'Lunes').disponibilidad('lorena', 'Martes').disponibilidad('lorena', 'Miercoles').disponibilidad('lorena', 'Jueves').disponibilidad('jorge', 'Lunes').disponibilidad('jorge', 'Martes').disponibilidad('jorge', 'Miercoles').disponibilidad('jorge', 'Jueves').disponibilidad('marlen', 'Lunes').disponibilidad('marlen', 'Martes').disponibilidad('marlen', 'Miercoles').disponibilidad('marlen', 'Jueves').disponibilidad('leo', 'Lunes').disponibilidad('leo', 'Martes').disponibilidad('leo', 'Miercoles').disponibilidad('leo', 'Viernes').disponibilidad('oscar', 'Lunes').disponibilidad('oscar', 'Martes').disponibilidad('oscar', 'Miercoles').disponibilidad('oscar', 'Jueves').disponibilidad('vera', 'Lunes').disponibilidad('vera', 'Martes').disponibilidad('vera', 'Miercoles').disponibilidad('vera', 'Jueves').disponibilidad('rogelio', 'Lunes').disponibilidad('rogelio', 'Martes').disponibilidad('rogelio', 'Miercoles').disponibilidad('rogelio', 'Viernes').disponibilidad('Meylin', 'Sabado').

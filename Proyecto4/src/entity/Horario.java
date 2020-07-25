@@ -6,13 +6,13 @@
 package entity;
 
 import patterns.Decorador;
-import patterns.Clase;
+import patterns.Factory;
 
 /**
  *
  * @author Baxi
  */
-public class Horario extends Decorador implements Clase{
+public class Horario   implements Decorador, Factory{
     private int id;
     private Leccion leccion;
     private Curso curso;
@@ -20,15 +20,7 @@ public class Horario extends Decorador implements Clase{
     private Aula aula;
 
     public Horario() {
-        super();
-    }
-    
-    /*Constructores clase hija*/
-    public Horario(Leccion leccion, Curso curso, Profesor profesor, Aula aula) {
-        this.leccion = leccion;
-        this.curso = curso;
-        this.profesor = profesor;
-        this.aula = aula;
+        
     }
 
     public Horario(int id, Leccion leccion, Curso curso, Profesor profesor, Aula aula) {
@@ -38,14 +30,13 @@ public class Horario extends Decorador implements Clase{
         this.profesor = profesor;
         this.aula = aula;
     }
-    
-    /*Constructor clase padre*/
-    public Horario(int id, Leccion leccion, Curso curso, Profesor profesor, Aula aula,  String nombreClase) {
-        super(id, nombreClase);
-        this.leccion = leccion;
-        this.curso = curso;
-        this.profesor = profesor;
-        this.aula = aula;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Leccion getLeccion() {
@@ -80,33 +71,20 @@ public class Horario extends Decorador implements Clase{
         this.aula = aula;
     }
 
-    
-    public int getId() {
-        return id;
-    }
-
-  
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNombreClase() {
-        return nombreClase;
-    }
-
-    @Override
-    public void setNombreClase(String nombreClase) {
-        this.nombreClase = nombreClase;
-    }
-
     @Override
     public String toString() {
-        return "Horario{" + "leccion=" + leccion + ", curso=" + curso + ", profesor=" + profesor + ", aula=" + aula + '}';
+        return "Horario{" + "id=" + id + ", leccion=" + leccion + ", curso=" + curso + ", profesor=" + profesor + ", aula=" + aula + '}';
     }
+    
+    
 
     @Override
     public String getClase() {
         return "Horario";
+    }
+
+    @Override
+    public String getHecho() {
+        return  "" ;
     }
 }

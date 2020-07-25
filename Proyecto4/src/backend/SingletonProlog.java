@@ -5,8 +5,6 @@ package backend;
  * @author Baxi
  */
 
-//import ClasesMenu.*;
-//import ConexionSQLite.*;
 import com.ugos.jiprolog.engine.JIPEngine;
 import com.ugos.jiprolog.engine.JIPQuery;
 import com.ugos.jiprolog.engine.JIPSyntaxErrorException;
@@ -20,6 +18,13 @@ import entity.Horario;
 import entity.Imparte;
 import entity.Leccion;
 import entity.Profesor;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import patterns.Singleton;
 
@@ -50,30 +55,32 @@ public class SingletonProlog {
     }
     /*------------------------------------------------------------------------*/
     // Metodo que agrega los hechos de la base de datos en memoria del intérprete de prolog
-    public void assertDatosProlog(){
+    public Boolean assertDatosProlog(){
         assertCurso(Singleton.getInstance().listaCursos);
-        assertAula(Singleton.getInstance().listaAulas);
         assertProfesor(Singleton.getInstance().listaProfesores);
+        assertAula(Singleton.getInstance().listaAulas);
         assertDia(Singleton.getInstance().listaDias);
         assertLeccion(Singleton.getInstance().listaLeccion);
-        assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
-        assertImparte(Singleton.getInstance().listaImparte);
-        assertHorario(Singleton.getInstance().listaHorarios);
+        //assertImparte(Singleton.getInstance().listaImparte);
+        //assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
         
+        //assertHorario(Singleton.getInstance().listaHorarios);
+        return true;
     }
     /*------------------------------------------------------------------------*/
     //metodo para obtener los datos que retorna prolog
-    public ArrayList<Tabla> consulta(String query){
+    public ArrayList<ResultadoProlog> consulta(String query){
         JIPTerm queryTerm = null;
         // intentamos consultar el archivo
         try{
             // Carga código prolog de un archivo .pl
-            interpreteProlog.consultFile("backend.pl");
+            interpreteProlog.consultFile("prueba.pl");
             queryTerm = interpreteProlog.getTermParser().parseTerm(query); 
         }
         // Es necesario cerrar los hilos
         catch(JIPSyntaxErrorException ex){
-            System.exit(0); 
+            //System.exit(0); 
+            System.out.println(ex);
         }
         
         // Se abre la consulta
@@ -82,18 +89,18 @@ public class SingletonProlog {
         
         // Se itera hasta para buscar todas las soluciones
         try{
-            ArrayList<Tabla> soluciones = new ArrayList<>();
+            ArrayList<ResultadoProlog> soluciones = new ArrayList<>();
             while (jipQuery.hasMoreChoicePoints()){
                 solucion = jipQuery.nextSolution();
                 if(solucion != null){
-                    Tabla tabla = new Tabla(solucion.toString());
+                    ResultadoProlog tabla = new ResultadoProlog(solucion.toString());
                     JIPVariable[] vars = solucion.getVariables();
                     for (JIPVariable var : vars) {
                         if (!var.isAnonymous()) {
                             String atributo = var.getName();
                             String datosProlog = var.toString(interpreteProlog);
-                            tabla.datos.add(datosProlog);
-                            tabla.atributos.add(atributo);
+                            tabla.resultado.add(datosProlog);
+                            tabla.variables.add(atributo);
 
                         }
                     }
@@ -111,180 +118,134 @@ public class SingletonProlog {
     }
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertCurso(ArrayList<Curso> lista) {
+    private Boolean assertCurso(ArrayList<Curso> lista) {
         lista.stream().map((curso) -> 
             "curso('" + 
-                    curso.getNombre() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((curso) -> 
-            "asignatura('" + 
                     curso.getNombre() + "', '"+
-                    curso.getAsignatura() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((curso) -> 
-            "creditos('" + 
-                    curso.getNombre() + "', "+
-                    curso.getCreditos()+
+                    curso.getAsignatura() + "', " +
+                    curso.getCreditos() +  ", " +  
+                    curso.getSemestre() +  ", " +  
+                    curso.getCantidadDias()+         
                 ").").forEachOrdered((hecho) -> {
+                    System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
-        
-        lista.stream().map((curso) -> 
-            "semestre('" + 
-                    curso.getNombre() + "', "+
-                    curso.getSemestre()+
-                ").").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((curso) -> 
-            "cantidad_dias('" + 
-                    curso.getNombre() + "', "+
-                    curso.getCantidadDias()+
-                ").").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
+        System.out.println("->Datos de cursos agregados");
+        return true;
     }
+    
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertAula(ArrayList<Aula> lista) {
-        lista.stream().map((aula) -> 
-            "aula('" + 
-                    aula.getNombre() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((aula) -> 
-            "capacidad('" + 
-                    aula.getNombre() + "', "+
-                    aula.getCapacidad() +
-                ").").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((aula) -> 
-            "tipo('" + 
-                    aula.getNombre() + "', '"+
-                    aula.getTipo() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-    }
-    /*------------------------------------------------------------------------*/
-    //Metodos para ingresar los hechos a memoria del interprete
-    private void assertProfesor(ArrayList<Profesor> lista) {
+    private Boolean assertProfesor(ArrayList<Profesor> lista) {
         lista.stream().map((profesor) -> 
             "profesor('" + 
-                    profesor.getNombre() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((profesor) -> 
-            "apellidos('" + 
                     profesor.getNombre() + "', '"+
-                    profesor.getApellidos() +
+                    profesor.getApellidos() + "', '"+
+                    profesor.getCedula() + 
                 "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
+                    System.out.println(hecho);
+                    InsertarDatoEnMemoria(hecho);
         });
-        
-        lista.stream().map((profesor) -> 
-            "cedula('" + 
-                    profesor.getNombre() + "', '"+
-                    profesor.getCedula() +
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
+        System.out.println("->Datos de profesores agregados");
+        return true;
     }
+    
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertDia(ArrayList<Dia> lista) {
+    private Boolean assertAula(ArrayList<Aula> lista) {
+        lista.stream().map((aula) -> 
+            "aula('"
+                + aula.getNombre() + "', "
+                + aula.getCapacidad() + ", '"
+                + aula.getTipo()
+                + "').").forEachOrdered((hecho) -> {
+            System.out.println(hecho);
+            InsertarDatoEnMemoria(hecho);
+        });
+        System.out.println("->Datos de aulas agregados");
+        return true;
+    }
+    
+    /*------------------------------------------------------------------------*/
+    //Metodos para ingresar los hechos a memoria del interprete
+    private Boolean assertDia(ArrayList<Dia> lista) {
         lista.stream().map((dia) -> 
             "dia('" + 
                     dia.getDia()+
                 "').").forEachOrdered((hecho) -> {
+            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
-        
-        lista.stream().map((dia) -> 
-            "dia_id('" + 
-                    dia.getDia() + "', "+
-                    dia.getId() +
-                ").").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
+        System.out.println("->Datos de dias agregados");
+        return true;
     }
+    
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertLeccion(ArrayList<Leccion> lista) {
+    private Boolean assertLeccion(ArrayList<Leccion> lista) {
         lista.stream().map((leccion) -> 
             "leccion('" + 
-                    leccion.getLeccion()+
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((leccion) -> 
-            "dia_leccion('" + 
-                    leccion.getLeccion()+ "', "+
-                    leccion.getDia().getId()+
-                ").").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((leccion) -> 
-            "hora_inicio('" + 
                     leccion.getLeccion()+ "', '"+
-                    leccion.getHoraInicio()+
-                "').").forEachOrdered((hecho) -> {
-            InsertarDatoEnMemoria(hecho);
-        });
-        
-        lista.stream().map((leccion) -> 
-            "hora_salida('" + 
-                    leccion.getLeccion()+ "', '"+
+                    leccion.getDia().getDia()+ "', '"+
+                    leccion.getHoraInicio()+ "', '"+
                     leccion.getHoraSalida()+
                 "').").forEachOrdered((hecho) -> {
+            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
+        System.out.println("->Datos de lecciones agregados");
+       return true;
     }
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertDisponibilidad(ArrayList<Disponibilidad> lista) {
+    private Boolean assertDisponibilidad(ArrayList<Disponibilidad> lista) {
         lista.stream().map((disponibilidad) -> 
             "disponibilidad('" + 
-                    disponibilidad.getProfesor().getNombre()+ "', "+
-                    disponibilidad.getDia().getId() +
-                ").").forEachOrdered((hecho) -> {
+                    disponibilidad.getProfesor().getNombre()+ "', '"+
+                    disponibilidad.getDia().getDia()+
+                "').").forEachOrdered((hecho) -> {
+            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
+        System.out.println("->Datos de disponibilidad agregados");
+        return true;
     }
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
-    private void assertImparte(ArrayList<Imparte> lista) {
+    private Boolean assertImparte(ArrayList<Imparte> lista) {
         lista.stream().map((imparte) -> 
             "imparte('" + 
-                    imparte.getProfesor().getNombre()+ "', "+
-                    imparte.getCurso().getId() +
-                ").").forEachOrdered((hecho) -> {
+                    imparte.getProfesor().getNombre()+ "', '"+
+                    imparte.getCurso().getNombre() +
+                "').").forEachOrdered((hecho) -> {
+            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
             
         });
+        System.out.println("->Datos de imparte agregados");
+        return true;
     }
-    /*------------------------------------------------------------------------*/
-    //Metodos para ingresar los hechos a memoria del interprete
-    private void assertHorario(ArrayList<Horario> lista) {
-        
-    }
-   
     
+    public Boolean crearArchivo(String nombreArchivo, ArrayList<String> contenido){
+        try {
+            
+            File file = new File(Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
+            // Si el archivo no existe es creado
+            //if (!file.exists()) {
+                file.createNewFile();
+              //  System.out.println("Archivo Creado en " + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
+            //}
+            for (int i = 0; i < contenido.size(); i++) {
+                Files.write(Paths.get(Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl"), contenido.get(i).getBytes(), StandardOpenOption.APPEND);
+            }
+            
+            System.out.println("Ubicacion " + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
+            return  true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }
 

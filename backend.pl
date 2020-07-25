@@ -182,16 +182,27 @@ cedula(rogelio, "6-545-613").
 
 
 disponibilidad(alejandro, [l, k]).
+
 disponibilidad(rocio,  [m]).
+
 disponibilidad(abel,   [l, v]).
+
 disponibilidad(diego,  [j, v]).
+
 disponibilidad(efren,  [l, k, m, j]).
+
 disponibilidad(lorena, [l, k, m, j]).
+
 disponibilidad(jorge,  [l, k, m, j]).
+
 disponibilidad(marlen, [l, k, m, j]).
+
 disponibilidad(leo,    [l, k, m, v]).
+
 disponibilidad(oscar,  [l, k, m, j]).
+
 disponibilidad(vera,   [l, k, m, j]).
+
 disponibilidad(rogelio,[l, k, m,v]).
 
 imparte(alejandro, diseno).
@@ -352,7 +363,7 @@ horario(Leccion,Dia, Horario,Bloque, Curso,Creditos,Semestre, Cantidad_dias, Aul
 
 %Se obtiene una lista con todas las lecciones disponibles
 todas_lecciones(Resultado) :-
-    findall(Leccion->Dia->Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
+    findall(Leccion$Dia$Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
 
 %se obtiene una lista con todos los cursos disponibles
 todos_cursos(Resultado) :-
@@ -366,6 +377,10 @@ todos_profesores(Resultado) :-
 todas_aulas(Resultado) :-
     findall(Aula->Capacidad->Tipo, (aula(Aula),capacidad(Aula,Capacidad),tipo(Aula,Tipo)),Resultado).
 
-%para saber si es mienbro de una lista
+%para saber si es miembro de una lista
 es_miembro(X,[X|_]).
-es_miembro(X,[_|T]):-es_miembro(X,T).
+es_miembro(X,[_|T]):-
+    es_miembro(X,T).
+
+%Solucion pregunta #2
+%profesor, semestre, curso, disponibilidad, imparte
