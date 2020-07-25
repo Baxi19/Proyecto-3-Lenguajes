@@ -6,44 +6,42 @@ aula('e-10', 24, 'normal').
 aula('e-11', 24, 'normal').
 aula('e-12', 28, 'normal').
 aula('A-03', 35, 'Normal').
-profesor('alejandro', 'Alfaro Quesada', '1-846-952').
-profesor('rocio', 'Quiros Oviedo', '1-951-912').
-profesor('abel', 'Mendez Porras', '7-511-626').
-profesor('diego', 'Rojas Vega', '6-625-518').
-profesor('efren', 'Jimenez Delgado', '3-818-292').
-profesor('lorena', 'Valerio Solis', '6-514-651').
-profesor('jorge', 'Alfaro Velasco', '2-651-611').
-profesor('marlen', 'Treviño Villalobos', '6-515-321').
-profesor('leo', 'Viquez Acuña', '3-216-566').
-profesor('oscar', 'Viquez Acuña', '5-616-612').
-profesor('vera', 'Gamboa Guzman', '4-646-654').
-profesor('rogelio', 'Gonzalez Quiros', '6-545-613').
-profesor('Meylin', 'Gomez Aguilar', '207810024').
-curso('fundamentos', 'normal', 3, 1, 2).
-curso('introduccion', 'normal', 3, 1, 2).
-curso('taller', 'laboratorio', 3, 1, 1).
-curso('estructuras', 'laboratorio', 4, 2, 1).
-curso('poo', 'laboratorio', 3, 2, 2).
-curso('arquitectura', 'normal', 4, 2, 1).
-curso('analisis', 'laboratorio', 4, 3, 2).
-curso('bases1', 'laboratorio', 4, 3, 1).
-curso('bases2', 'laboratorio', 3, 4, 2).
-curso('lenguajes', 'laboratorio', 4, 4, 1).
-curso('requerimientos', 'normal', 4, 4, 2).
-curso('ap', 'normal', 4, 5, 1).
-curso('compiladores', 'laboratorio', 4, 5, 2).
-curso('diseno', 'laboratorio', 4, 5, 1).
-curso('electiva1', 'laboratorio', 3, 6, 2).
-curso('io', 'normal', 4, 6, 1).
-curso('operativos', 'laboratorio', 4, 6, 2).
-curso('calidad', 'laboratorio', 3, 6, 1).
-curso('compuSociedad', 'normal', 2, 6, 2).
-curso('electiva2', 'laboratorio', 4, 7, 1).
-curso('ia', 'laboratorio', 4, 7, 2).
-curso('redes', 'laboratorio', 4, 7, 1).
-curso('proyectoS', 'laboratorio', 3, 7, 2).
-curso('practica', 'empresa', 12, 8, 2).
-curso('Diseno de instalaciones', 'Normal', 4, 1, 1).
+profesor('alejandro', 'Alfaro Quesada', '1-846-952'). 
+profesor('rocio', 'Quiros Oviedo', '1-951-912'). 
+profesor('abel', 'Mendez Porras', '7-511-626'). 
+profesor('diego', 'Rojas Vega', '6-625-518'). 
+profesor('efren', 'Jimenez Delgado', '3-818-292'). 
+profesor('lorena', 'Valerio Solis', '6-514-651'). 
+profesor('jorge', 'Alfaro Velasco', '2-651-611'). 
+profesor('marlen', 'Treviño Villalobos', '6-515-321'). 
+profesor('leo', 'Viquez Acuña', '3-216-566'). 
+profesor('oscar', 'Viquez Acuña', '5-616-612'). 
+profesor('vera', 'Gamboa Guzman', '4-646-654'). 
+profesor('rogelio', 'Gonzalez Quiros', '6-545-613'). 
+curso('fundamentos', 'normal', 3, 1, 2). 
+curso('introduccion', 'normal', 3, 1, 2). 
+curso('taller', 'laboratorio', 3, 1, 1). 
+curso('estructuras', 'laboratorio', 4, 2, 1). 
+curso('poo', 'laboratorio', 3, 2, 2). 
+curso('arquitectura', 'normal', 4, 2, 1). 
+curso('analisis', 'laboratorio', 4, 3, 2). 
+curso('bases1', 'laboratorio', 4, 3, 1). 
+curso('bases2', 'laboratorio', 3, 4, 2). 
+curso('lenguajes', 'laboratorio', 4, 4, 1). 
+curso('requerimientos', 'normal', 4, 4, 2). 
+curso('ap', 'normal', 4, 5, 1). 
+curso('compiladores', 'laboratorio', 4, 5, 2). 
+curso('diseno', 'laboratorio', 4, 5, 1). 
+curso('electiva1', 'laboratorio', 3, 6, 2). 
+curso('io', 'normal', 4, 6, 1). 
+curso('operativos', 'laboratorio', 4, 6, 2). 
+curso('calidad', 'laboratorio', 3, 6, 1). 
+curso('compuSociedad', 'normal', 2, 6, 2). 
+curso('electiva2', 'laboratorio', 4, 7, 1). 
+curso('ia', 'laboratorio', 4, 7, 2). 
+curso('redes', 'laboratorio', 4, 7, 1). 
+curso('proyectoS', 'laboratorio', 3, 7, 2). 
+curso('practica', 'empresa', 12, 8, 2). 
 dia('Lunes').
 dia('Martes').
 dia('Miercoles').
@@ -110,7 +108,6 @@ disponibilidad('rogelio', 'Lunes').
 disponibilidad('rogelio', 'Martes').
 disponibilidad('rogelio', 'Miercoles').
 disponibilidad('rogelio', 'Viernes').
-disponibilidad('Meylin', 'Sabado').
 imparte('alejandro', 'requerimientos').
 imparte('alejandro', 'diseno').
 imparte('rocio', 'fundamentos').
@@ -150,17 +147,3 @@ imparte('rogelio', 'ia').
 imparte('rogelio', 'electiva2').
 imparte('rogelio', 'io').
 imparte('rogelio', 'electiva1').
-imparte('Meylin', 'Diseno de instalaciones').
-
-
-%Solucion pregunta #2
-%profesor, semestre, curso, disponibilidad, imparte
-
-solucion(Profesor, Curso, Semestre,Dia) :-
-    curso(Curso, _, _, Semestre, _),
-    profesor(Profesor, _, _),
-    imparte(Profesor, Curso),
-    dia(Dia),
-    disponibilidad(Profesor, Dia).
-
-

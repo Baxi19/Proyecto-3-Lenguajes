@@ -27,6 +27,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.table.DefaultTableModel;
 import patterns.Singleton;
 
 
@@ -54,19 +56,7 @@ public class SingletonProlog {
          JIPTerm queryTerm = interpreteProlog.getTermParser().parseTerm(query);
          interpreteProlog.asserta(queryTerm);
     }
-    /*------------------------------------------------------------------------*/
-    // Metodo que agrega los hechos de la base de datos en memoria del intérprete de prolog
-    public Boolean assertDatosProlog(){
-        assertCurso(Singleton.getInstance().listaCursos);
-        assertProfesor(Singleton.getInstance().listaProfesores);
-        assertAula(Singleton.getInstance().listaAulas);
-        assertDia(Singleton.getInstance().listaDias);
-        assertLeccion(Singleton.getInstance().listaLeccion);
-        assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
-        assertImparte(Singleton.getInstance().listaImparte);
-        System.out.println("->Assert Prolog Completado");
-        return true;
-    }
+    
     /*------------------------------------------------------------------------*/
     //metodo para obtener los datos que retorna prolog
     public ArrayList<ResultadoProlog> consulta(String query, String archivo){
@@ -116,6 +106,21 @@ public class SingletonProlog {
             return null;
         }
     }
+    
+    /*------------------------------------------------------------------------*/
+    // Metodo que agrega los hechos de la base de datos en memoria del intérprete de prolog
+    public Boolean assertDatosProlog(){
+        assertCurso(Singleton.getInstance().listaCursos);
+        assertProfesor(Singleton.getInstance().listaProfesores);
+        assertAula(Singleton.getInstance().listaAulas);
+        assertDia(Singleton.getInstance().listaDias);
+        assertLeccion(Singleton.getInstance().listaLeccion);
+        assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
+        assertImparte(Singleton.getInstance().listaImparte);
+        System.out.println("->Assert Prolog Completado");
+        return true;
+    }
+    
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertCurso(ArrayList<Curso> lista) {
@@ -219,6 +224,8 @@ public class SingletonProlog {
         return true;
     }
     
+    /*------------------------------------------------------------------------*/
+    //Metodos para crear un archivo hechos.pl donde se guardan los hechos
     public Boolean crearArchivo(String nombreArchivo, ArrayList<String> contenido){
         try {
             
@@ -237,6 +244,68 @@ public class SingletonProlog {
             return false;
         }
     }
-
+    /*------------------------------------------------------------------------*/
+    /*Metodo para recorrer soluciones de prolog*/
+    public DefaultTableModel consultarPrologTabla(String consulta) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        ArrayList<ResultadoProlog> resultado = consultaProlog(consulta);
+        //columnas
+        int cantidadColumnas = resultado.get(0).getVariables().size();
+        for (int i = 0; i <  cantidadColumnas; i++) {
+            modelo.addColumn(resultado.get(0).getVariables().get(i));
+        }
+        //para los datos
+        for (int i = 0; i < resultado.size(); i++) {
+            ArrayList<String> listaDatos = resultado.get(i).getResultado();
+            
+            //Collections.reverse(listaDatos);
+            Object[] fila = new Object[cantidadColumnas];
+            for (int j = 0; j <listaDatos.size(); j++) {
+                fila[j] = listaDatos.get(j);
+                System.out.println(listaDatos.get(j));
+            }
+            modelo.addRow(fila);   
+        }
+        return  modelo;
+    }
+    
+    
+    /*------------------------------------------------------------------------*/
+    /*Metodo de enlase para la consultas en prolog*/
+    public ArrayList<ResultadoProlog> consultaProlog(String consulta){
+        ArrayList<ResultadoProlog> lista = new ArrayList<>();
+        cargarDatosListas();
+        SingletonProlog.getInstance().assertDatosProlog();
+        lista = SingletonProlog.getInstance().consulta(consulta, "backend");
+        return lista;    
+    }
+    
+    /*------------------------------------------------------------------------*/
+    private String limpiarListas(){
+        Singleton.getInstance().listaHechos.clear();
+        Singleton.getInstance().listaProfesores.clear();
+        Singleton.getInstance().listaCursos.clear();
+        Singleton.getInstance().listaAulas.clear();
+        Singleton.getInstance().listaDias.clear();
+        Singleton.getInstance().listaLeccion.clear();
+        Singleton.getInstance().listaDisponibilidades.clear();
+        Singleton.getInstance().listaImparte.clear();
+        System.out.println("->Listas limpias");
+        return "Listas limpias";
+    }
+    /*------------------------------------------------------------------------*/
+    private String cargarDatosListas() {
+        limpiarListas();
+        SQLite.getInstance().obtenerAula();
+        SQLite.getInstance().obtenerProfesor();
+        SQLite.getInstance().obtenerCurso();
+        SQLite.getInstance().obtenerDias();
+        SQLite.getInstance().obtenerLeccion();
+        SQLite.getInstance().obtenerDisponibilidad();
+        SQLite.getInstance().obtenerImparte();
+        System.out.println("->Listas con los datos cargados");
+        return "Listas con los datos cargados";
+      
+    }
 }
 

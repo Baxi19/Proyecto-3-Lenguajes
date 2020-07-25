@@ -55,6 +55,14 @@ public class Singleton {
         }
     }
     
+    private Boolean imprime(ArrayList lista){
+        System.out.println("");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).toString());
+        }
+        return true;
+    }
+    
     /*------------------------------------------------------------------------*/
     //metodo para buscar profesor por id
     public Profesor buscarProfesor(int id){
