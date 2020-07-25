@@ -14,7 +14,7 @@ import patterns.Factory;
  */
 public class Curso implements Decorador, Factory{
     private int id;
-    protected String nombre;
+    private String nombre;
     private String asignatura;
     private int creditos;
     private int semestre;
@@ -101,7 +101,7 @@ public class Curso implements Decorador, Factory{
                     getCreditos() +  ", " +  
                     getSemestre() +  ", " +  
                     getCantidadDias()+         
-                ").";
+                "). \n";
     }
 
     

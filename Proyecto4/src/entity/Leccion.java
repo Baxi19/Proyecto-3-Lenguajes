@@ -87,7 +87,7 @@ public class Leccion implements Decorador, Factory{
                     getDia().getDia()+ "', '"+
                     getHoraInicio()+ "', '"+
                     getHoraSalida()+
-                "').";
+                "').\n";
     }
 
     

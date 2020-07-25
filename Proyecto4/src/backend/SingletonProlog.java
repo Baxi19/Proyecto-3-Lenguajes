@@ -10,6 +10,7 @@ import com.ugos.jiprolog.engine.JIPQuery;
 import com.ugos.jiprolog.engine.JIPSyntaxErrorException;
 import com.ugos.jiprolog.engine.JIPTerm;
 import com.ugos.jiprolog.engine.JIPVariable;
+import database.SQLite;
 import entity.Aula;
 import entity.Curso;
 import entity.Dia;
@@ -61,19 +62,19 @@ public class SingletonProlog {
         assertAula(Singleton.getInstance().listaAulas);
         assertDia(Singleton.getInstance().listaDias);
         assertLeccion(Singleton.getInstance().listaLeccion);
-        assertImparte(Singleton.getInstance().listaImparte);
         assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
-        
+        assertImparte(Singleton.getInstance().listaImparte);
+        System.out.println("->Assert Prolog Completado");
         return true;
     }
     /*------------------------------------------------------------------------*/
     //metodo para obtener los datos que retorna prolog
-    public ArrayList<ResultadoProlog> consulta(String query){
+    public ArrayList<ResultadoProlog> consulta(String query, String archivo){
         JIPTerm queryTerm = null;
         // intentamos consultar el archivo
         try{
             // Carga código prolog de un archivo .pl
-            interpreteProlog.consultFile("prueba.pl");
+            interpreteProlog.consultFile((archivo+".pl"));
             queryTerm = interpreteProlog.getTermParser().parseTerm(query); 
         }
         // Es necesario cerrar los hilos
@@ -126,7 +127,6 @@ public class SingletonProlog {
                     curso.getSemestre() +  ", " +  
                     curso.getCantidadDias()+         
                 ").").forEachOrdered((hecho) -> {
-                    System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de cursos agregados");
@@ -142,8 +142,7 @@ public class SingletonProlog {
                     profesor.getApellidos() + "', '"+
                     profesor.getCedula() + 
                 "').").forEachOrdered((hecho) -> {
-                    System.out.println(hecho);
-                    InsertarDatoEnMemoria(hecho);
+            InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de profesores agregados");
         return true;
@@ -158,7 +157,6 @@ public class SingletonProlog {
                 + aula.getCapacidad() + ", '"
                 + aula.getTipo()
                 + "').").forEachOrdered((hecho) -> {
-            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de aulas agregados");
@@ -172,7 +170,6 @@ public class SingletonProlog {
             "dia('" + 
                     dia.getDia()+
                 "').").forEachOrdered((hecho) -> {
-            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de dias agregados");
@@ -189,7 +186,6 @@ public class SingletonProlog {
                     leccion.getHoraInicio()+ "', '"+
                     leccion.getHoraSalida()+
                 "').").forEachOrdered((hecho) -> {
-            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de lecciones agregados");
@@ -203,25 +199,23 @@ public class SingletonProlog {
                     disponibilidad.getProfesor().getNombre()+ "', '"+
                     disponibilidad.getDia().getDia()+
                 "').").forEachOrdered((hecho) -> {
-            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de disponibilidad agregados");
         return true;
     }
+    
     /*------------------------------------------------------------------------*/
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertImparte(ArrayList<Imparte> lista) {
         lista.stream().map((imparte) -> 
             "imparte('" + 
                     imparte.getProfesor().getNombre()+ "', '"+
-                    imparte.getCurso().getNombre() +
+                    imparte.getCurso().getNombre()+
                 "').").forEachOrdered((hecho) -> {
-            System.out.println(hecho);
             InsertarDatoEnMemoria(hecho);
-            
         });
-        System.out.println("->Datos de imparte agregados");
+        System.out.println("->Datos de Imparte agregados");
         return true;
     }
     
@@ -229,16 +223,14 @@ public class SingletonProlog {
         try {
             
             File file = new File(Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
-            // Si el archivo no existe es creado
-            //if (!file.exists()) {
-                file.createNewFile();
-              //  System.out.println("Archivo Creado en " + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
-            //}
+            if (file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
             for (int i = 0; i < contenido.size(); i++) {
                 Files.write(Paths.get(Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl"), contenido.get(i).getBytes(), StandardOpenOption.APPEND);
             }
-            
-            System.out.println("Ubicacion " + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
+            System.out.println("->Archivo creado con los hechos de prolog en la ubicacion" + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
             return  true;
         } catch (Exception e) {
             e.printStackTrace();

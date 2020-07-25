@@ -63,6 +63,7 @@ public class Singleton {
                 return profe;
             }
         }
+        System.out.println("(X) Problema al ubicar Profesor id = " + id);
         return null;
     }
     
@@ -74,6 +75,7 @@ public class Singleton {
                 return dia;
             }
         }
+        System.out.println("(X) Problema al ubicar Dia id = " + id);
         return null;
     }
     
@@ -85,6 +87,7 @@ public class Singleton {
                 return leccion;
             }
         }
+        System.out.println("(X) Problema al ubicar Leccion id = " + id);
         return null;
     }
     
@@ -96,6 +99,7 @@ public class Singleton {
                 return curso;
             }
         }
+        System.out.println("(X) Problema al ubicar Curso id = " + id);
         return null;
     }
     
@@ -107,6 +111,7 @@ public class Singleton {
                 return aula;
             }
         }
+        System.out.println("(X) Problema al ubicar Aula id = " + id);
         return null;
     }
     

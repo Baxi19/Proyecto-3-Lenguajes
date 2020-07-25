@@ -76,7 +76,7 @@ public class Aula implements Decorador, Factory{
                     getNombre() + "', "+
                     getCapacidad() + ", '"+
                     getTipo() +
-                    "').";
+                    "').\n";
 
          
     }

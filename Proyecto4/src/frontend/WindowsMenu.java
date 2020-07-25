@@ -6,6 +6,7 @@
 package frontend;
 
 
+import backend.ResultadoProlog;
 import backend.SingletonProlog;
 import patterns.Singleton;
 import database.SQLite;
@@ -1414,10 +1415,15 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        consultaProlog("disponibilidad(X,Y).");    
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    public ArrayList<ResultadoProlog> consultaProlog(String consulta){
         cargarDatosListas();
         SingletonProlog.getInstance().assertDatosProlog();
-        System.out.println(SingletonProlog.getInstance().consulta("disponibilidad(X,Y)."));    
-    }//GEN-LAST:event_jButton2ActionPerformed
+        imprime(SingletonProlog.getInstance().consulta(consulta, "backend"));
+        return SingletonProlog.getInstance().consulta(consulta, "backend");    
+    }
     
     private Boolean imprime(ArrayList lista){
         System.out.println("");
@@ -1671,8 +1677,20 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
 
+    private String limpiarListas(){
+        Singleton.getInstance().listaHechos.clear();
+        Singleton.getInstance().listaProfesores.clear();
+        Singleton.getInstance().listaCursos.clear();
+        Singleton.getInstance().listaAulas.clear();
+        Singleton.getInstance().listaDias.clear();
+        Singleton.getInstance().listaLeccion.clear();
+        Singleton.getInstance().listaDisponibilidades.clear();
+        Singleton.getInstance().listaImparte.clear();
+        System.out.println("->Listas limpias");
+        return "Listas limpias";
+    }
     private String cargarDatosListas() {
-        
+        limpiarListas();
         SQLite.getInstance().obtenerAula();
         SQLite.getInstance().obtenerProfesor();
         SQLite.getInstance().obtenerCurso();
@@ -1680,10 +1698,9 @@ public class WindowsMenu extends javax.swing.JFrame {
         SQLite.getInstance().obtenerLeccion();
         SQLite.getInstance().obtenerDisponibilidad();
         SQLite.getInstance().obtenerImparte();
-
-        return "";
+        System.out.println("->Listas con los datos cargados");
+        return "Listas con los datos cargados";
       
     }
 
- 
 }

@@ -14,7 +14,7 @@ import patterns.Factory;
  */
 public class Profesor  implements Factory, Decorador{ 
     private int id;
-    protected String nombre;
+    private String nombre;
     private String apellidos;
     private String cedula;
 
@@ -79,7 +79,7 @@ public class Profesor  implements Factory, Decorador{
                     getNombre() + "', '"+
                     getApellidos() + "', '"+
                     getCedula() + 
-                "')." ;
+                "'). \n" ;
     }
      
 }

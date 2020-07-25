@@ -56,7 +56,7 @@ public class Dia  implements Factory, Decorador{
     public String getHecho() {
         return  "dia('" + 
                     getDia()+
-                "').";
+                "').\n";
     }
 
     
