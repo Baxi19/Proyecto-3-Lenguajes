@@ -61,10 +61,9 @@ public class SingletonProlog {
         assertAula(Singleton.getInstance().listaAulas);
         assertDia(Singleton.getInstance().listaDias);
         assertLeccion(Singleton.getInstance().listaLeccion);
-        //assertImparte(Singleton.getInstance().listaImparte);
-        //assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
+        assertImparte(Singleton.getInstance().listaImparte);
+        assertDisponibilidad(Singleton.getInstance().listaDisponibilidades);
         
-        //assertHorario(Singleton.getInstance().listaHorarios);
         return true;
     }
     /*------------------------------------------------------------------------*/

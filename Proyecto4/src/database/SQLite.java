@@ -365,15 +365,26 @@ public class SQLite {
     /*------------------------------------------------------------------------*/
     //metodo para obtener los profesores y los cursos que imparte para  agregarlos en una lista
     public Boolean obtenerImparte(){
-        String sql = "SELECT * FROM Imparte WHERE  activo ='T';";
+        //String sql = "SELECT * FROM Imparte WHERE  activo ='T';";
+        String sql =    " SELECT " +
+                        " Profesor.nombre "+       
+                        " AS profesor, " +
+                        " Curso.nombre" +
+                        " AS curso " +
+                        " FROM " +
+                        " Imparte " +
+                        " INNER JOIN Profesor ON Profesor.id = Imparte.profesor_id " +
+                        " INNER JOIN Curso ON Curso.id = Imparte.curso_id " +
+                        " WHERE Imparte.activo = 'T';";
+        
         try {
             Connection con = conexion();
             Statement statement = con.createStatement();
             resultadoConsulta = statement.executeQuery(sql);
             while (resultadoConsulta.next()) {
                 Imparte item =new Imparte(resultadoConsulta.getInt("id"), 
-                                Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor_id")),
-                                Singleton.getInstance().buscarCurso(resultadoConsulta.getInt("curso_id"))
+                                Singleton.getInstance().buscarProfesor(resultadoConsulta.getInt("profesor.id")),
+                                Singleton.getInstance().buscarCurso(resultadoConsulta.getInt("curso.id"))
                         );
                 Singleton.getInstance().listaHechos.add(item.getHecho());
                 Singleton.getInstance().listaImparte.add(item);  

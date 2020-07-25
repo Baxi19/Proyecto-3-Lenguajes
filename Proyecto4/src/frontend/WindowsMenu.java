@@ -1416,7 +1416,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         cargarDatosListas();
         SingletonProlog.getInstance().assertDatosProlog();
-        System.out.println(SingletonProlog.getInstance().consulta("leccion(X,Y,Z,A)."));    
+        System.out.println(SingletonProlog.getInstance().consulta("disponibilidad(X,Y)."));    
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private Boolean imprime(ArrayList lista){

@@ -64,7 +64,10 @@ public class Disponibilidad   implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "disponibilidad('" + getProfesor().getNombre()  + "', '" + getDia().getDia()+ "').";
+        return  "disponibilidad('" + 
+                getProfesor().getNombre()  + "', '" + 
+                getDia().getDia()+ 
+                "').";
     }
 
 

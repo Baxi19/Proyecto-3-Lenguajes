@@ -14,7 +14,7 @@ import patterns.Factory;
  */
 public class Curso implements Decorador, Factory{
     private int id;
-    private String nombre;
+    protected String nombre;
     private String asignatura;
     private int creditos;
     private int semestre;

@@ -65,7 +65,10 @@ public class Imparte  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "";
+        return  "imparte('" + 
+                    getProfesor().getNombre()+ "', '"+
+                    getCurso().getNombre() +
+                "').";
     }
 
     
