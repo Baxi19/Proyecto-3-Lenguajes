@@ -230,7 +230,7 @@ public class SingletonProlog {
             for (int i = 0; i < contenido.size(); i++) {
                 Files.write(Paths.get(Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl"), contenido.get(i).getBytes(), StandardOpenOption.APPEND);
             }
-            System.out.println("->Archivo creado con los hechos de prolog en la ubicacion" + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
+            System.out.println("->Escribiendo Hechos de prolog en la ubicacion" + Paths.get("").toAbsolutePath().toString()+"\\" + nombreArchivo+".pl");
             return  true;
         } catch (Exception e) {
             e.printStackTrace();

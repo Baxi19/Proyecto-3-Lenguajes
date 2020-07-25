@@ -1411,11 +1411,11 @@ public class WindowsMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cargarDatosListas();
-        SingletonProlog.getInstance().crearArchivo("backend",Singleton.getInstance().listaHechos);
+        SingletonProlog.getInstance().crearArchivo("hechos",Singleton.getInstance().listaHechos);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        consultaProlog("disponibilidad(X,Y).");    
+        consultaProlog("solucion(Profesor, Curso, Semestre,Dia).");    
     }//GEN-LAST:event_jButton2ActionPerformed
     
     public ArrayList<ResultadoProlog> consultaProlog(String consulta){
