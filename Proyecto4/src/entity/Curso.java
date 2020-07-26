@@ -95,7 +95,8 @@ public class Curso implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "curso('" + 
+        return  "curso(" + 
+                    getId()+ ", '"+
                     getNombre() + "', '"+
                     getAsignatura() + "', " +
                     getCreditos() +  ", " +  

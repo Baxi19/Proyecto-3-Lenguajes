@@ -6,48 +6,48 @@
 par(X) :- 0 is X mod 2.
 impar(X) :- 1 is X mod 2.
 
-%para almacenar todos los horarios posibles por profesor y sus aulas
-% horario(Leccion,Dias, Horario,Bloque,Curso,Creditos,Semestre, Cantidad_dias, Aula,Capacidad, Profesor).
-horario(Leccion,Dia, Horario,Bloque, Curso,Creditos,Semestre, Cantidad_dias, Aula ,Capacidad, Profesor) :-
-    asignatura(Curso,Tipo_curso),
-    aula(Aula),
-    tipo(Aula, Tipo_aula),
-    capacidad(Aula, Capacidad),
-    (Tipo_curso = Tipo_aula),
-    profesor(Profesor),
-    curso(Curso),
-    creditos(Curso,Creditos),
-    semestre(Curso,Semestre),
-    cantidad_dias(Curso, Cantidad_dias),
-    imparte(Profesor, Curso),
-    disponibilidad(Profesor, Lista),
-    leccion(Leccion),
-    buscar_bloque(Leccion, Bloque),
-    dia_leccion(Leccion, Dia),
-    member(Dia, Lista),
-    hora_leccion(Leccion,Horario).
-
-
-%Se obtiene una lista con todas las lecciones disponibles
-todas_lecciones(Resultado) :-
-    findall(Leccion$Dia$Hora,(leccion(Leccion),dia_leccion(Leccion,Dia),hora_leccion(Leccion,Hora)),Resultado).
-
-%se obtiene una lista con todos los cursos disponibles
-todos_cursos(Resultado) :-
-    findall(Curso->Asignatura->Peso->Semestre->Dia,(curso(Curso),asignatura(Curso,Asignatura),creditos(Curso,Peso),semestre(Curso,Semestre),cantidad_dias(Curso,Dia)),Resultado).
-
-%se obtiene una lista con todos los datos de los profesores disponibles
-todos_profesores(Resultado) :-
-    findall(Profesor->Apellidos->Cedula->Disponibilidad->Imparte,(profesor(Profesor),apellidos(Profesor,Apellidos),cedula(Profesor,Cedula),disponibilidad(Profesor,Disponibilidad),imparte(Profesor,Imparte)),Resultado).
-
-%se obtiene una lista con la informacion de todas las aulas
-todas_aulas(Resultado) :-
-    findall(Aula->Capacidad->Tipo, (aula(Aula),capacidad(Aula,Capacidad),tipo(Aula,Tipo)),Resultado).
-
 %para saber si es miembro de una lista
 es_miembro(X,[X|_]).
 es_miembro(X,[_|T]):-
     es_miembro(X,T).
 
+
 %Solucion pregunta #2
 %profesor, semestre, curso, disponibilidad, imparte
+solucion(Profesor, Curso, Semestre,Dia) :-
+    curso(Curso, _, _, Semestre, _),
+    profesor(Profesor, _, _),
+    imparte(Profesor, Curso),
+    dia(Dia),
+    disponibilidad(Profesor, Dia).
+
+
+horario(Profesor, Curso,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+    horario_temp(Profesor, Curso,Dia,Dia2, Leccion1,Leccion2, Aula, []).
+
+horario_temp(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Lista) :-
+    profesor(Profesor, _,_),
+    curso(Curso,Tipo,_,_, Dias ),
+    Dias = 1,
+    dia(Dia),
+    dia(Dia2),
+    Dia = Dia2,
+    leccion(Leccion, Dia, _, _),
+    leccion(Leccion2, Dia2, _, _),
+    not(Leccion = Leccion2),
+    aula(Aula, _, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso).
+
+horario_temp(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Lista) :-
+    profesor(Profesor, _,_),
+    curso(Curso,Tipo,_,_, Dias ),
+    Dias = 2,
+    dia(Dia2),
+    dia(Dia), %OR
+    not(Dia = Dia2),
+    leccion(Leccion, Dia, _, _),
+    leccion(Leccion2, Dia2, _, _),
+    aula(Aula, _, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso).

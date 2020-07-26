@@ -82,7 +82,8 @@ public class Leccion implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "leccion('" + 
+        return  "leccion(" +
+                    getId() +", '"+
                     getLeccion()+ "', '"+
                     getDia().getDia()+ "', '"+
                     getHoraInicio()+ "', '"+

@@ -18,7 +18,6 @@ profesor('leo', 'Viquez Acuña', '3-216-566').
 profesor('oscar', 'Viquez Acuña', '5-616-612').
 profesor('vera', 'Gamboa Guzman', '4-646-654').
 profesor('rogelio', 'Gonzalez Quiros', '6-545-613').
-profesor('Meylin', 'Gomez Aguilar', '207810024').
 curso('fundamentos', 'normal', 3, 1, 2).
 curso('introduccion', 'normal', 3, 1, 2).
 curso('taller', 'laboratorio', 3, 1, 1).
@@ -43,7 +42,6 @@ curso('ia', 'laboratorio', 4, 7, 2).
 curso('redes', 'laboratorio', 4, 7, 1).
 curso('proyectoS', 'laboratorio', 3, 7, 2).
 curso('practica', 'empresa', 12, 8, 2).
-curso('Diseno de instalaciones', 'Normal', 4, 1, 1).
 dia('Lunes').
 dia('Martes').
 dia('Miercoles').
@@ -110,7 +108,6 @@ disponibilidad('rogelio', 'Lunes').
 disponibilidad('rogelio', 'Martes').
 disponibilidad('rogelio', 'Miercoles').
 disponibilidad('rogelio', 'Viernes').
-disponibilidad('Meylin', 'Sabado').
 imparte('alejandro', 'requerimientos').
 imparte('alejandro', 'diseno').
 imparte('rocio', 'fundamentos').
@@ -150,17 +147,61 @@ imparte('rogelio', 'ia').
 imparte('rogelio', 'electiva2').
 imparte('rogelio', 'io').
 imparte('rogelio', 'electiva1').
-imparte('Meylin', 'Diseno de instalaciones').
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%REGLAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Para calcular los semestres, si es par o no
+par(X) :- 0 is X mod 2.
+impar(X) :- 1 is X mod 2.
+
+%para saber si es miembro de una lista
+es_miembro(X,[X|_]).
+es_miembro(X,[_|T]):-
+    es_miembro(X,T).
 
 %Solucion pregunta #2
 %profesor, semestre, curso, disponibilidad, imparte
 
 solucion(Profesor, Curso, Semestre,Dia) :-
-    curso(Curso, Asignatura, Creditos, Semestre, Dias),
-    profesor(Profesor, Apellidos, Cedula),
+    curso(Curso, _, _, Semestre, _),
+    profesor(Profesor, _, _),
     imparte(Profesor, Curso),
     dia(Dia),
     disponibilidad(Profesor, Dia).
+
+
+horario(Profesor, Curso,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+    horario_temp(Profesor, Curso,Dia,Dia2, Leccion1,Leccion2, Aula, []).
+
+horario_temp(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Lista) :-
+    profesor(Profesor, Apellidos,Cedula),
+    curso(Curso,Tipo,Creditos,Semestre, Dias ),
+    Dias = 1,
+    dia(Dia),
+    dia(Dia2),
+    Dia = Dia2,
+    leccion(Leccion, Dia, A, _),
+    leccion(Leccion2, Dia2, B, _),
+    not(A = B),
+    aula(Aula, Cantidad, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso).
+
+horario_temp(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Lista) :-
+    profesor(Profesor, Apellidos,Cedula),
+    curso(Curso,Tipo,Creditos,Semestre, Dias ),
+    Dias = 2,
+    dia(Dia2),
+    dia(Dia), %OR
+    not(Dia = Dia2),
+    leccion(Leccion, Dia, _, _),
+    leccion(Leccion2, Dia2, _, _),
+    aula(Aula, Cantidad, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso).
 
 

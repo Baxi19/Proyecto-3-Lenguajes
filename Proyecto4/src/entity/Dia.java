@@ -54,7 +54,8 @@ public class Dia  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "dia('" + 
+        return  "dia(" +
+                    getId() + ", '"+
                     getDia()+
                 "').\n";
     }

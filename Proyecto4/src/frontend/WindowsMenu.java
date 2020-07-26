@@ -55,17 +55,18 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jButtonDisponibilidad = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jButtonHorario = new javax.swing.JButton();
-        jPanelHorarios = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jButtonConsulta1 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jButtonConsulta2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTableConsulta1 = new javax.swing.JTable();
-        jButtonClose6 = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
+        jPanelConsulta2 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTableConsulta2 = new javax.swing.JTable();
+        jButtonClose7 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -126,6 +127,14 @@ public class WindowsMenu extends javax.swing.JFrame {
         CD_Cliente4 = new javax.swing.JLabel();
         jButtonClose5 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        jPanelConsulta1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTableConsulta1 = new javax.swing.JTable();
+        jButtonClose6 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         jButtonOff = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -304,77 +313,97 @@ public class WindowsMenu extends javax.swing.JFrame {
         jPanelLogin.add(jLabel14);
         jLabel14.setBounds(20, 450, 190, 28);
 
-        jButtonHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
-        jButtonHorario.setBorder(null);
-        jButtonHorario.setBorderPainted(false);
-        jButtonHorario.setContentAreaFilled(false);
-        jButtonHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonHorario.setRequestFocusEnabled(false);
-        jButtonHorario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonHorario.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonHorario.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonHorario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonConsulta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonConsulta1.setBorder(null);
+        jButtonConsulta1.setBorderPainted(false);
+        jButtonConsulta1.setContentAreaFilled(false);
+        jButtonConsulta1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonConsulta1.setRequestFocusEnabled(false);
+        jButtonConsulta1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonHorarioMouseClicked(evt);
+                jButtonConsulta1MouseClicked(evt);
             }
         });
-        jButtonHorario.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConsulta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHorarioActionPerformed(evt);
+                jButtonConsulta1ActionPerformed(evt);
             }
         });
-        jPanelLogin.add(jButtonHorario);
-        jButtonHorario.setBounds(200, 440, 60, 50);
+        jPanelLogin.add(jButtonConsulta1);
+        jButtonConsulta1.setBounds(200, 440, 60, 50);
 
-        getContentPane().add(jPanelLogin);
-        jPanelLogin.setBounds(0, 0, 265, 600);
+        jLabel28.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Consulta 2 Prolog");
+        jLabel28.setToolTipText("");
+        jPanelLogin.add(jLabel28);
+        jLabel28.setBounds(20, 510, 190, 28);
 
-        jPanelHorarios.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
-        jPanelHorarios.setAlignmentX(0.0F);
-        jPanelHorarios.setAlignmentY(0.0F);
-        jPanelHorarios.setPreferredSize(new java.awt.Dimension(535, 600));
-        jPanelHorarios.setLayout(null);
-
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Relaciones en Prolog, tomando en cuenta");
-        jLabel19.setToolTipText("");
-        jPanelHorarios.add(jLabel19);
-        jLabel19.setBounds(40, 60, 440, 28);
-
-        jLabel27.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("la disponibilidad y los cursos que imparte");
-        jLabel27.setToolTipText("");
-        jPanelHorarios.add(jLabel27);
-        jLabel27.setBounds(40, 140, 440, 28);
-
-        jLabel26.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Semestre ,curso, dia, profesor, ");
-        jLabel26.setToolTipText("");
-        jPanelHorarios.add(jLabel26);
-        jLabel26.setBounds(40, 100, 330, 28);
-
-        jButton2.setText("Solucion 1");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConsulta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
+        jButtonConsulta2.setBorder(null);
+        jButtonConsulta2.setBorderPainted(false);
+        jButtonConsulta2.setContentAreaFilled(false);
+        jButtonConsulta2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonConsulta2.setRequestFocusEnabled(false);
+        jButtonConsulta2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta2.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
+        jButtonConsulta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConsulta2MouseClicked(evt);
+            }
+        });
+        jButtonConsulta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonConsulta2ActionPerformed(evt);
             }
         });
-        jPanelHorarios.add(jButton2);
-        jButton2.setBounds(40, 550, 140, 23);
+        jPanelLogin.add(jButtonConsulta2);
+        jButtonConsulta2.setBounds(200, 500, 60, 50);
 
-        jButton1.setText("Guardar Archivo");
+        jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanelHorarios.add(jButton1);
-        jButton1.setBounds(370, 550, 130, 23);
+        jPanelLogin.add(jButton1);
+        jButton1.setBounds(100, 550, 73, 23);
 
-        jTableConsulta1.setModel(new javax.swing.table.DefaultTableModel(
+        getContentPane().add(jPanelLogin);
+        jPanelLogin.setBounds(0, 0, 265, 600);
+
+        jPanelConsulta2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelConsulta2.setAlignmentX(0.0F);
+        jPanelConsulta2.setAlignmentY(0.0F);
+        jPanelConsulta2.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelConsulta2.setLayout(null);
+
+        jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Relaciones en Prolog, tomando en cuenta");
+        jLabel29.setToolTipText("");
+        jPanelConsulta2.add(jLabel29);
+        jLabel29.setBounds(40, 60, 440, 28);
+
+        jLabel31.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Semestre ,curso, dia, profesor, ");
+        jLabel31.setToolTipText("");
+        jPanelConsulta2.add(jLabel31);
+        jLabel31.setBounds(40, 100, 330, 28);
+
+        jLabel30.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("la disponibilidad y los cursos que imparte");
+        jLabel30.setToolTipText("");
+        jPanelConsulta2.add(jLabel30);
+        jLabel30.setBounds(40, 140, 440, 28);
+
+        jTableConsulta2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -385,40 +414,40 @@ public class WindowsMenu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane6.setViewportView(jTableConsulta1);
+        jScrollPane8.setViewportView(jTableConsulta2);
 
-        jPanelHorarios.add(jScrollPane6);
-        jScrollPane6.setBounds(40, 200, 452, 250);
+        jPanelConsulta2.add(jScrollPane8);
+        jScrollPane8.setBounds(40, 200, 452, 340);
 
-        jButtonClose6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
-        jButtonClose6.setBorder(null);
-        jButtonClose6.setBorderPainted(false);
-        jButtonClose6.setContentAreaFilled(false);
-        jButtonClose6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonClose6.setRequestFocusEnabled(false);
-        jButtonClose6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose6.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClose7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose7.setBorder(null);
+        jButtonClose7.setBorderPainted(false);
+        jButtonClose7.setContentAreaFilled(false);
+        jButtonClose7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose7.setRequestFocusEnabled(false);
+        jButtonClose7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose7.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonClose6MouseClicked(evt);
+                jButtonClose7MouseClicked(evt);
             }
         });
-        jButtonClose6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClose7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClose6ActionPerformed(evt);
+                jButtonClose7ActionPerformed(evt);
             }
         });
-        jPanelHorarios.add(jButtonClose6);
-        jButtonClose6.setBounds(470, 20, 51, 51);
+        jPanelConsulta2.add(jButtonClose7);
+        jButtonClose7.setBounds(470, 20, 51, 51);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
-        jLabel20.setText("jLabel2");
-        jPanelHorarios.add(jLabel20);
-        jLabel20.setBounds(0, 0, 535, 600);
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel32.setText("jLabel2");
+        jPanelConsulta2.add(jLabel32);
+        jLabel32.setBounds(0, 0, 535, 600);
 
-        getContentPane().add(jPanelHorarios);
-        jPanelHorarios.setBounds(265, 0, 535, 600);
+        getContentPane().add(jPanelConsulta2);
+        jPanelConsulta2.setBounds(265, 0, 535, 600);
 
         jPanelProfesor.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelProfesor.setAlignmentX(0.0F);
@@ -1060,6 +1089,79 @@ public class WindowsMenu extends javax.swing.JFrame {
         getContentPane().add(jPanelDisponibilidad);
         jPanelDisponibilidad.setBounds(265, 0, 535, 600);
 
+        jPanelConsulta1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelConsulta1.setAlignmentX(0.0F);
+        jPanelConsulta1.setAlignmentY(0.0F);
+        jPanelConsulta1.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelConsulta1.setLayout(null);
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Relaciones en Prolog, tomando en cuenta");
+        jLabel19.setToolTipText("");
+        jPanelConsulta1.add(jLabel19);
+        jLabel19.setBounds(40, 60, 440, 28);
+
+        jLabel27.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("la disponibilidad y los cursos que imparte");
+        jLabel27.setToolTipText("");
+        jPanelConsulta1.add(jLabel27);
+        jLabel27.setBounds(40, 140, 440, 28);
+
+        jLabel26.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Semestre ,curso, dia, profesor, ");
+        jLabel26.setToolTipText("");
+        jPanelConsulta1.add(jLabel26);
+        jLabel26.setBounds(40, 100, 330, 28);
+
+        jTableConsulta1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTableConsulta1);
+
+        jPanelConsulta1.add(jScrollPane6);
+        jScrollPane6.setBounds(40, 200, 452, 340);
+
+        jButtonClose6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose6.setBorder(null);
+        jButtonClose6.setBorderPainted(false);
+        jButtonClose6.setContentAreaFilled(false);
+        jButtonClose6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose6.setRequestFocusEnabled(false);
+        jButtonClose6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose6.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClose6MouseClicked(evt);
+            }
+        });
+        jButtonClose6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClose6ActionPerformed(evt);
+            }
+        });
+        jPanelConsulta1.add(jButtonClose6);
+        jButtonClose6.setBounds(470, 20, 51, 51);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel20.setText("jLabel2");
+        jPanelConsulta1.add(jLabel20);
+        jLabel20.setBounds(0, 0, 535, 600);
+
+        getContentPane().add(jPanelConsulta1);
+        jPanelConsulta1.setBounds(265, 0, 535, 600);
+
         jButtonOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/off1.png"))); // NOI18N
         jButtonOff.setBorder(null);
         jButtonOff.setBorderPainted(false);
@@ -1249,15 +1351,16 @@ public class WindowsMenu extends javax.swing.JFrame {
         datosDisponibilidad();
     }//GEN-LAST:event_jButtonDisponibilidadActionPerformed
 
-    private void jButtonHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHorarioMouseClicked
+    private void jButtonConsulta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConsulta1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonHorarioMouseClicked
+    }//GEN-LAST:event_jButtonConsulta1MouseClicked
 
-    private void jButtonHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHorarioActionPerformed
+    private void jButtonConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta1ActionPerformed
         cerrarPaneles();
-        datosHorarios();
+        jPanelConsulta1.setVisible(true);
+        jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre,Dia)."));
         
-    }//GEN-LAST:event_jButtonHorarioActionPerformed
+    }//GEN-LAST:event_jButtonConsulta1ActionPerformed
 
     private void jButtonEliminarRelacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarRelacionMouseClicked
         // TODO add your handling code here:
@@ -1335,116 +1438,29 @@ public class WindowsMenu extends javax.swing.JFrame {
         cerrarPaneles();
     }//GEN-LAST:event_jButtonClose6ActionPerformed
 
+    private void jButtonConsulta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConsulta2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonConsulta2MouseClicked
+
+    private void jButtonConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta2ActionPerformed
+        cerrarPaneles();
+        jPanelConsulta2.setVisible(true);
+        jTableConsulta2.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre,Dia)."));
+    }//GEN-LAST:event_jButtonConsulta2ActionPerformed
+
+    private void jButtonClose7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonClose7MouseClicked
+
+    private void jButtonClose7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose7ActionPerformed
+        cerrarPaneles();
+    }//GEN-LAST:event_jButtonClose7ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cargarDatosListas();
+        SingletonProlog.getInstance().cargarDatosListas();
         SingletonProlog.getInstance().crearArchivo("hechos",Singleton.getInstance().listaHechos);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre,Dia)."));
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
     
-    
-    /*------------------------------------------------------------------------*/
-    /*Metodo de enlase para la consultas en prolog*/
-    public ArrayList<ResultadoProlog> consultaProlog(String consulta){
-        ArrayList<ResultadoProlog> lista = new ArrayList<>();
-        cargarDatosListas();
-        SingletonProlog.getInstance().assertDatosProlog();
-        lista = SingletonProlog.getInstance().consulta(consulta, "backend");
-        return lista;    
-    }
-    
-    /*------------------------------------------------------------------------*/
-    /*Metodo para ocultar paneles*/
-    protected void cerrarPaneles() {
-        jPanelProfesor.setVisible(false);
-        jPanelCursos.setVisible(false);
-        jPanelAulas.setVisible(false);
-        jPanelImparte.setVisible(false);
-        jPanelDisponibilidad.setVisible(false);
-        jPanelHorarios.setVisible(false);
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosProfesor(){
-        String sql = "SELECT id, nombre, apellidos, cedula FROM Profesor WHERE activo = 'T';";
-        jTableProfesor.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelProfesor.setVisible(true);
-        return  "";
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosCursos(){
-        String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
-        jTableCursos.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelCursos.setVisible(true);
-        return  "";
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosHorarios(){
-        String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
-        jTableConsulta1.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelHorarios.setVisible(true);
-        return  "";
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosAulas(){
-        String sql = "SELECT id, nombre, capacidad, tipo FROM Aula WHERE activo = 'T';";
-        jTableAulas.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelAulas.setVisible(true);
-        return  "";
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosImparte(){
-        String sql =    " SELECT " +
-                        " Imparte.id AS id, " +
-                        " Profesor.nombre, Profesor.apellidos "+       
-                        " AS apellido, " +
-                        " Curso.nombre" +
-                        " AS curso " +
-                        " FROM " +
-                        " Imparte " +
-                        " INNER JOIN Profesor ON Profesor.id = Imparte.profesor_id " +
-                        " INNER JOIN Curso ON Curso.id = Imparte.curso_id " +
-                        " WHERE Imparte.activo = 'T';";
-        
-        jTableImparte.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelImparte.setVisible(true);
-        return "";
-    }
-    /*------------------------------------------------------------------------*/
-    protected String datosDisponibilidad(){
-        String sql =    " SELECT Disponibilidad.id, Profesor.nombre, Profesor.apellidos, Dia.dia FROM Disponibilidad \n" +
-                        " INNER JOIN Dia ON Dia.id = Disponibilidad.dia_id \n" +
-                        " INNER JOIN Profesor ON Profesor.id = Disponibilidad.profesor_id \n" +
-                        " WHERE Disponibilidad.activo = 'T' ORDER BY Profesor.nombre; ";
-        jTableDisponibilidad.setModel(SQLite.getInstance().executeSQL(sql));
-        jPanelDisponibilidad.setVisible(true);
-        return  "";
-    }
-    
-    /*------------------------------------------------------------------------*/
-    /*Metodo para definir el tipo de seleccion de las tablas*/
-    protected void updateTable(){
-        jTableProfesor.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableProfesor.setAutoCreateRowSorter(true);
-        
-        jTableAulas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableAulas.setAutoCreateRowSorter(true);
-        
-        jTableCursos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableCursos.setAutoCreateRowSorter(true);
-        
-        jTableImparte.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableImparte.setAutoCreateRowSorter(true);
-        
-        jTableDisponibilidad.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableDisponibilidad.setAutoCreateRowSorter(true);
-        
-        jTableConsulta1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTableConsulta1.setAutoCreateRowSorter(true);
-        
-    }
     /**
      * @param args the command line arguments
      */
@@ -1518,7 +1534,6 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente3;
     private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;
@@ -1529,16 +1544,18 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClose4;
     private javax.swing.JButton jButtonClose5;
     private javax.swing.JButton jButtonClose6;
+    private javax.swing.JButton jButtonClose7;
     private javax.swing.JButton jButtonConfirmBill4;
     private javax.swing.JButton jButtonConfirmBill5;
     private javax.swing.JButton jButtonConfirmBill6;
     private javax.swing.JButton jButtonConfirmBill7;
+    private javax.swing.JButton jButtonConsulta1;
+    private javax.swing.JButton jButtonConsulta2;
     private javax.swing.JButton jButtonCursos;
     private javax.swing.JButton jButtonDisponibilidad;
     private javax.swing.JButton jButtonEliminarAula;
     private javax.swing.JButton jButtonEliminarRelacion;
     private javax.swing.JButton jButtonEliminarRelacionDisponibilidad;
-    private javax.swing.JButton jButtonHorario;
     private javax.swing.JButton jButtonImparte;
     private javax.swing.JButton jButtonOff;
     private javax.swing.JButton jButtonProfesores;
@@ -1562,6 +1579,11 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -1580,9 +1602,10 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelAulas;
+    private javax.swing.JPanel jPanelConsulta1;
+    private javax.swing.JPanel jPanelConsulta2;
     private javax.swing.JPanel jPanelCursos;
     private javax.swing.JPanel jPanelDisponibilidad;
-    private javax.swing.JPanel jPanelHorarios;
     private javax.swing.JPanel jPanelImparte;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelProfesor;
@@ -1592,40 +1615,106 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTable jTableAulas;
     private javax.swing.JTable jTableConsulta1;
+    private javax.swing.JTable jTableConsulta2;
     private javax.swing.JTable jTableCursos;
     private javax.swing.JTable jTableDisponibilidad;
     private javax.swing.JTable jTableImparte;
     private javax.swing.JTable jTableProfesor;
     // End of variables declaration//GEN-END:variables
+
+    /*------------------------------------------------------------------------*/
+    /*Metodo para ocultar paneles*/
+    protected void cerrarPaneles() {
+        jPanelProfesor.setVisible(false);
+        jPanelCursos.setVisible(false);
+        jPanelAulas.setVisible(false);
+        jPanelImparte.setVisible(false);
+        jPanelDisponibilidad.setVisible(false);
+        jPanelConsulta1.setVisible(false);
+        jPanelConsulta2.setVisible(false);
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosProfesor(){
+        String sql = "SELECT id, nombre, apellidos, cedula FROM Profesor WHERE activo = 'T';";
+        jTableProfesor.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelProfesor.setVisible(true);
+        return  "";
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosCursos(){
+        String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
+        jTableCursos.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelCursos.setVisible(true);
+        return  "";
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosHorarios(){
+        String sql = "SELECT id, nombre, asignatura, creditos,semestre, cantidad_dias  FROM Curso WHERE activo = 'T';";
+        jTableConsulta1.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelConsulta1.setVisible(true);
+        return  "";
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosAulas(){
+        String sql = "SELECT id, nombre, capacidad, tipo FROM Aula WHERE activo = 'T';";
+        jTableAulas.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelAulas.setVisible(true);
+        return  "";
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosImparte(){
+        String sql =    " SELECT " +
+                        " Imparte.id AS id, " +
+                        " Profesor.nombre, Profesor.apellidos "+       
+                        " AS apellido, " +
+                        " Curso.nombre" +
+                        " AS curso " +
+                        " FROM " +
+                        " Imparte " +
+                        " INNER JOIN Profesor ON Profesor.id = Imparte.profesor_id " +
+                        " INNER JOIN Curso ON Curso.id = Imparte.curso_id " +
+                        " WHERE Imparte.activo = 'T';";
+        
+        jTableImparte.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelImparte.setVisible(true);
+        return "";
+    }
+    /*------------------------------------------------------------------------*/
+    protected String datosDisponibilidad(){
+        String sql =    " SELECT Disponibilidad.id, Profesor.nombre, Profesor.apellidos, Dia.dia FROM Disponibilidad \n" +
+                        " INNER JOIN Dia ON Dia.id = Disponibilidad.dia_id \n" +
+                        " INNER JOIN Profesor ON Profesor.id = Disponibilidad.profesor_id \n" +
+                        " WHERE Disponibilidad.activo = 'T' ORDER BY Profesor.nombre; ";
+        jTableDisponibilidad.setModel(SQLite.getInstance().executeSQL(sql));
+        jPanelDisponibilidad.setVisible(true);
+        return  "";
+    }
     
     /*------------------------------------------------------------------------*/
-    private String limpiarListas(){
-        Singleton.getInstance().listaHechos.clear();
-        Singleton.getInstance().listaProfesores.clear();
-        Singleton.getInstance().listaCursos.clear();
-        Singleton.getInstance().listaAulas.clear();
-        Singleton.getInstance().listaDias.clear();
-        Singleton.getInstance().listaLeccion.clear();
-        Singleton.getInstance().listaDisponibilidades.clear();
-        Singleton.getInstance().listaImparte.clear();
-        System.out.println("->Listas limpias");
-        return "Listas limpias";
+    /*Metodo para definir el tipo de seleccion de las tablas*/
+    protected void updateTable(){
+        jTableProfesor.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableProfesor.setAutoCreateRowSorter(true);
+        
+        jTableAulas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableAulas.setAutoCreateRowSorter(true);
+        
+        jTableCursos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableCursos.setAutoCreateRowSorter(true);
+        
+        jTableImparte.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableImparte.setAutoCreateRowSorter(true);
+        
+        jTableDisponibilidad.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableDisponibilidad.setAutoCreateRowSorter(true);
+        
+        jTableConsulta1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTableConsulta1.setAutoCreateRowSorter(true);
+        
+        jTableConsulta2.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTableConsulta2.setAutoCreateRowSorter(true);
     }
-    /*------------------------------------------------------------------------*/
-    private String cargarDatosListas() {
-        limpiarListas();
-        SQLite.getInstance().obtenerAula();
-        SQLite.getInstance().obtenerProfesor();
-        SQLite.getInstance().obtenerCurso();
-        SQLite.getInstance().obtenerDias();
-        SQLite.getInstance().obtenerLeccion();
-        SQLite.getInstance().obtenerDisponibilidad();
-        SQLite.getInstance().obtenerImparte();
-        System.out.println("->Listas con los datos cargados");
-        return "Listas con los datos cargados";
-      
-    }
-
 }

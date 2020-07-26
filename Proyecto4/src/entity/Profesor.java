@@ -75,7 +75,8 @@ public class Profesor  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-       return  "profesor('" + 
+       return  "profesor(" + 
+                    getId() +", '"+
                     getNombre() + "', '"+
                     getApellidos() + "', '"+
                     getCedula() + 

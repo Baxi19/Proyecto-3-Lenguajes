@@ -72,7 +72,8 @@ public class Aula implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "aula('" + 
+        return  "aula(" +
+                    getId()+ ", '"+
                     getNombre() + "', "+
                     getCapacidad() + ", '"+
                     getTipo() +

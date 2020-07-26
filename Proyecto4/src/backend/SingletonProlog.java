@@ -125,7 +125,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertCurso(ArrayList<Curso> lista) {
         lista.stream().map((curso) -> 
-            "curso('" + 
+            "curso(" + 
+                    curso.getId() +", '"+
                     curso.getNombre() + "', '"+
                     curso.getAsignatura() + "', " +
                     curso.getCreditos() +  ", " +  
@@ -142,7 +143,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertProfesor(ArrayList<Profesor> lista) {
         lista.stream().map((profesor) -> 
-            "profesor('" + 
+            "profesor(" + 
+                    profesor.getId() +", '"+
                     profesor.getNombre() + "', '"+
                     profesor.getApellidos() + "', '"+
                     profesor.getCedula() + 
@@ -157,11 +159,12 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertAula(ArrayList<Aula> lista) {
         lista.stream().map((aula) -> 
-            "aula('"
-                + aula.getNombre() + "', "
-                + aula.getCapacidad() + ", '"
-                + aula.getTipo()
-                + "').").forEachOrdered((hecho) -> {
+            "aula("+
+                aula.getId() +", '"+
+                aula.getNombre() + "', "+
+                aula.getCapacidad() + ", '"+
+                aula.getTipo()+
+                "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
         });
         System.out.println("->Datos de aulas agregados");
@@ -172,7 +175,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertDia(ArrayList<Dia> lista) {
         lista.stream().map((dia) -> 
-            "dia('" + 
+            "dia(" +
+                    dia.getId() +", '"+
                     dia.getDia()+
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
@@ -185,7 +189,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertLeccion(ArrayList<Leccion> lista) {
         lista.stream().map((leccion) -> 
-            "leccion('" + 
+            "leccion(" + 
+                    leccion.getId() +", '"+
                     leccion.getLeccion()+ "', '"+
                     leccion.getDia().getDia()+ "', '"+
                     leccion.getHoraInicio()+ "', '"+
@@ -200,7 +205,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertDisponibilidad(ArrayList<Disponibilidad> lista) {
         lista.stream().map((disponibilidad) -> 
-            "disponibilidad('" + 
+            "disponibilidad(" +
+                    disponibilidad.getId() +", '"+
                     disponibilidad.getProfesor().getNombre()+ "', '"+
                     disponibilidad.getDia().getDia()+
                 "').").forEachOrdered((hecho) -> {
@@ -214,7 +220,8 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertImparte(ArrayList<Imparte> lista) {
         lista.stream().map((imparte) -> 
-            "imparte('" + 
+            "imparte(" + 
+                    imparte.getId() +", '"+
                     imparte.getProfesor().getNombre()+ "', '"+
                     imparte.getCurso().getNombre()+
                 "').").forEachOrdered((hecho) -> {
@@ -244,6 +251,7 @@ public class SingletonProlog {
             return false;
         }
     }
+    
     /*------------------------------------------------------------------------*/
     /*Metodo para recorrer soluciones de prolog*/
     public DefaultTableModel consultarPrologTabla(String consulta) {
@@ -269,7 +277,6 @@ public class SingletonProlog {
         return  modelo;
     }
     
-    
     /*------------------------------------------------------------------------*/
     /*Metodo de enlase para la consultas en prolog*/
     public ArrayList<ResultadoProlog> consultaProlog(String consulta){
@@ -281,6 +288,7 @@ public class SingletonProlog {
     }
     
     /*------------------------------------------------------------------------*/
+    //metodo para limpiar los datos de las listas
     private String limpiarListas(){
         Singleton.getInstance().listaHechos.clear();
         Singleton.getInstance().listaProfesores.clear();
@@ -294,7 +302,8 @@ public class SingletonProlog {
         return "Listas limpias";
     }
     /*------------------------------------------------------------------------*/
-    private String cargarDatosListas() {
+    /*Metodo para cargar datos de SQLite DB a arraylist*/
+    public String cargarDatosListas() {
         limpiarListas();
         SQLite.getInstance().obtenerAula();
         SQLite.getInstance().obtenerProfesor();
@@ -307,5 +316,14 @@ public class SingletonProlog {
         return "Listas con los datos cargados";
       
     }
+    /*------------------------------------------------------------------------*/
+    /*Metodo para guardar los hechos*/
+    private String guardarHechos(){
+        cargarDatosListas();
+        SingletonProlog.getInstance().crearArchivo("hechos",Singleton.getInstance().listaHechos);
+        System.out.println("->Hechos guardados en archivo con extencion .pl");
+        return "->Hechos guardados en archivo con extencion .pl";
+    }
+    
 }
 
