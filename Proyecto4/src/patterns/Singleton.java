@@ -32,6 +32,7 @@ public class Singleton {
     public ArrayList<Leccion> listaLeccion = new ArrayList<>();
     public ArrayList<Profesor> listaProfesores = new ArrayList<>();
     public ArrayList<String> listaHechos = new ArrayList<>();
+    public ArrayList<Object[]> listaReservas = new ArrayList<>();
     /*------------------------------------------------------------------------*/
     //Patron de diseno: Singleton
     public static Singleton getInstance() {
@@ -123,5 +124,18 @@ public class Singleton {
         return null;
     }
     
-    
+    /*------------------------------------------------------------------------*/
+    //metodo que verifica si existe disponibilidad
+    public Boolean verificaHorario(Horario posibleHorario){
+        for (Horario horario : listaHorarios) {
+            if(horario.getAula().getNombre().equals(posibleHorario.getAula().getNombre())){
+                if(horario.getLeccion().getLeccion().equals(posibleHorario.getLeccion().getLeccion())){
+                    if(horario.getCurso().getNombre().equals(posibleHorario.getCurso().getNombre())){
+                        
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }

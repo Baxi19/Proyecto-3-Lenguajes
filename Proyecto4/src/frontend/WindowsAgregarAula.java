@@ -122,7 +122,12 @@ public class WindowsAgregarAula extends javax.swing.JFrame {
         getContentPane().add(jLabel22);
         jLabel22.setBounds(20, 140, 80, 30);
 
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Laboratorio" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "normal", "laboratorio" }));
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBoxTipo);
         jComboBoxTipo.setBounds(110, 140, 230, 20);
 
@@ -212,6 +217,10 @@ public class WindowsAgregarAula extends javax.swing.JFrame {
     private void jButtonClose1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonClose1ActionPerformed
+
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
 
     

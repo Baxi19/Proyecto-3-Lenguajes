@@ -270,9 +270,12 @@ public class SingletonProlog {
             Object[] fila = new Object[cantidadColumnas];
             for (int j = 0; j <listaDatos.size(); j++) {
                 fila[j] = listaDatos.get(j);
-                System.out.println(listaDatos.get(j));
+                //System.out.println(listaDatos.get(j));
             }
-            modelo.addRow(fila);   
+            
+            //if(!Singleton.getInstance().listaReservas.contains(fila)){
+                modelo.addRow(fila);  
+           // } 
         }
         return  modelo;
     }

@@ -12,7 +12,7 @@ import patterns.Factory;
  *
  * @author Baxi
  */
-public class Horario   implements Decorador, Factory{
+public class Horario implements Decorador, Factory{
     private int id;
     private Leccion leccion;
     private Curso curso;
