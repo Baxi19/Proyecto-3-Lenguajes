@@ -27,6 +27,13 @@ public class Aula implements Decorador, Factory{
         this.capacidad = capacidad;
         this.tipo = tipo;
     }
+    
+    public Aula(String nombre, int capacidad, String tipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.tipo = tipo;
+    }
 
     public int getId() {
         return id;
@@ -72,8 +79,7 @@ public class Aula implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "aula(" +
-                    getId()+ ", '"+
+        return  "aula('"+
                     getNombre() + "', "+
                     getCapacidad() + ", '"+
                     getTipo() +

@@ -7,8 +7,11 @@ package frontend;
 
 
 
+import backend.SingletonProlog;
 import database.SQLite;
+import entity.Profesor;
 import javax.swing.JOptionPane;
+import patterns.Singleton;
 
 /**
  *
@@ -192,6 +195,10 @@ public class WindowsAgregarProfesor extends javax.swing.JFrame {
                     try {
                         SQLite.getInstance().agregarProfesor(jTextFieldNombre.getText(), jTextFieldApellidos.getText(), jTextFieldCedula.getText());
                         JOptionPane.showMessageDialog(null, "Profesor agregado correctamente!");
+                        
+                        Profesor a = new Profesor(jTextFieldNombre.getText(), jTextFieldApellidos.getText(), jTextFieldCedula.getText());
+                        SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        
                         wc.cerrarPaneles();
                         wc.datosProfesor();
                         this.dispose();

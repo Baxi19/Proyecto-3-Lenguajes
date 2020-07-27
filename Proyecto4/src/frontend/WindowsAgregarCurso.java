@@ -7,7 +7,9 @@ package frontend;
 
 
 
+import backend.SingletonProlog;
 import database.SQLite;
+import entity.Curso;
 import javax.swing.JOptionPane;
 
 /**
@@ -210,6 +212,14 @@ public class WindowsAgregarCurso extends javax.swing.JFrame {
                         Integer.parseInt(jComboBoxSemestre.getSelectedItem().toString()),
                         Integer.parseInt(jComboBoxDias.getSelectedItem().toString()));
                 JOptionPane.showMessageDialog(null, "Curso agregado correctamente!");
+                
+                Curso a = new Curso(jTextFieldNombre.getText(),
+                        jComboBoxAsignatura.getSelectedItem().toString(),
+                        Integer.parseInt(jComboBoxCreditos.getSelectedItem().toString()),
+                        Integer.parseInt(jComboBoxSemestre.getSelectedItem().toString()),
+                        Integer.parseInt(jComboBoxDias.getSelectedItem().toString()));
+                SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                
                 wc.cerrarPaneles();
                 wc.datosCursos();
                 this.dispose();

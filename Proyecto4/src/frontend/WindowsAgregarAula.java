@@ -7,7 +7,9 @@ package frontend;
 
 
 
+import backend.SingletonProlog;
 import database.SQLite;
+import entity.Aula;
 import javax.swing.JOptionPane;
 
 /**
@@ -195,6 +197,10 @@ public class WindowsAgregarAula extends javax.swing.JFrame {
                 try {
                     SQLite.getInstance().agregarAula(jTextFieldNombre.getText(), capacidad, jComboBoxTipo.getSelectedItem().toString());
                     JOptionPane.showMessageDialog(null, "Aula agregada correctamente!");
+                    
+                    Aula a = new Aula(jTextFieldNombre.getText(), capacidad, jComboBoxTipo.getSelectedItem().toString());
+                    SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                    
                     wc.cerrarPaneles();
                     wc.datosAulas();
                     this.dispose();

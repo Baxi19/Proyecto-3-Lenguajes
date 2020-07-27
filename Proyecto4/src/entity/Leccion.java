@@ -29,6 +29,13 @@ public class Leccion implements Decorador, Factory{
         this.horaInicio = horaInicio;
         this.horaSalida = horaSalida;
     }
+    public Leccion(String leccion, Dia dia, String horaInicio, String horaSalida) {
+        this.id = id;
+        this.leccion = leccion;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaSalida = horaSalida;
+    }
 
     public int getId() {
         return id;
@@ -82,8 +89,7 @@ public class Leccion implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "leccion(" +
-                    getId() +", '"+
+        return  "leccion('"+
                     getLeccion()+ "', '"+
                     getDia().getDia()+ "', '"+
                     getHoraInicio()+ "', '"+

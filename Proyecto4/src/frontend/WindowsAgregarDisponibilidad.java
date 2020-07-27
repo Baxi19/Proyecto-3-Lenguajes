@@ -7,9 +7,12 @@ package frontend;
 
 
 
+import backend.SingletonProlog;
 import database.SQLite;
+import entity.Disponibilidad;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import patterns.Singleton;
 
 /**
  *
@@ -156,6 +159,11 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
                 try {
                         SQLite.getInstance().agregarDisponibilidad(profesorId, diaId);
                         JOptionPane.showMessageDialog(null, "Relacion de Profesor - Dia agregada correctamente!");
+                        
+                        Disponibilidad a = new Disponibilidad(Singleton.getInstance().buscarDia(diaId), 
+                                Singleton.getInstance().buscarProfesor(profesorId));
+                        SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        
                         wc.cerrarPaneles();
                         wc.datosDisponibilidad();
                         this.dispose();

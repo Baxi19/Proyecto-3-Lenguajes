@@ -28,6 +28,13 @@ public class Profesor  implements Factory, Decorador{
         this.apellidos = apellidos;
         this.cedula = cedula;
     }
+    
+    public Profesor(String nombre, String apellidos, String cedula) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+    }
 
     public int getId() {
         return id;
@@ -75,8 +82,7 @@ public class Profesor  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-       return  "profesor(" + 
-                    getId() +", '"+
+       return  "profesor('"+
                     getNombre() + "', '"+
                     getApellidos() + "', '"+
                     getCedula() + 

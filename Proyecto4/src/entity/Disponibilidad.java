@@ -26,6 +26,12 @@ public class Disponibilidad   implements Factory, Decorador{
         this.dia = dia;
         this.profesor = profesor;
     }
+    
+    public Disponibilidad(Dia dia, Profesor profesor) {
+        this.id = id;
+        this.dia = dia;
+        this.profesor = profesor;
+    }
 
     public int getId() {
         return id;
@@ -64,8 +70,7 @@ public class Disponibilidad   implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "disponibilidad(" + 
-                getId() + ", '"+
+        return  "disponibilidad('"+
                 getProfesor().getNombre()  + "', '" + 
                 getDia().getDia()+ 
                 "').\n";

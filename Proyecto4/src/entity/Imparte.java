@@ -26,7 +26,11 @@ public class Imparte  implements Factory, Decorador{
         this.profesor = profesor;
         this.curso = curso;
     }
-    
+    public Imparte(Profesor profesor, Curso curso) {
+        this.id = id;
+        this.profesor = profesor;
+        this.curso = curso;
+    }
     
     public int getId() {
         return id;
@@ -65,8 +69,7 @@ public class Imparte  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "imparte(" +
-                    getId() +", '"+
+        return  "imparte('"+
                     getProfesor().getNombre()+ "', '"+
                     getCurso().getNombre() +
                 "').\n";

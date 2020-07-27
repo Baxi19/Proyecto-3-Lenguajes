@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -30,7 +31,9 @@ public class WindowsMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cerrarPaneles();
         updateTable();
-        //cargarDatosListas();
+        //SingletonProlog.getInstance().cargarDatosListas();
+        //SingletonProlog.getInstance().assertDatosProlog();
+        
     }
     /*------------------------------------------------------------------------*/
     /**
@@ -1387,7 +1390,8 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsulta1MouseClicked
 
     private void jButtonConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta1ActionPerformed
-        Singleton.getInstance().listaReservas.clear();
+        
+        //Singleton.getInstance().listaReservas.clear();
         cerrarPaneles();
         consulta1();
         
@@ -1498,7 +1502,9 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsulta2PrologMouseClicked
 
     private void jButtonConsulta2PrologActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta2PrologActionPerformed
+        consulta2();
         generarHorarios();
+        
     }//GEN-LAST:event_jButtonConsulta2PrologActionPerformed
         
     
@@ -1761,11 +1767,13 @@ public class WindowsMenu extends javax.swing.JFrame {
         jTableConsulta2.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jTableConsulta2.setAutoCreateRowSorter(true);
     }
-    
+    /*------------------------------------------------------------------------*/
+    /*Metodo para la relaciones en prolog, Consulta 1*/
     public Boolean consulta1(){
         try {
             jPanelConsulta1.setVisible(true);
-            jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre,Dia) ."));
+            jTableConsulta1.setModel(new DefaultTableModel());
+            jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre)."));
             System.out.println("Consulta 1 realizada");
             return  true;
         } catch (Exception e) {
@@ -1773,15 +1781,17 @@ public class WindowsMenu extends javax.swing.JFrame {
             return false;
         }
     }
-    
+    /*------------------------------------------------------------------------*/
+    /*Metodo para generar horarios en prolog*/
     public Boolean consulta2(){
         try {
-            jPanelConsulta2.setVisible(true);
+            //jPanelConsulta2.setVisible(true);
             //jTableConsulta2.setModel(SingletonProlog.getInstance().consultarPrologTabla("horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)."));
             ArrayList<ResultadoProlog> resultado = 
                     SingletonProlog.getInstance().consultaProlog(
                             "horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)."
                     );
+            
             for (int i = 0; i < resultado.size(); i++) {
                 ArrayList<String> datos = resultado.get(i).getResultado();
                 System.out.println("Data = " + datos);
@@ -1808,15 +1818,14 @@ public class WindowsMenu extends javax.swing.JFrame {
                             jTableConsulta2.convertRowIndexToModel(selectedRows[i]),
                             jTableConsulta2.convertColumnIndexToModel(j)));
                 }
-                //System.out.println(listaCursosSeleccionados[0]);
-                //System.out.println(listaCursosSeleccionados[1]);
                 listaCursos.add((Integer) listaCursosSeleccionados[0]);
                 cursos.add(listaCursosSeleccionados);
             }
         }
         return listaCursos;
     }
-    
+    /**************************************************************************/
+    //Metodo que verifica si existen cursos para proceder a enviar la consulta a prolog
     public void generarHorarios(){
         ArrayList<Integer> idCursos = getSelectedCursos();
         if(!idCursos.isEmpty()){

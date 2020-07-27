@@ -37,7 +37,7 @@ public class SingletonProlog {
     /*Variables*/
     private static SingletonProlog metodosProlog = null;
     public JIPEngine interpreteProlog = new JIPEngine(); 
-    
+    public Boolean datosCargados = false;
     private SingletonProlog(){
     }
     
@@ -110,6 +110,7 @@ public class SingletonProlog {
     /*------------------------------------------------------------------------*/
     // Metodo que agrega los hechos de la base de datos en memoria del intérprete de prolog
     public Boolean assertDatosProlog(){
+        cargarDatosListas();
         assertCurso(Singleton.getInstance().listaCursos);
         assertProfesor(Singleton.getInstance().listaProfesores);
         assertAula(Singleton.getInstance().listaAulas);
@@ -125,8 +126,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertCurso(ArrayList<Curso> lista) {
         lista.stream().map((curso) -> 
-            "curso(" + 
-                    curso.getId() +", '"+
+            "curso('"+
                     curso.getNombre() + "', '"+
                     curso.getAsignatura() + "', " +
                     curso.getCreditos() +  ", " +  
@@ -143,8 +143,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertProfesor(ArrayList<Profesor> lista) {
         lista.stream().map((profesor) -> 
-            "profesor(" + 
-                    profesor.getId() +", '"+
+            "profesor('"+
                     profesor.getNombre() + "', '"+
                     profesor.getApellidos() + "', '"+
                     profesor.getCedula() + 
@@ -159,8 +158,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertAula(ArrayList<Aula> lista) {
         lista.stream().map((aula) -> 
-            "aula("+
-                aula.getId() +", '"+
+            "aula('"+
                 aula.getNombre() + "', "+
                 aula.getCapacidad() + ", '"+
                 aula.getTipo()+
@@ -175,8 +173,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertDia(ArrayList<Dia> lista) {
         lista.stream().map((dia) -> 
-            "dia(" +
-                    dia.getId() +", '"+
+            "dia('"+
                     dia.getDia()+
                 "').").forEachOrdered((hecho) -> {
             InsertarDatoEnMemoria(hecho);
@@ -189,8 +186,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertLeccion(ArrayList<Leccion> lista) {
         lista.stream().map((leccion) -> 
-            "leccion(" + 
-                    leccion.getId() +", '"+
+            "leccion('"+
                     leccion.getLeccion()+ "', '"+
                     leccion.getDia().getDia()+ "', '"+
                     leccion.getHoraInicio()+ "', '"+
@@ -205,8 +201,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertDisponibilidad(ArrayList<Disponibilidad> lista) {
         lista.stream().map((disponibilidad) -> 
-            "disponibilidad(" +
-                    disponibilidad.getId() +", '"+
+            "disponibilidad('"+
                     disponibilidad.getProfesor().getNombre()+ "', '"+
                     disponibilidad.getDia().getDia()+
                 "').").forEachOrdered((hecho) -> {
@@ -220,8 +215,7 @@ public class SingletonProlog {
     //Metodos para ingresar los hechos a memoria del interprete
     private Boolean assertImparte(ArrayList<Imparte> lista) {
         lista.stream().map((imparte) -> 
-            "imparte(" + 
-                    imparte.getId() +", '"+
+            "imparte('"+
                     imparte.getProfesor().getNombre()+ "', '"+
                     imparte.getCurso().getNombre()+
                 "').").forEachOrdered((hecho) -> {
@@ -284,8 +278,11 @@ public class SingletonProlog {
     /*Metodo de enlase para la consultas en prolog*/
     public ArrayList<ResultadoProlog> consultaProlog(String consulta){
         ArrayList<ResultadoProlog> lista = new ArrayList<>();
-        cargarDatosListas();
-        SingletonProlog.getInstance().assertDatosProlog();
+        if(!datosCargados){
+            cargarDatosListas();
+            SingletonProlog.getInstance().assertDatosProlog();
+            datosCargados = true;
+        }
         lista = SingletonProlog.getInstance().consulta(consulta, "backend");
         return lista;    
     }

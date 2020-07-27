@@ -30,6 +30,14 @@ public class Horario implements Decorador, Factory{
         this.profesor = profesor;
         this.aula = aula;
     }
+    
+    public Horario(Leccion leccion, Curso curso, Profesor profesor, Aula aula) {
+        this.id = id;
+        this.leccion = leccion;
+        this.curso = curso;
+        this.profesor = profesor;
+        this.aula = aula;
+    }
 
     public int getId() {
         return id;

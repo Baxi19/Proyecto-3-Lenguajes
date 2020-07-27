@@ -23,6 +23,11 @@ public class Dia  implements Factory, Decorador{
         this.id = id;
         this.dia = dia;
     }
+    
+    public Dia(String dia) {
+        this.id = id;
+        this.dia = dia;
+    }
 
     public int getId() {
         return id;
@@ -54,8 +59,7 @@ public class Dia  implements Factory, Decorador{
 
     @Override
     public String getHecho() {
-        return  "dia(" +
-                    getId() + ", '"+
+        return  "dia('"+
                     getDia()+
                 "').\n";
     }

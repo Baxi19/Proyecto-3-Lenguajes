@@ -124,6 +124,7 @@ public class Singleton {
         return null;
     }
     
+    
     /*------------------------------------------------------------------------*/
     //metodo que verifica si existe disponibilidad
     public Boolean verificaHorario(Horario posibleHorario){
@@ -131,7 +132,7 @@ public class Singleton {
             if(horario.getAula().getNombre().equals(posibleHorario.getAula().getNombre())){
                 if(horario.getLeccion().getLeccion().equals(posibleHorario.getLeccion().getLeccion())){
                     if(horario.getCurso().getNombre().equals(posibleHorario.getCurso().getNombre())){
-                        
+                        return false;
                     }
                 }
             }

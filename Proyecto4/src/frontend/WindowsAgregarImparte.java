@@ -7,9 +7,12 @@ package frontend;
 
 
 
+import backend.SingletonProlog;
 import database.SQLite;
+import entity.Imparte;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import patterns.Singleton;
 
 /**
  *
@@ -166,6 +169,12 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
                 try {
                         SQLite.getInstance().agregarImparte(profesorId, cursoId);
                         JOptionPane.showMessageDialog(null, "Relacion de Profesor - Curso agregada correctamente!");
+                        
+                        Imparte a = new Imparte(Singleton.getInstance().buscarProfesor(profesorId),
+                                Singleton.getInstance().buscarCurso(cursoId)
+                                );
+                        SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        
                         wc.cerrarPaneles();
                         wc.datosImparte();
                         this.dispose();

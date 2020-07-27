@@ -5,43 +5,44 @@ aula(4, 'mvl-01', 20, 'laboratorio').
 aula(5, 'e-10', 24, 'normal').
 aula(6, 'e-11', 24, 'normal').
 aula(7, 'e-12', 28, 'normal').
-aula(11, 'A-03', 35, 'normal').
-profesor(1, 'alejandro', 'Alfaro Quesada', '1-846-952').
-profesor(2, 'rocio', 'Quiros Oviedo', '1-951-912').
-profesor(3, 'abel', 'Mendez Porras', '7-511-626').
-profesor(4, 'diego', 'Rojas Vega', '6-625-518').
-profesor(5, 'efren', 'Jimenez Delgado', '3-818-292').
-profesor(6, 'lorena', 'Valerio Solis', '6-514-651').
-profesor(7, 'jorge', 'Alfaro Velasco', '2-651-611').
-profesor(8, 'marlen', 'Treviño Villalobos', '6-515-321').
-profesor(9, 'leo', 'Viquez Acuña', '3-216-566').
-profesor(10, 'oscar', 'Viquez Acuña', '5-616-612').
-profesor(11, 'vera', 'Gamboa Guzman', '4-646-654').
-profesor(12, 'rogelio', 'Gonzalez Quiros', '6-545-613').
-curso(1, 'fundamentos', 'normal', 3, 1, 2).
-curso(2, 'introduccion', 'normal', 3, 1, 2).
-curso(3, 'taller', 'laboratorio', 3, 1, 1).
-curso(4, 'estructuras', 'laboratorio', 4, 2, 1).
-curso(5, 'poo', 'laboratorio', 3, 2, 2).
-curso(6, 'arquitectura', 'normal', 4, 2, 1).
-curso(7, 'analisis', 'laboratorio', 4, 3, 2).
-curso(8, 'bases1', 'laboratorio', 4, 3, 1).
-curso(9, 'bases2', 'laboratorio', 3, 4, 2).
-curso(10, 'lenguajes', 'laboratorio', 4, 4, 1).
-curso(11, 'requerimientos', 'normal', 4, 4, 2).
-curso(12, 'ap', 'normal', 4, 5, 1).
-curso(13, 'compiladores', 'laboratorio', 4, 5, 2).
-curso(14, 'diseno', 'laboratorio', 4, 5, 1).
-curso(15, 'electiva1', 'laboratorio', 3, 6, 2).
-curso(16, 'io', 'normal', 4, 6, 1).
-curso(17, 'operativos', 'laboratorio', 4, 6, 2).
-curso(18, 'calidad', 'laboratorio', 3, 6, 1).
-curso(19, 'compuSociedad', 'normal', 2, 6, 2).
-curso(20, 'electiva2', 'laboratorio', 4, 7, 1).
-curso(21, 'ia', 'laboratorio', 4, 7, 2).
-curso(22, 'redes', 'laboratorio', 4, 7, 1).
-curso(23, 'proyectoS', 'laboratorio', 3, 7, 2).
-curso(24, 'practica', 'laboratorio', 12, 8, 2).
+aula(11, 'A-03', 35, 'Normal').
+profesor(1, 'alejandro', 'Alfaro Quesada', '1-846-952'). 
+profesor(2, 'rocio', 'Quiros Oviedo', '1-951-912'). 
+profesor(3, 'abel', 'Mendez Porras', '7-511-626'). 
+profesor(4, 'diego', 'Rojas Vega', '6-625-518'). 
+profesor(5, 'efren', 'Jimenez Delgado', '3-818-292'). 
+profesor(6, 'lorena', 'Valerio Solis', '6-514-651'). 
+profesor(7, 'jorge', 'Alfaro Velasco', '2-651-611'). 
+profesor(8, 'marlen', 'Treviño Villalobos', '6-515-321'). 
+profesor(9, 'leo', 'Viquez Acuña', '3-216-566'). 
+profesor(10, 'oscar', 'Viquez Acuña', '5-616-612'). 
+profesor(11, 'vera', 'Gamboa Guzman', '4-646-654'). 
+profesor(12, 'rogelio', 'Gonzalez Quiros', '6-545-613'). 
+curso(1, 'fundamentos', 'normal', 3, 1, 2). 
+curso(2, 'introduccion', 'normal', 3, 1, 2). 
+curso(3, 'taller', 'laboratorio', 3, 1, 1). 
+curso(4, 'estructuras', 'laboratorio', 4, 2, 1). 
+curso(5, 'poo', 'laboratorio', 3, 2, 2). 
+curso(6, 'arquitectura', 'normal', 4, 2, 1). 
+curso(7, 'analisis', 'laboratorio', 4, 3, 2). 
+curso(8, 'bases1', 'laboratorio', 4, 3, 1). 
+curso(9, 'bases2', 'laboratorio', 3, 4, 2). 
+curso(10, 'lenguajes', 'laboratorio', 4, 4, 1). 
+curso(11, 'requerimientos', 'normal', 4, 4, 2). 
+curso(12, 'ap', 'normal', 4, 5, 1). 
+curso(13, 'compiladores', 'laboratorio', 4, 5, 2). 
+curso(14, 'diseno', 'laboratorio', 4, 5, 1). 
+curso(15, 'electiva1', 'laboratorio', 3, 6, 2). 
+curso(16, 'io', 'normal', 4, 6, 1). 
+curso(17, 'operativos', 'laboratorio', 4, 6, 2). 
+curso(18, 'calidad', 'laboratorio', 3, 6, 1). 
+curso(19, 'compuSociedad', 'normal', 2, 6, 2). 
+curso(20, 'electiva2', 'laboratorio', 4, 7, 1). 
+curso(21, 'ia', 'laboratorio', 4, 7, 2). 
+curso(22, 'redes', 'laboratorio', 4, 7, 1). 
+curso(23, 'proyectoS', 'laboratorio', 3, 7, 2). 
+curso(24, 'practica', 'laboratorio', 12, 8, 2). 
+curso(30, 'wdfwef', 'Normal', 1, 1, 1). 
 dia(1, 'Lunes').
 dia(2, 'Martes').
 dia(3, 'Miercoles').
@@ -147,94 +148,3 @@ imparte(36, 'rogelio', 'ia').
 imparte(37, 'rogelio', 'electiva2').
 imparte(38, 'rogelio', 'io').
 imparte(39, 'rogelio', 'electiva1').
-
-
-
-
-imprime([]).
-imprime([X|Xs]) :-
-    nl, write(X),
-    imprime(Xs).
-
-
-buscar_cursos([],Lista):-
-    imprime(Lista).
-buscar_cursos([X|Xs], Lista):-
-    curso(Id_curso, X, Asignatura, Creditos, Semestre, Dias),
-    aula(Id_aula, Nombre_aula, Capacidad, Asignatura),
-    dia(Id_dia, Dia),
-    leccion(Id_Leccion, Nombre_leccion, Dia, Hora_inicio, Hora_salida),
-    profesor(Id_profesor, Nombre_profesor, Apellidos, Cedula),
-    imparte(_, Nombre_profesor, X),
-    disponibilidad(_, Nombre_profesor, Dia),
-    Lista_nueva is [Id_dia,Id_Leccion,Id_curso,Id_aula, Id_profesor],
-    not(member(Lista_nueva,Lista)),
-    buscar_cursos(Xs, [Lista_nueva|Lista]).
-
-
-%se obtienen todos los horarios sin importar el semestre
-todos_horarios(Resultado) :-
-    findall(
-        Profesor-Curso-Dia1-Dia2-Leccion1-Leccion2-Aula-Semestre,
-       (
-       horario(Profesor, Curso,Dia1,Dia2, Leccion1,Leccion2, Aula, Semestre)
-       ),Resultado).
-
-%se obtienen todos los horarios por semestre
-todos_horarios_semestre(Resultado, Semestre) :-
-    findall(
-        Profesor-Curso-Dia1-Dia2-Leccion1-Leccion2-Aula-Semestre,
-       (
-       horario(Profesor, Curso,Dia1,Dia2, Leccion1,Leccion2, Aula, Semestre)
-       ),Resultado).
-
-
-%reglas para obtener las relaciones de los horarios de un solo dia
-horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
-    profesor(_,Profesor, _,_),
-    curso(_,Curso,Tipo,_,Semestre, Dias ),
-    Dias = 1,
-    dia(_,Dia),
-    dia(_,Dia2),
-    Dia = Dia2,
-    leccion(_,Leccion, Dia, _, _),
-    leccion(_,Leccion2, Dia2, _, _),
-    not(Leccion = Leccion2),
-    aula(_,Aula, _, Tipo),
-    disponibilidad(_,Profesor, Dia),
-    imparte(_,Profesor, Curso).
-%reglas para obtener las relaciones de los horarios de dos dias
-horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
-    profesor(_,Profesor, _,_),
-    curso(_,Curso,Tipo,_,Semestre, Dias ),
-    Dias = 2,
-    dia(_,Dia2),
-    dia(_,Dia), %OR
-    not(Dia = Dia2),
-    leccion(_,Leccion, Dia, _, _),
-    leccion(_,Leccion2, Dia2, _, _),
-    aula(_,Aula, _, Tipo),
-    disponibilidad(_,Profesor, Dia),
-    imparte(_,Profesor, Curso).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -32,6 +32,15 @@ public class Curso implements Decorador, Factory{
         this.semestre = semestre;
         this.cantidadDias = cantidadDias;
     }
+    
+    public Curso(String nombre, String asignatura, int creditos, int semestre, int cantidadDias) {
+        this.id = id;
+        this.nombre = nombre;
+        this.asignatura = asignatura;
+        this.creditos = creditos;
+        this.semestre = semestre;
+        this.cantidadDias = cantidadDias;
+    }
 
     public int getId() {
         return id;
@@ -95,8 +104,7 @@ public class Curso implements Decorador, Factory{
 
     @Override
     public String getHecho() {
-        return  "curso(" + 
-                    getId()+ ", '"+
+        return  "curso('"+
                     getNombre() + "', '"+
                     getAsignatura() + "', " +
                     getCreditos() +  ", " +  
