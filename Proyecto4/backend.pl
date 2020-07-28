@@ -43,14 +43,14 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     dia(Dia),
     dia(Dia2),
     Dia = Dia2,
-    leccion(Leccion, Dia, _, _),
-    leccion(Leccion2, Dia2, _, _),
+    leccion(Leccion, Dia, Hora1, _),
+    leccion(Leccion2, Dia2,Hora2, _),
     not(Leccion = Leccion2),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
     imparte(Profesor, Curso),
-    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
-    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)),!.
+    disponible(Dia,Dia2, Hora1,Hora2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula)),!.
 
 
 %reglas para obtener las relaciones de los horarios de dos dias
@@ -61,11 +61,11 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     dia(Dia2),
     dia(Dia), %OR
     not(Dia = Dia2),
-    leccion(Leccion, Dia, _, _),
-    leccion(Leccion2, Dia2, _, _),
+    leccion(Leccion, Dia, Hora1, _),
+    leccion(Leccion2, Dia2,Hora2, _),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
     imparte(Profesor, Curso),
-    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
-    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)),!.
+    disponible(Dia,Dia2, Hora1,Hora2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula)),!.
 

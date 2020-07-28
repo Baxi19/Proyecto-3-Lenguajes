@@ -253,7 +253,15 @@ public class SingletonProlog {
         DefaultTableModel modelo = new DefaultTableModel();
         ArrayList<ResultadoProlog> resultado = consultaProlog(consulta);
         //columnas
-        int cantidadColumnas = resultado.get(0).getVariables().size();
+        int cantidadColumnas ;
+        try {
+            cantidadColumnas = resultado.get(0).getVariables().size();
+        } catch (Exception e) {
+            cantidadColumnas = 0;
+            System.out.println("Error, no seleciono columnas");
+            return  modelo;
+        }
+        
         for (int i = 0; i <  cantidadColumnas; i++) {
             modelo.addColumn(resultado.get(0).getVariables().get(i));
         }

@@ -387,7 +387,27 @@ public class SQLite {
             return false;
         }
     } 
-    
+    /*------------------------------------------------------------------------*/
+    //metodo para obtener los profesores y los cursos que imparte para  agregarlos en una lista
+    public ArrayList<String> obtenerCursosSemestre(String semestre){
+        String sql = "SELECT nombre FROM Curso WHERE semestre = "+semestre+" AND activo ='T';;";
+        ArrayList<String> lista = new ArrayList<>();
+        try {
+            Connection con = conexion();
+            Statement statement = con.createStatement();
+            resultadoConsulta = statement.executeQuery(sql);
+            while (resultadoConsulta.next()) {
+                lista.add(resultadoConsulta.getString("nombre"));
+            }
+            resultadoConsulta.close();
+            statement.close();
+            con.close();           
+            return lista;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    } 
     /*------------------------------------------------------------------------*/
     //metodo para obtener los profesores y los cursos que imparte para  agregarlos en una lista
     public Boolean obtenerDisponibilidad(){
