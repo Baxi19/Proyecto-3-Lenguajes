@@ -66,7 +66,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanelConsulta2 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -396,15 +395,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel33.setToolTipText("");
         jPanelConsulta2.add(jLabel33);
         jLabel33.setBounds(130, 490, 220, 28);
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanelConsulta2.add(jButton2);
-        jButton2.setBounds(40, 560, 73, 23);
 
         jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -1518,14 +1508,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         generarHorarios();
         
     }//GEN-LAST:event_jButtonConsulta2PrologActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        ArrayList<ResultadoProlog> resultado = SingletonProlog.getInstance().consultaProlog("reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula).");
-        for (int i = 0; i < resultado.size(); i++) {
-            System.out.println("Datos = "+resultado.get(i).getResultado().toString());
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
         
     
     
@@ -1602,7 +1584,6 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente3;
     private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;
@@ -1846,6 +1827,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     /**************************************************************************/
     //Metodo que verifica si existen cursos para proceder a enviar la consulta a prolog
     public String generarHorarios(){
+        SingletonProlog.getInstance().consultaProlog("retractall(reservado(_,_,_,_,_,_,_)).");
         ArrayList<String> cursos = getSelectedCursos();
         if(!cursos.isEmpty()){
             for (int i = 0; i < cursos.size(); i++) {
@@ -1858,6 +1840,14 @@ public class WindowsMenu extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Por favor seleccione los cursos con CTRL + CLICK..");
         }
+        
+        jTableConsulta2.setModel(SingletonProlog.getInstance().consultarPrologTabla("reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula)."));
+        /*
+        for (int i = 0; i < resultado.size(); i++) {
+            System.out.println("Datos = "+resultado.get(i).getResultado().toString());
+        }
+        */
+        
         System.out.println("Horarios generados");
         return "Horarios generados";
     }
