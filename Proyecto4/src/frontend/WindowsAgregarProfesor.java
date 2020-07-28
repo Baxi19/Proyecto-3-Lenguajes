@@ -198,6 +198,7 @@ public class WindowsAgregarProfesor extends javax.swing.JFrame {
                         
                         Profesor a = new Profesor(jTextFieldNombre.getText(), jTextFieldApellidos.getText(), jTextFieldCedula.getText());
                         SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        SingletonProlog.getInstance().cargarDatosListas();
                         
                         wc.cerrarPaneles();
                         wc.datosProfesor();

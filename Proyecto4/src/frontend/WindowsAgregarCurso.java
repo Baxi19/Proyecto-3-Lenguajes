@@ -117,7 +117,7 @@ public class WindowsAgregarCurso extends javax.swing.JFrame {
         getContentPane().add(jComboBoxSemestre);
         jComboBoxSemestre.setBounds(160, 90, 140, 20);
 
-        jComboBoxAsignatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Laboratorio" }));
+        jComboBoxAsignatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "normal", "laboratorio" }));
         getContentPane().add(jComboBoxAsignatura);
         jComboBoxAsignatura.setBounds(160, 150, 140, 20);
 
@@ -219,6 +219,7 @@ public class WindowsAgregarCurso extends javax.swing.JFrame {
                         Integer.parseInt(jComboBoxSemestre.getSelectedItem().toString()),
                         Integer.parseInt(jComboBoxDias.getSelectedItem().toString()));
                 SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                SingletonProlog.getInstance().cargarDatosListas();
                 
                 wc.cerrarPaneles();
                 wc.datosCursos();

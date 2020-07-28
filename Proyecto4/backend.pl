@@ -1,40 +1,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- dynamic reservado/2.
-reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre).
+:- dynamic reservado/7.
+%reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula).
 
 
 
 %Solucion pregunta #2
 %profesor, semestre, curso, disponibilidad, imparte
-solucion(Profesor, Curso, Semestre) :-
+solucion(Profesor, Curso, Semestre, Dia) :-
     profesor(Profesor, _, _),
     curso(Curso, _, _, Semestre, _),
-    imparte(Profesor, Curso).
+    imparte(Profesor, Curso),
+    dia(Dia),
+    disponibilidad(Profesor, Dia).
 
-%regla para imprimir informacion
-imprime([]).
-imprime([X|Xs]) :-
-    nl, write(X),
-    imprime(Xs).
+%regla para saber si existe disponibilidad en un horario
+disponible(Dia,Dia2, Leccion1,Leccion2, Aula) :-
+    Dia = Dia2,
+    not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula)),
+    not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula)),
 
-%se obtienen todos los horarios sin importar el semestre
-todos_horarios(Resultado) :-
-    findall(
-        Profesor-Curso-Dia1-Dia2-Leccion1-Leccion2-Aula-Semestre,
-       (
-       horario(Profesor, Curso,Dia1,Dia2, Leccion1,Leccion2, Aula, Semestre)
-       ),Resultado).
+    not(reservado(_, _,Dia,_, Leccion2,_, Aula)),
+    not(reservado(_, _,Dia,_, Leccion1,_, Aula)),
 
-%se obtienen todos los horarios por semestre
-todos_horarios_semestre(Resultado, Semestre) :-
-    findall(
-        Profesor-Curso-Dia1-Dia2-Leccion1-Leccion2-Aula-Semestre,
-       (
-       horario(Profesor, Curso,Dia1,Dia2, Leccion1,Leccion2, Aula, Semestre)
-       ),Resultado).
+    not(reservado(_, _,_,Dia2, Leccion1,_, Aula)),
+    not(reservado(_, _,_,Dia2, Leccion2,_, Aula)),
 
+    not(reservado(_, _,Dia,_, _,Leccion2, Aula)),
+    not(reservado(_, _,Dia,_, _,Leccion1, Aula)),
+
+    not(reservado(_, _,_,Dia2, _,Leccion1, Aula)),
+    not(reservado(_, _,_,Dia2, _,Leccion2, Aula)).
+
+%retractall(reservado(_,_,_,_,_,_,_)).
 
 %reglas para obtener las relaciones de los horarios de un solo dia
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
@@ -46,46 +45,31 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     Dia = Dia2,
     leccion(Leccion, Dia, _, _),
     leccion(Leccion2, Dia2, _, _),
+    %bloque_manana(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _));
+    %bloque_tarde(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _)),
     not(Leccion = Leccion2),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
-   % not(reservado(_ ,Curso,Dia,Dia2, Leccion,Leccion2, Aula, _)),
-    imparte(Profesor, Curso).
-    %assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)).
+    imparte(Profesor, Curso),
+    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)),!.
 
 
 %reglas para obtener las relaciones de los horarios de dos dias
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
-    profesor(_,Profesor, _,_),
-    curso(_,Curso,Tipo,_,Semestre, Dias ),
+    profesor(Profesor, _,_),
+    curso(Curso,Tipo,_,Semestre, Dias ),
     Dias = 2,
-    dia(_,Dia2),
-    dia(_,Dia), %OR
+    dia(Dia2),
+    dia(Dia), %OR
     not(Dia = Dia2),
-    leccion(_,Leccion, Dia, _, _),
-    leccion(_,Leccion2, Dia2, _, _),
-    aula(_,Aula, _, Tipo),
-    disponibilidad(_,Profesor, Dia),
-    %not(reservado(_ ,Curso,Dia,Dia2, Leccion,Leccion2, Aula, _)),
-    imparte(_,Profesor, Curso).
-
-
-
-
-
-%buscar_horario(["diseno", "taller"],Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre).
-buscar_horario([]).
-buscar_horario([X|Xs]):-
-
-    horario(Profesor, X,Dia,Dia2, Leccion,Leccion2, Aula, Semestre),
-    not(reservado(_ ,X,Dia,Dia2, Leccion,Leccion2, Aula, _) ),
-    not(reservado(_ ,X,Dia,Dia2, Leccion2,Leccion, Aula, _) ),
-
-    reservar(Profesor,X,Dia,Dia2, Leccion,Leccion2, Aula, Semestre),
-    buscar_horario(Xs).
-
-
-reservar(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
-    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)).
-
+    leccion(Leccion, Dia, _, _),
+    leccion(Leccion2, Dia2, _, _),
+    %bloque_manana(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _));
+    %bloque_tarde(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _)),
+    aula(Aula, _, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso),
+    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)),!.
 

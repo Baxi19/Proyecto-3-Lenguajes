@@ -31,7 +31,9 @@ public class WindowsMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cerrarPaneles();
         updateTable();
-        //SingletonProlog.getInstance().cargarDatosListas();
+        //Singleton.getInstance();
+        //SingletonProlog.getInstance();
+        SingletonProlog.getInstance().cargarDatosListas();
         //SingletonProlog.getInstance().assertDatosProlog();
         
     }
@@ -64,6 +66,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanelConsulta2 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -393,6 +396,15 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel33.setToolTipText("");
         jPanelConsulta2.add(jLabel33);
         jLabel33.setBounds(130, 490, 220, 28);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanelConsulta2.add(jButton2);
+        jButton2.setBounds(40, 560, 73, 23);
 
         jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -1502,10 +1514,18 @@ public class WindowsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsulta2PrologMouseClicked
 
     private void jButtonConsulta2PrologActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta2PrologActionPerformed
-        consulta2();
+        //consulta2();
         generarHorarios();
         
     }//GEN-LAST:event_jButtonConsulta2PrologActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        ArrayList<ResultadoProlog> resultado = SingletonProlog.getInstance().consultaProlog("reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula).");
+        for (int i = 0; i < resultado.size(); i++) {
+            System.out.println("Datos = "+resultado.get(i).getResultado().toString());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
         
     
     
@@ -1582,6 +1602,7 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel CD_Cliente3;
     private javax.swing.JLabel CD_Cliente4;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregarAula;
     private javax.swing.JButton jButtonAgregarRelacion;
     private javax.swing.JButton jButtonAgregarRelacionDisponibilidad;
@@ -1772,8 +1793,8 @@ public class WindowsMenu extends javax.swing.JFrame {
     public Boolean consulta1(){
         try {
             jPanelConsulta1.setVisible(true);
-            jTableConsulta1.setModel(new DefaultTableModel());
-            jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre)."));
+            //jTableConsulta1.setModel(new DefaultTableModel());
+            jTableConsulta1.setModel(SingletonProlog.getInstance().consultarPrologTabla("solucion(Profesor, Curso, Semestre, Dia)."));
             System.out.println("Consulta 1 realizada");
             return  true;
         } catch (Exception e) {
@@ -1783,13 +1804,11 @@ public class WindowsMenu extends javax.swing.JFrame {
     }
     /*------------------------------------------------------------------------*/
     /*Metodo para generar horarios en prolog*/
-    public Boolean consulta2(){
+    public Boolean consulta2(String Curso){
         try {
-            //jPanelConsulta2.setVisible(true);
-            //jTableConsulta2.setModel(SingletonProlog.getInstance().consultarPrologTabla("horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)."));
             ArrayList<ResultadoProlog> resultado = 
                     SingletonProlog.getInstance().consultaProlog(
-                            "horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre)."
+                        "horario(Profesor,"+ Curso +", Dia, Dia2, Leccion, Leccion2, Aula, Semestre)."
                     );
             
             for (int i = 0; i < resultado.size(); i++) {
@@ -1806,19 +1825,19 @@ public class WindowsMenu extends javax.swing.JFrame {
     }
     /**************************************************************************/
     //Metodo que retorna un arraylist con los id de los cursos seleccionados
-    public ArrayList<Integer> getSelectedCursos() {
-        ArrayList<Integer> listaCursos = new ArrayList<>();
+    public ArrayList<String> getSelectedCursos() {
+        ArrayList<String> listaCursos = new ArrayList<>();
         ArrayList<Object[]> cursos = new ArrayList<Object[]>();
-        if (jTableConsulta2.getSelectedRowCount() > 0) { // check if there are selected rows
+        if (jTableConsulta2.getSelectedRowCount() > 0) { 
             int[] selectedRows = jTableConsulta2.getSelectedRows();
             Object[] listaCursosSeleccionados = new Object[jTableConsulta2.getColumnCount()];
-            for (int i = 0; i < selectedRows.length; i++) { // print all selected tasks
+            for (int i = 0; i < selectedRows.length; i++) {
                 for (int j = 0; j < jTableConsulta2.getColumnCount(); j++) {
                     listaCursosSeleccionados[j] = (jTableConsulta2.getValueAt(
                             jTableConsulta2.convertRowIndexToModel(selectedRows[i]),
                             jTableConsulta2.convertColumnIndexToModel(j)));
                 }
-                listaCursos.add((Integer) listaCursosSeleccionados[0]);
+                listaCursos.add((String) listaCursosSeleccionados[1]);
                 cursos.add(listaCursosSeleccionados);
             }
         }
@@ -1826,15 +1845,18 @@ public class WindowsMenu extends javax.swing.JFrame {
     }
     /**************************************************************************/
     //Metodo que verifica si existen cursos para proceder a enviar la consulta a prolog
-    public void generarHorarios(){
-        ArrayList<Integer> idCursos = getSelectedCursos();
-        if(!idCursos.isEmpty()){
-            for (int i = 0; i < idCursos.size(); i++) {
-                System.out.println("Id = " + idCursos.get(i));
+    public String generarHorarios(){
+        ArrayList<String> cursos = getSelectedCursos();
+        if(!cursos.isEmpty()){
+            for (int i = 0; i < cursos.size(); i++) {
+                System.out.println("Curso = " + cursos.get(i));
+                consulta2(cursos.get(i));
             }
             
         }else{
             JOptionPane.showMessageDialog(this, "Por favor seleccione los cursos con CTRL + CLICK..");
         }
+        System.out.println("Horarios generados");
+        return "Horarios generados";
     }
 }

@@ -200,6 +200,7 @@ public class WindowsAgregarAula extends javax.swing.JFrame {
                     
                     Aula a = new Aula(jTextFieldNombre.getText(), capacidad, jComboBoxTipo.getSelectedItem().toString());
                     SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                    SingletonProlog.getInstance().cargarDatosListas();
                     
                     wc.cerrarPaneles();
                     wc.datosAulas();

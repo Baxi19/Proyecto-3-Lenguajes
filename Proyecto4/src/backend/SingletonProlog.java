@@ -82,6 +82,7 @@ public class SingletonProlog {
             ArrayList<ResultadoProlog> soluciones = new ArrayList<>();
             while (jipQuery.hasMoreChoicePoints()){
                 solucion = jipQuery.nextSolution();
+                //System.out.println("Solucion =" + solucion);
                 if(solucion != null){
                     ResultadoProlog tabla = new ResultadoProlog(solucion.toString());
                     JIPVariable[] vars = solucion.getVariables();
@@ -97,7 +98,7 @@ public class SingletonProlog {
                     soluciones.add(tabla);
                 }
                 else{
-                    System.out.println("Solucion falsa!!");
+                    System.out.println("!!");
                 }
             }
             return soluciones;

@@ -163,6 +163,7 @@ public class WindowsAgregarDisponibilidad extends javax.swing.JFrame {
                         Disponibilidad a = new Disponibilidad(Singleton.getInstance().buscarDia(diaId), 
                                 Singleton.getInstance().buscarProfesor(profesorId));
                         SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        SingletonProlog.getInstance().cargarDatosListas();
                         
                         wc.cerrarPaneles();
                         wc.datosDisponibilidad();

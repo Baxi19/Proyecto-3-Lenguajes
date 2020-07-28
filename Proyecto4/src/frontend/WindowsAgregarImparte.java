@@ -174,6 +174,7 @@ public class WindowsAgregarImparte extends javax.swing.JFrame {
                                 Singleton.getInstance().buscarCurso(cursoId)
                                 );
                         SingletonProlog.getInstance().InsertarDatoEnMemoria(a.getHecho());
+                        SingletonProlog.getInstance().cargarDatosListas();
                         
                         wc.cerrarPaneles();
                         wc.datosImparte();
