@@ -40,7 +40,7 @@ public class ClaseFactory {
         }else if (tipoClase.equalsIgnoreCase("PROFESOR")) {
             return new Profesor();
         }else {
-            throw new IllegalStateException("Unexpected value: " + tipoClase);
+            throw new IllegalStateException("No se encontro el tipo de clase: " + tipoClase);
         }
     }
 }

@@ -12,8 +12,10 @@ import entity.Horario;
 import entity.Imparte;
 import entity.Leccion;
 import entity.Profesor;
+import entity.Reservado;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,7 +34,8 @@ public class Singleton {
     public ArrayList<Leccion> listaLeccion = new ArrayList<>();
     public ArrayList<Profesor> listaProfesores = new ArrayList<>();
     public ArrayList<String> listaHechos = new ArrayList<>();
-    public ArrayList<Object[]> listaReservas = new ArrayList<>();
+    public ArrayList<ArrayList<Reservado>> listaReservas = new ArrayList<>();
+    public DefaultTableModel modelo;
     /*------------------------------------------------------------------------*/
     //Patron de diseno: Singleton
     public static Singleton getInstance() {
@@ -55,7 +58,7 @@ public class Singleton {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+    /*------------------------------------------------------------------------*/
     private Boolean imprime(ArrayList lista){
         System.out.println("");
         for (int i = 0; i < lista.size(); i++) {
@@ -139,4 +142,5 @@ public class Singleton {
         }
         return true;
     }
+    
 }
