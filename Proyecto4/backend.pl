@@ -17,7 +17,7 @@ solucion(Profesor, Curso, Semestre, Dia) :-
 
 %regla para saber si existe disponibilidad en un horario
 disponible(Dia,Dia2, Leccion1,Leccion2, Aula) :-
-    Dia = Dia2,
+    %Dia = Dia2,
     not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula)),
     not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula)),
 
@@ -45,8 +45,6 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     Dia = Dia2,
     leccion(Leccion, Dia, _, _),
     leccion(Leccion2, Dia2, _, _),
-    %bloque_manana(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _));
-    %bloque_tarde(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _)),
     not(Leccion = Leccion2),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
@@ -65,8 +63,6 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     not(Dia = Dia2),
     leccion(Leccion, Dia, _, _),
     leccion(Leccion2, Dia2, _, _),
-    %bloque_manana(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _));
-    %bloque_tarde(leccion(Leccion, _, _, _),leccion(Leccion2, _, _, _)),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
     imparte(Profesor, Curso),

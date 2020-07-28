@@ -1850,7 +1850,9 @@ public class WindowsMenu extends javax.swing.JFrame {
         if(!cursos.isEmpty()){
             for (int i = 0; i < cursos.size(); i++) {
                 System.out.println("Curso = " + cursos.get(i));
-                consulta2(cursos.get(i));
+                if(!consulta2(cursos.get(i))){
+                    System.out.println("Error generando horario para " + cursos.get(i).toString());
+                }
             }
             
         }else{
