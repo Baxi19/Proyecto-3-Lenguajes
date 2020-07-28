@@ -20,7 +20,6 @@ solucion(Profesor, Curso, Semestre, Dia) :-
 
 %regla para saber si existe disponibilidad en un horario
 disponible(Dia,Dia2, Leccion1,Leccion2, Aula) :-
-    %Dia = Dia2,
     not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
     not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
 
@@ -38,7 +37,6 @@ disponible(Dia,Dia2, Leccion1,Leccion2, Aula) :-
 
 %regla para saber si existe disponibilidad en un horario
 disponible2(Dia,Dia2, Leccion1,Leccion2, Aula) :-
-    %Dia = Dia2,
     not(reservado2(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
     not(reservado2(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
 
@@ -56,7 +54,6 @@ disponible2(Dia,Dia2, Leccion1,Leccion2, Aula) :-
 
 %regla para saber si existe disponibilidad en un horario
 disponible3(Dia,Dia2, Leccion1,Leccion2, Aula) :-
-    %Dia = Dia2,
     not(reservado3(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
     not(reservado3(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
 
@@ -73,9 +70,6 @@ disponible3(Dia,Dia2, Leccion1,Leccion2, Aula) :-
     not(reservado3(_, _,_,Dia2, _,Leccion2, Aula,_)).
 
 
-
-%retractall(reservado(_,_,_,_,_,_,_)).
-
 %reglas para obtener las relaciones de los horarios de un solo dia
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
@@ -94,7 +88,8 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 
 
-%reglas para obtener las relaciones de los horarios de dos dias
+%reglas para obtener las relaciones de los horarios de dos dias con cursos de 2
+% dias diferentes
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
@@ -111,7 +106,8 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 
 
-%reglas para obtener las relaciones de los horarios de un solo dia
+% reglas para obtener las relaciones de dos horarios y de cursos que se
+% imparten 1 solo dia
 horario2(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
@@ -130,7 +126,8 @@ horario2(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     assert(reservado2(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 
 
-%reglas para obtener las relaciones de los horarios de dos dias
+%reglas para obtener las relaciones de dos horarios con cursos de 2
+% dias diferentes
 horario2(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
@@ -151,7 +148,8 @@ horario2(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
 
 
 
-%reglas para obtener las relaciones de los horarios de un solo dia
+% reglas para obtener las relaciones de tres horarios con cursos que se
+% imparten 1 solo dia
 horario3(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
@@ -171,7 +169,8 @@ horario3(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     assert(reservado3(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 
 
-%reglas para obtener las relaciones de los horarios de dos dias
+% reglas para obtener las relaciones de tres horarios con cursos de 2
+% dias diferentes
 horario3(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
