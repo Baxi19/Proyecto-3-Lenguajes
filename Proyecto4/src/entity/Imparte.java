@@ -75,6 +75,11 @@ public class Imparte  implements Factory, Decorador{
                 "').\n";
     }
 
-    
+    public String getDatos() {
+        return  "imparte('"+
+                    getProfesor().getNombre()+ "', '"+
+                    getCurso().getNombre() +
+                "')";
+    }
     
 }

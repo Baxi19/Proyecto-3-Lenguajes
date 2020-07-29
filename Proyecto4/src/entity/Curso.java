@@ -112,10 +112,14 @@ public class Curso implements Decorador, Factory{
                     getCantidadDias()+         
                 "). \n";
     }
-
     
-    
-    
-    
-    
+    public String getDatos() {
+        return  "curso('"+
+                    getNombre() + "', '"+
+                    getAsignatura() + "', " +
+                    getCreditos() +  ", " +  
+                    getSemestre() +  ", " +  
+                    getCantidadDias()+         
+                ")";
+    }
 }

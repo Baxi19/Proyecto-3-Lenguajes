@@ -84,13 +84,16 @@ public class Aula implements Decorador, Factory{
                     getCapacidad() + ", '"+
                     getTipo() +
                     "').\n";
-
-         
+  
     }
 
-    
-
-    
-    
+    public String getDatos() {
+        return  "aula('"+
+                    getNombre() + "', "+
+                    getCapacidad() + ", '"+
+                    getTipo() +
+                    "')";
+  
+    }
     
 }

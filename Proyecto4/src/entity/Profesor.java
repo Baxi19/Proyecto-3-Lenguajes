@@ -88,5 +88,12 @@ public class Profesor  implements Factory, Decorador{
                     getCedula() + 
                 "'). \n" ;
     }
-     
+    
+    public String getDatos() {
+       return  "profesor('"+
+                    getNombre() + "', '"+
+                    getApellidos() + "', '"+
+                    getCedula() + 
+                "')" ;
+    }
 }

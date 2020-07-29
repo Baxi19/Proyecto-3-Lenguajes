@@ -32,10 +32,7 @@ public class WindowsMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cerrarPaneles();
         updateTable();
-        //Singleton.getInstance();
-        //SingletonProlog.getInstance();
         SingletonProlog.getInstance().cargarDatosListas();
-        //SingletonProlog.getInstance().assertDatosProlog();
         
     }
     /*------------------------------------------------------------------------*/
@@ -67,16 +64,6 @@ public class WindowsMenu extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jButtonConsulta3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jPanelConsulta3 = new javax.swing.JPanel();
-        etiqueta3 = new javax.swing.JLabel();
-        etiqueta4 = new javax.swing.JLabel();
-        jComboBoxSemestre = new javax.swing.JComboBox<>();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTableConsulta3 = new javax.swing.JTable();
-        etiquetaAtras1 = new javax.swing.JLabel();
-        jButtonConsulta2Prolog1 = new javax.swing.JButton();
-        jButtonClose8 = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -155,6 +142,14 @@ public class WindowsMenu extends javax.swing.JFrame {
         jButtonConsulta2Prolog = new javax.swing.JButton();
         jButtonClose7 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
+        jPanelConsulta3 = new javax.swing.JPanel();
+        etiqueta3 = new javax.swing.JLabel();
+        etiqueta4 = new javax.swing.JLabel();
+        jComboBoxSemestre = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTableConsulta3 = new javax.swing.JTable();
+        jButtonClose8 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
         jPanelHorarios = new javax.swing.JPanel();
         etiquetaAtras2 = new javax.swing.JLabel();
         etiqueta5 = new javax.swing.JLabel();
@@ -436,110 +431,6 @@ public class WindowsMenu extends javax.swing.JFrame {
 
         getContentPane().add(jPanelLogin);
         jPanelLogin.setBounds(0, 0, 265, 600);
-
-        jPanelConsulta3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
-        jPanelConsulta3.setAlignmentX(0.0F);
-        jPanelConsulta3.setAlignmentY(0.0F);
-        jPanelConsulta3.setPreferredSize(new java.awt.Dimension(535, 600));
-        jPanelConsulta3.setLayout(null);
-
-        etiqueta3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        etiqueta3.setForeground(new java.awt.Color(255, 255, 255));
-        etiqueta3.setText("Consulta por semestre");
-        etiqueta3.setToolTipText("");
-        jPanelConsulta3.add(etiqueta3);
-        etiqueta3.setBounds(40, 60, 440, 28);
-
-        etiqueta4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        etiqueta4.setForeground(new java.awt.Color(255, 255, 255));
-        etiqueta4.setText("Semestre:");
-        etiqueta4.setToolTipText("");
-        jPanelConsulta3.add(etiqueta4);
-        etiqueta4.setBounds(40, 100, 90, 22);
-
-        jComboBoxSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
-        jComboBoxSemestre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSemestreActionPerformed(evt);
-            }
-        });
-        jPanelConsulta3.add(jComboBoxSemestre);
-        jComboBoxSemestre.setBounds(150, 100, 120, 20);
-
-        jTableConsulta3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane9.setViewportView(jTableConsulta3);
-
-        jPanelConsulta3.add(jScrollPane9);
-        jScrollPane9.setBounds(40, 150, 452, 280);
-
-        etiquetaAtras1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        etiquetaAtras1.setForeground(new java.awt.Color(255, 255, 255));
-        etiquetaAtras1.setText("Generar Horarios ");
-        etiquetaAtras1.setToolTipText("");
-        jPanelConsulta3.add(etiquetaAtras1);
-        etiquetaAtras1.setBounds(130, 490, 220, 28);
-
-        jButtonConsulta2Prolog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/entrar.png"))); // NOI18N
-        jButtonConsulta2Prolog1.setBorder(null);
-        jButtonConsulta2Prolog1.setBorderPainted(false);
-        jButtonConsulta2Prolog1.setContentAreaFilled(false);
-        jButtonConsulta2Prolog1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonConsulta2Prolog1.setRequestFocusEnabled(false);
-        jButtonConsulta2Prolog1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonConsulta2Prolog1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonConsulta2Prolog1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar2.png"))); // NOI18N
-        jButtonConsulta2Prolog1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonConsulta2Prolog1MouseClicked(evt);
-            }
-        });
-        jButtonConsulta2Prolog1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsulta2Prolog1ActionPerformed(evt);
-            }
-        });
-        jPanelConsulta3.add(jButtonConsulta2Prolog1);
-        jButtonConsulta2Prolog1.setBounds(360, 480, 60, 50);
-
-        jButtonClose8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
-        jButtonClose8.setBorder(null);
-        jButtonClose8.setBorderPainted(false);
-        jButtonClose8.setContentAreaFilled(false);
-        jButtonClose8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonClose8.setRequestFocusEnabled(false);
-        jButtonClose8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose8.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose8.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
-        jButtonClose8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonClose8MouseClicked(evt);
-            }
-        });
-        jButtonClose8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClose8ActionPerformed(evt);
-            }
-        });
-        jPanelConsulta3.add(jButtonClose8);
-        jButtonClose8.setBounds(470, 20, 51, 51);
-
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
-        jLabel33.setText("jLabel2");
-        jPanelConsulta3.add(jLabel33);
-        jLabel33.setBounds(0, 0, 535, 600);
-
-        getContentPane().add(jPanelConsulta3);
-        jPanelConsulta3.setBounds(265, 0, 535, 600);
 
         jPanelProfesor.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelProfesor.setAlignmentX(0.0F);
@@ -1356,6 +1247,86 @@ public class WindowsMenu extends javax.swing.JFrame {
         getContentPane().add(jPanelConsulta2);
         jPanelConsulta2.setBounds(265, 0, 535, 600);
 
+        jPanelConsulta3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
+        jPanelConsulta3.setAlignmentX(0.0F);
+        jPanelConsulta3.setAlignmentY(0.0F);
+        jPanelConsulta3.setPreferredSize(new java.awt.Dimension(535, 600));
+        jPanelConsulta3.setLayout(null);
+
+        etiqueta3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        etiqueta3.setForeground(new java.awt.Color(255, 255, 255));
+        etiqueta3.setText("Consulta por semestre");
+        etiqueta3.setToolTipText("");
+        jPanelConsulta3.add(etiqueta3);
+        etiqueta3.setBounds(40, 60, 440, 28);
+
+        etiqueta4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        etiqueta4.setForeground(new java.awt.Color(255, 255, 255));
+        etiqueta4.setText("Semestre:");
+        etiqueta4.setToolTipText("");
+        jPanelConsulta3.add(etiqueta4);
+        etiqueta4.setBounds(40, 100, 90, 22);
+
+        jComboBoxSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBoxSemestre.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxSemestreItemStateChanged(evt);
+            }
+        });
+        jComboBoxSemestre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSemestreActionPerformed(evt);
+            }
+        });
+        jPanelConsulta3.add(jComboBoxSemestre);
+        jComboBoxSemestre.setBounds(150, 100, 120, 20);
+
+        jTableConsulta3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(jTableConsulta3);
+
+        jPanelConsulta3.add(jScrollPane9);
+        jScrollPane9.setBounds(40, 150, 452, 340);
+
+        jButtonClose8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close1.png"))); // NOI18N
+        jButtonClose8.setBorder(null);
+        jButtonClose8.setBorderPainted(false);
+        jButtonClose8.setContentAreaFilled(false);
+        jButtonClose8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonClose8.setRequestFocusEnabled(false);
+        jButtonClose8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose8.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose8.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close2.png"))); // NOI18N
+        jButtonClose8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClose8MouseClicked(evt);
+            }
+        });
+        jButtonClose8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClose8ActionPerformed(evt);
+            }
+        });
+        jPanelConsulta3.add(jButtonClose8);
+        jButtonClose8.setBounds(470, 20, 51, 51);
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoPanel.png"))); // NOI18N
+        jLabel33.setText("jLabel2");
+        jPanelConsulta3.add(jLabel33);
+        jLabel33.setBounds(0, 0, 535, 600);
+
+        getContentPane().add(jPanelConsulta3);
+        jPanelConsulta3.setBounds(265, 0, 535, 600);
+
         jPanelHorarios.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white));
         jPanelHorarios.setAlignmentX(0.0F);
         jPanelHorarios.setAlignmentY(0.0F);
@@ -1561,7 +1532,8 @@ public class WindowsMenu extends javax.swing.JFrame {
             int id =(int) jTableProfesor.getValueAt(jTableProfesor.getSelectedRow(), 0);
             if(SQLite.getInstance().eliminar(id, "Profesor")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
-                
+                String eliminar = "retract(" +Singleton.getInstance().buscarProfesor(id).getDatos()+").";
+                SingletonProlog.getInstance().consultaProlog(eliminar);
                 cerrarPaneles();
                 datosProfesor();
             }else{
@@ -1591,6 +1563,8 @@ public class WindowsMenu extends javax.swing.JFrame {
             int id =(int) jTableCursos.getValueAt(jTableCursos.getSelectedRow(), 0);
             if(SQLite.getInstance().eliminar(id, "Curso")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
+                String eliminar = "retract(" +Singleton.getInstance().buscarCurso(id).getDatos()+").";
+                SingletonProlog.getInstance().consultaProlog(eliminar);           
                 cerrarPaneles();
                 datosCursos();
             }else{
@@ -1625,6 +1599,8 @@ public class WindowsMenu extends javax.swing.JFrame {
             int id =(int) jTableAulas.getValueAt(jTableAulas.getSelectedRow(), 0);
             if(SQLite.getInstance().eliminar(id, "Aula")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
+                String eliminar = "retract(" +Singleton.getInstance().buscarAula(id).getDatos()+").";
+                SingletonProlog.getInstance().consultaProlog(eliminar);
                 cerrarPaneles();
                 datosAulas();
             }else{
@@ -1689,6 +1665,8 @@ public class WindowsMenu extends javax.swing.JFrame {
             int id =(int) jTableImparte.getValueAt(jTableImparte.getSelectedRow(), 0);
             if(SQLite.getInstance().eliminar(id, "Imparte")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
+                String eliminar = "retract(" +Singleton.getInstance().buscarImparte(id).getDatos()+").";
+                SingletonProlog.getInstance().consultaProlog(eliminar);
                 cerrarPaneles();
                 datosImparte();
             }else{
@@ -1723,6 +1701,8 @@ public class WindowsMenu extends javax.swing.JFrame {
             int id =(int) jTableDisponibilidad.getValueAt(jTableDisponibilidad.getSelectedRow(), 0);
             if(SQLite.getInstance().eliminar(id, "Disponibilidad")){
                 JOptionPane.showMessageDialog(null, "Eliminado");
+                String eliminar = "retract(" +Singleton.getInstance().buscarDisponibilidad(id).getDatos()+").";
+                SingletonProlog.getInstance().consultaProlog(eliminar);
                 cerrarPaneles();
                 datosImparte();
             }else{
@@ -1796,17 +1776,10 @@ public class WindowsMenu extends javax.swing.JFrame {
 
     private void jButtonConsulta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta3ActionPerformed
         cerrarPaneles();
+        generarHorariosSemestre((String)jComboBoxSemestre.getSelectedItem());
         jPanelConsulta3.setVisible(true);
         
     }//GEN-LAST:event_jButtonConsulta3ActionPerformed
-
-    private void jButtonConsulta2Prolog1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConsulta2Prolog1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonConsulta2Prolog1MouseClicked
-
-    private void jButtonConsulta2Prolog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulta2Prolog1ActionPerformed
-        generarHorariosSemestre((String)jComboBoxSemestre.getSelectedItem());
-    }//GEN-LAST:event_jButtonConsulta2Prolog1ActionPerformed
 
     private void jButtonClose8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClose8MouseClicked
         // TODO add your handling code here:
@@ -1836,6 +1809,10 @@ public class WindowsMenu extends javax.swing.JFrame {
     private void jButtonClose9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClose9ActionPerformed
         cerrarPaneles();
     }//GEN-LAST:event_jButtonClose9ActionPerformed
+
+    private void jComboBoxSemestreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxSemestreItemStateChanged
+        generarHorariosSemestre((String)jComboBoxSemestre.getSelectedItem());
+    }//GEN-LAST:event_jComboBoxSemestreItemStateChanged
         
     
     
@@ -1917,7 +1894,6 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JLabel etiqueta4;
     private javax.swing.JLabel etiqueta5;
     private javax.swing.JLabel etiquetaAtras;
-    private javax.swing.JLabel etiquetaAtras1;
     private javax.swing.JLabel etiquetaAtras2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregarAula;
@@ -1940,7 +1916,6 @@ public class WindowsMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsulta1;
     private javax.swing.JButton jButtonConsulta2;
     private javax.swing.JButton jButtonConsulta2Prolog;
-    private javax.swing.JButton jButtonConsulta2Prolog1;
     private javax.swing.JButton jButtonConsulta2Prolog2;
     private javax.swing.JButton jButtonConsulta3;
     private javax.swing.JButton jButtonCursos;

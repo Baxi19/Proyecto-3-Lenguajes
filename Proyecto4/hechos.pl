@@ -17,6 +17,7 @@ profesor('leo', 'Viquez Acuña', '3-216-566').
 profesor('oscar', 'Viquez Acuña', '5-616-612').
 profesor('vera', 'Gamboa Guzman', '4-646-654').
 profesor('rogelio', 'Gonzalez Quiros', '6-545-613').
+profesor('Randald', 'v dv ', 'd d').
 curso('fundamentos', 'normal', 3, 1, 2).
 curso('introduccion', 'normal', 3, 1, 2).
 curso('taller', 'laboratorio', 3, 1, 1).
@@ -41,6 +42,7 @@ curso('ia', 'laboratorio', 4, 7, 2).
 curso('redes', 'laboratorio', 4, 7, 1).
 curso('proyectoS', 'laboratorio', 3, 7, 2).
 curso('practica', 'laboratorio', 12, 8, 2).
+curso('Cur', 'normal', 1, 1, 1).
 dia('Lunes').
 dia('Martes').
 dia('Miercoles').
@@ -107,6 +109,9 @@ disponibilidad('rogelio', 'Lunes').
 disponibilidad('rogelio', 'Martes').
 disponibilidad('rogelio', 'Miercoles').
 disponibilidad('rogelio', 'Viernes').
+disponibilidad('Randald', 'Lunes').
+disponibilidad('Randald', 'Martes').
+disponibilidad('Randald', 'Miercoles').
 imparte('alejandro', 'requerimientos').
 imparte('alejandro', 'diseno').
 imparte('rocio', 'fundamentos').
@@ -146,49 +151,54 @@ imparte('rogelio', 'ia').
 imparte('rogelio', 'electiva2').
 imparte('rogelio', 'io').
 imparte('rogelio', 'electiva1').
-
-
-:- dynamic reservado/7.
-%reservado(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula).
-
-bloque_manana(L1, L2):-
-    L1 = leccion('l1',_,_,_),
-    L2 = leccion('l2',_,_,_);
-    L2 = leccion('l1',_,_,_),
-    L1 = leccion('l2',_,_,_).
-
-bloque_tarde(L1, L2):-
-    L1 = leccion('l3',_,_,_),
-    L2 = leccion('l4',_,_,_);
-    L2 = leccion('l3',_,_,_),
-    L1 = leccion('l4',_,_,_).
+imparte('Randald', 'fundamentos').
+imparte('Randald', 'Cur').
 
 
 
 %regla para saber si existe disponibilidad en un horario
-disponible(Dia,Dia2, Leccion1,Leccion2, Aula) :-
-    %Dia = Dia2,
-    not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula)),
-    not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula)),
+disponible(Profesor,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+    %si el profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
+    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_)),
 
-    not(reservado(_, _,Dia,_, Leccion2,_, Aula)),
-    not(reservado(_, _,Dia,_, Leccion1,_, Aula)),
+    %si el profesor no ha reservado ambos dias con las mismas lecciones en otra aula
+    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, _,_)),
+    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, _,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, _,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, _,_)),
 
-    not(reservado(_, _,_,Dia2, Leccion1,_, Aula)),
-    not(reservado(_, _,_,Dia2, Leccion2,_, Aula)),
+    %si el profesor no ha reservado algun dia almenos una leccion en otra aula
+    not(reservado(Profesor, _,Dia,_, Leccion1,_, _,_)),
+    not(reservado(Profesor, _,Dia,_, Leccion2,_, _,_)),
+    not(reservado(Profesor, _,_,Dia2, Leccion1,_, _,_)),
+    not(reservado(Profesor, _,_,Dia2, Leccion2,_, _,_)),
 
-    not(reservado(_, _,Dia,_, _,Leccion2, Aula)),
-    not(reservado(_, _,Dia,_, _,Leccion1, Aula)),
+    not(reservado(Profesor, _,Dia2,_, _,Leccion1, _,_)),
+    not(reservado(Profesor, _,Dia2,_, _,Leccion2, _,_)),
+    not(reservado(Profesor, _,_,Dia, _,Leccion1, _,_)),
+    not(reservado(Profesor, _,_,Dia, _,Leccion2, _,_)),
 
-    not(reservado(_, _,_,Dia2, _,Leccion1, Aula)),
-    not(reservado(_, _,_,Dia2, _,Leccion2, Aula)).
+    %si el aula se encuentra disponible
+    not(reservado(_, _,Dia,_, Leccion1,_, Aula,_)),
+    not(reservado(_, _,Dia,_, Leccion2,_, Aula,_)),
+    not(reservado(_, _,_,Dia2, Leccion1,_, Aula,_)),
+    not(reservado(_, _,_,Dia2, Leccion2,_, Aula,_)),
 
-% regla para saber si existe disponibilidad en un horario de 2 dias
+    not(reservado(_, _,Dia2,_, _,Leccion1, Aula,_)),
+    not(reservado(_, _,Dia2,_, _,Leccion2, Aula,_)),
+    not(reservado(_, _,_,Dia, _,Leccion1, Aula,_)),
+    not(reservado(_, _,_,Dia, _,Leccion2, Aula,_)),
 
+    %si algun otro profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
+    not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(_, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
+    not(reservado(_, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_))
+    .
 
-%regla para eliminar todas las reservaciones
-eliminar_reservas():-
-    retractall(reservado(_,_,_,_,_,_,_)).
 
 %reglas para obtener las relaciones de los horarios de un solo dia
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
@@ -198,17 +208,18 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     dia(Dia),
     dia(Dia2),
     Dia = Dia2,
-    leccion(Leccion, Dia, _, _),
-    leccion(Leccion2, Dia2, _, _),
+    leccion(Leccion, Dia, Hora1, _),
+    leccion(Leccion2, Dia2,Hora2, _),
     not(Leccion = Leccion2),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
     imparte(Profesor, Curso),
-    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
-    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)).
+    disponible(Profesor,Dia,Dia2, Hora1,Hora2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 
 
-%reglas para obtener las relaciones de los horarios de dos dias
+%reglas para obtener las relaciones de los horarios de dos dias con cursos de 2
+% dias diferentes
 horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     profesor(Profesor, _,_),
     curso(Curso,Tipo,_,Semestre, Dias ),
@@ -216,21 +227,11 @@ horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
     dia(Dia2),
     dia(Dia), %OR
     not(Dia = Dia2),
-    leccion(Leccion, Dia, _, _),
-    leccion(Leccion2, Dia2, _, _),
+    leccion(Leccion, Dia, Hora1, _),
+    leccion(Leccion2, Dia2,Hora2, _),
     aula(Aula, _, Tipo),
     disponibilidad(Profesor, Dia),
     imparte(Profesor, Curso),
-    disponible(Dia,Dia2, Leccion,Leccion2, Aula),
-    assert(reservado(Profesor,Curso,Dia,Dia2, Leccion,Leccion2, Aula)).
-
-
-
-
-
-
-
-
-
-
+    disponible(Profesor,Dia,Dia2, Hora1,Hora2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
 

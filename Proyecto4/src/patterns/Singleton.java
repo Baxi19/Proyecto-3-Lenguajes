@@ -127,6 +127,29 @@ public class Singleton {
         return null;
     }
     
+    /*------------------------------------------------------------------------*/
+    //metodo para buscar imparte por id
+    public Imparte buscarImparte(int id){
+        for (Imparte imparte : listaImparte) {
+            if(imparte.getId() == id){
+                return imparte;
+            }
+        }
+        System.out.println("(X) Problema al ubicar Imparte id = " + id);
+        return null;
+    }
+    
+    /*------------------------------------------------------------------------*/
+    //metodo para buscar disponibilidad por id
+    public Disponibilidad buscarDisponibilidad(int id){
+        for (Disponibilidad disponibilidad : listaDisponibilidades) {
+            if(disponibilidad.getId() == id){
+                return disponibilidad;
+            }
+        }
+        System.out.println("(X) Problema al ubicar Imparte id = " + id);
+        return null;
+    }
     
     /*------------------------------------------------------------------------*/
     //metodo que verifica si existe disponibilidad

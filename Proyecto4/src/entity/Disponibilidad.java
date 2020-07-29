@@ -76,5 +76,10 @@ public class Disponibilidad   implements Factory, Decorador{
                 "').\n";
     }
 
-
+    public String getDatos() {
+        return  "disponibilidad('"+
+                getProfesor().getNombre()  + "', '" + 
+                getDia().getDia()+ 
+                "')";
+    }
 }
