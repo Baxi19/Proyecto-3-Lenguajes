@@ -28,6 +28,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import patterns.Singleton;
 
@@ -98,7 +99,7 @@ public class SingletonProlog {
                     soluciones.add(tabla);
                 }
                 else{
-                    System.out.println("!!");
+                    JOptionPane.showMessageDialog(null,"Si se seleccionan muchos datos prolog buscara una solucion pero dura mas tiempo!!");
                 }
             }
             return soluciones;
