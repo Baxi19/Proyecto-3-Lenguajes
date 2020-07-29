@@ -5,44 +5,44 @@ aula('mvl-01', 20, 'laboratorio').
 aula('e-10', 24, 'normal').
 aula('e-11', 24, 'normal').
 aula('e-12', 28, 'normal').
-profesor('alejandro', 'Alfaro Quesada', '1-846-952'). 
-profesor('rocio', 'Quiros Oviedo', '1-951-912'). 
-profesor('abel', 'Mendez Porras', '7-511-626'). 
-profesor('diego', 'Rojas Vega', '6-625-518'). 
-profesor('efren', 'Jimenez Delgado', '3-818-292'). 
-profesor('lorena', 'Valerio Solis', '6-514-651'). 
-profesor('jorge', 'Alfaro Velasco', '2-651-611'). 
-profesor('marlen', 'Treviño Villalobos', '6-515-321'). 
-profesor('leo', 'Viquez Acuña', '3-216-566'). 
-profesor('oscar', 'Viquez Acuña', '5-616-612'). 
-profesor('vera', 'Gamboa Guzman', '4-646-654'). 
-profesor('rogelio', 'Gonzalez Quiros', '6-545-613'). 
-profesor('Randald', 'v dv ', 'd d'). 
-curso('fundamentos', 'normal', 3, 1, 2). 
-curso('introduccion', 'normal', 3, 1, 2). 
-curso('taller', 'laboratorio', 3, 1, 1). 
-curso('estructuras', 'laboratorio', 4, 2, 1). 
-curso('poo', 'laboratorio', 3, 2, 2). 
-curso('arquitectura', 'normal', 4, 2, 1). 
-curso('analisis', 'laboratorio', 4, 3, 2). 
-curso('bases1', 'laboratorio', 4, 3, 1). 
-curso('bases2', 'laboratorio', 3, 4, 2). 
-curso('lenguajes', 'laboratorio', 4, 4, 1). 
-curso('requerimientos', 'normal', 4, 4, 2). 
-curso('ap', 'normal', 4, 5, 1). 
-curso('compiladores', 'laboratorio', 4, 5, 2). 
-curso('diseno', 'laboratorio', 4, 5, 1). 
-curso('electiva1', 'laboratorio', 3, 6, 2). 
-curso('io', 'normal', 4, 6, 1). 
-curso('operativos', 'laboratorio', 4, 6, 2). 
-curso('calidad', 'laboratorio', 3, 6, 1). 
-curso('compuSociedad', 'normal', 2, 6, 2). 
-curso('electiva2', 'laboratorio', 4, 7, 1). 
-curso('ia', 'laboratorio', 4, 7, 2). 
-curso('redes', 'laboratorio', 4, 7, 1). 
-curso('proyectoS', 'laboratorio', 3, 7, 2). 
-curso('practica', 'laboratorio', 12, 8, 2). 
-curso('Cur', 'normal', 1, 1, 1). 
+profesor('alejandro', 'Alfaro Quesada', '1-846-952').
+profesor('rocio', 'Quiros Oviedo', '1-951-912').
+profesor('abel', 'Mendez Porras', '7-511-626').
+profesor('diego', 'Rojas Vega', '6-625-518').
+profesor('efren', 'Jimenez Delgado', '3-818-292').
+profesor('lorena', 'Valerio Solis', '6-514-651').
+profesor('jorge', 'Alfaro Velasco', '2-651-611').
+profesor('marlen', 'Treviño Villalobos', '6-515-321').
+profesor('leo', 'Viquez Acuña', '3-216-566').
+profesor('oscar', 'Viquez Acuña', '5-616-612').
+profesor('vera', 'Gamboa Guzman', '4-646-654').
+profesor('rogelio', 'Gonzalez Quiros', '6-545-613').
+profesor('Randald', 'v dv ', 'd d').
+curso('fundamentos', 'normal', 3, 1, 2).
+curso('introduccion', 'normal', 3, 1, 2).
+curso('taller', 'laboratorio', 3, 1, 1).
+curso('estructuras', 'laboratorio', 4, 2, 1).
+curso('poo', 'laboratorio', 3, 2, 2).
+curso('arquitectura', 'normal', 4, 2, 1).
+curso('analisis', 'laboratorio', 4, 3, 2).
+curso('bases1', 'laboratorio', 4, 3, 1).
+curso('bases2', 'laboratorio', 3, 4, 2).
+curso('lenguajes', 'laboratorio', 4, 4, 1).
+curso('requerimientos', 'normal', 4, 4, 2).
+curso('ap', 'normal', 4, 5, 1).
+curso('compiladores', 'laboratorio', 4, 5, 2).
+curso('diseno', 'laboratorio', 4, 5, 1).
+curso('electiva1', 'laboratorio', 3, 6, 2).
+curso('io', 'normal', 4, 6, 1).
+curso('operativos', 'laboratorio', 4, 6, 2).
+curso('calidad', 'laboratorio', 3, 6, 1).
+curso('compuSociedad', 'normal', 2, 6, 2).
+curso('electiva2', 'laboratorio', 4, 7, 1).
+curso('ia', 'laboratorio', 4, 7, 2).
+curso('redes', 'laboratorio', 4, 7, 1).
+curso('proyectoS', 'laboratorio', 3, 7, 2).
+curso('practica', 'laboratorio', 12, 8, 2).
+curso('Cur', 'normal', 1, 1, 1).
 dia('Lunes').
 dia('Martes').
 dia('Miercoles').
@@ -153,3 +153,89 @@ imparte('rogelio', 'io').
 imparte('rogelio', 'electiva1').
 imparte('Randald', 'fundamentos').
 imparte('Randald', 'Cur').
+
+
+
+%regla para saber si existe disponibilidad en un horario
+disponible(Profesor,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+    %si el profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
+    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_)),
+
+    %si el profesor no ha reservado ambos dias con las mismas lecciones en otra aula
+    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, _,_)),
+    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, _,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, _,_)),
+    not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, _,_)),
+
+    %si el profesor no ha reservado algun dia almenos una leccion en otra aula
+    not(reservado(Profesor, _,Dia,_, Leccion1,_, _,_)),
+    not(reservado(Profesor, _,Dia,_, Leccion2,_, _,_)),
+    not(reservado(Profesor, _,_,Dia2, Leccion1,_, _,_)),
+    not(reservado(Profesor, _,_,Dia2, Leccion2,_, _,_)),
+
+    not(reservado(Profesor, _,Dia2,_, _,Leccion1, _,_)),
+    not(reservado(Profesor, _,Dia2,_, _,Leccion2, _,_)),
+    not(reservado(Profesor, _,_,Dia, _,Leccion1, _,_)),
+    not(reservado(Profesor, _,_,Dia, _,Leccion2, _,_)),
+
+    %si el aula se encuentra disponible
+    not(reservado(_, _,Dia,_, Leccion1,_, Aula,_)),
+    not(reservado(_, _,Dia,_, Leccion2,_, Aula,_)),
+    not(reservado(_, _,_,Dia2, Leccion1,_, Aula,_)),
+    not(reservado(_, _,_,Dia2, Leccion2,_, Aula,_)),
+
+    not(reservado(_, _,Dia2,_, _,Leccion1, Aula,_)),
+    not(reservado(_, _,Dia2,_, _,Leccion2, Aula,_)),
+    not(reservado(_, _,_,Dia, _,Leccion1, Aula,_)),
+    not(reservado(_, _,_,Dia, _,Leccion2, Aula,_)),
+
+    %si algun otro profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
+    not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(_, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
+    not(reservado(_, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_))
+    .
+
+
+%reglas para obtener las relaciones de los horarios de un solo dia
+horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
+    profesor(Profesor, _,_),
+    curso(Curso,Tipo,_,Semestre, Dias ),
+    Dias = 1,
+    dia(Dia),
+    dia(Dia2),
+    Dia = Dia2,
+    leccion(Leccion, Dia, Hora1, Salida1),
+    leccion(Leccion2, Dia2,Hora2, Salida2),
+    Rango1 is Hora1 + "-" +Salida1,
+    Rango2 is Hora2 + "-" +Salida2,
+    not(Leccion = Leccion2),
+    aula(Aula, _, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso),
+    disponible(Profesor,Dia,Dia2, Rango1,Rango2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Rango1,Rango2, Aula, Semestre)),!.
+
+
+%reglas para obtener las relaciones de los horarios de dos dias con cursos de 2
+% dias diferentes
+horario(Profesor, Curso,Dia,Dia2, Leccion,Leccion2, Aula, Semestre) :-
+    profesor(Profesor, _,_),
+    curso(Curso,Tipo,_,Semestre, Dias ),
+    Dias = 2,
+    dia(Dia2),
+    dia(Dia), %OR
+    not(Dia = Dia2),
+    leccion(Leccion, Dia, Hora1, Salida1),
+    leccion(Leccion2, Dia2,Hora2, Salida2),
+    Rango1 is Hora1 + "-" +Salida1,
+    Rango2 is Hora2 + "-" +Salida2,
+    aula(Aula, _, Tipo),
+    disponibilidad(Profesor, Dia),
+    imparte(Profesor, Curso),
+    disponible(Profesor,Dia,Dia2, Rango1,Rango2, Aula),
+    assert(reservado(Profesor,Curso,Dia,Dia2, Hora1,Hora2, Aula, Semestre)),!.
+

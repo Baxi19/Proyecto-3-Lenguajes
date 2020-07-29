@@ -15,19 +15,14 @@ import entity.Aula;
 import entity.Curso;
 import entity.Dia;
 import entity.Disponibilidad;
-import entity.Horario;
 import entity.Imparte;
 import entity.Leccion;
 import entity.Profesor;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import patterns.Singleton;
@@ -99,7 +94,7 @@ public class SingletonProlog {
                     soluciones.add(tabla);
                 }
                 else{
-                    JOptionPane.showMessageDialog(null,"Si se seleccionan muchos datos prolog buscara una solucion pero dura mas tiempo!!");
+                    System.out.println("Si se seleccionan muchos datos prolog buscara una solucion pero dura mas tiempo!!");
                 }
             }
             return soluciones;

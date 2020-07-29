@@ -1704,7 +1704,7 @@ public class WindowsMenu extends javax.swing.JFrame {
                 String eliminar = "retract(" +Singleton.getInstance().buscarDisponibilidad(id).getDatos()+").";
                 SingletonProlog.getInstance().consultaProlog(eliminar);
                 cerrarPaneles();
-                datosImparte();
+                datosDisponibilidad();
             }else{
                 JOptionPane.showMessageDialog(null, "Error al eliminar...");
             }
