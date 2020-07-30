@@ -5,7 +5,6 @@
  */
 package database;
 
-import static com.sun.jmx.mbeanserver.Util.cast;
 import entity.Aula;
 import entity.Curso;
 import entity.Dia;
@@ -24,12 +23,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import patterns.Decorador;
 import patterns.Singleton;
 
 /**
@@ -124,6 +119,7 @@ public class SQLite {
         }
     }
     
+    
     /*------------------------------------------------------------------------*/
     //agregar profesor
     public Boolean agregarProfesor(String nombre, String apellidos, String cedula){
@@ -142,18 +138,16 @@ public class SQLite {
             return false;
         }  
     }
-    
     /*------------------------------------------------------------------------*/
-    //agregar curso
-    public Boolean agregarCurso(String nombre, String asignatura,int creditos,int semestre, int cantidadDias){
-        String sql =    " INSERT INTO Curso(nombre, asignatura, creditos,semestre, cantidad_dias, activo ) " +
-                        " VALUES( '"+ nombre + "', '" 
-                                    + asignatura+ "', "
-                                    + creditos+", "
-                                    + semestre + ", "
-                                    + cantidadDias+", "
-                                    + "'T');";
-        System.out.println("\n SQL = " + sql);
+    //modificar profesor
+    public Boolean modificarProfesor(int id, String nombre, String apellidos, String cedula){
+        String sql =    
+                " UPDATE Profesor " +
+                " SET nombre = " + "'"+ nombre + "'," +
+                " apellidos = " + "'"+ apellidos + "'," +
+                " cedula = " + "'"+ cedula + "'," +
+                " activo = 'T' " +
+                " WHERE id = " + id;
         try {
             Connection conn = conexion();
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -167,7 +161,54 @@ public class SQLite {
             return false;
         }  
     }
-    
+    /*------------------------------------------------------------------------*/
+    //agregar curso
+    public Boolean agregarCurso(String nombre, String asignatura,int creditos,int semestre, int cantidadDias){
+        String sql =    " INSERT INTO Curso(nombre, asignatura, creditos,semestre, cantidad_dias, activo ) " +
+                        " VALUES( '"+ nombre + "', '" 
+                                    + asignatura+ "', "
+                                    + creditos+", "
+                                    + semestre + ", "
+                                    + cantidadDias+", "
+                                    + "'T');";
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
+    /*------------------------------------------------------------------------*/
+    //agregar curso
+    public Boolean modificarCurso(int id,String nombre, String asignatura,int creditos,int semestre, int cantidadDias){
+        String sql =    
+                " UPDATE Curso " +
+                " SET nombre = " + "'"+ nombre + "'," +
+                " asignatura = " + "'"+ asignatura + "'," +
+                " creditos = " + ""+ creditos + "," +
+                " semestre = " + ""+ semestre + "," +
+                " cantidad_dias = " + ""+ cantidadDias + "," +
+                " activo = 'T' " +
+                " WHERE id = " + id;
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
     /*------------------------------------------------------------------------*/
     //agregar aula
     public Boolean agregarAula(String nombre, int capacidad, String tipo){
@@ -187,6 +228,29 @@ public class SQLite {
         }  
     }
     
+    /*------------------------------------------------------------------------*/
+    //modificar aula
+    public Boolean modificarAula(int id, String nombre, int capacidad, String tipo){
+        String sql =    
+                " UPDATE Aula " +
+                " SET nombre = " + "'"+ nombre + "'," +
+                " capacidad = " + ""+ capacidad + "," +
+                " tipo = " + "'"+ tipo + "'," +
+                " activo = 'T' " +
+                " WHERE id = " + id;
+        try {
+            Connection conn = conexion();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();         
+            pstmt.close();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }  
+    }
     /*------------------------------------------------------------------------*/
     //agregar imparte
     public Boolean agregarImparte(int profesorId, int cursoId){

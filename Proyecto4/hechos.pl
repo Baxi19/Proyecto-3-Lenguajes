@@ -16,7 +16,7 @@ profesor('marlen', 'Treviño Villalobos', '6-515-321').
 profesor('leo', 'Viquez Acuña', '3-216-566'). 
 profesor('oscar', 'Viquez Acuña', '5-616-612'). 
 profesor('vera', 'Gamboa Guzman', '4-646-654'). 
-profesor('rogelio', 'Gonzalez Quiros', '6-545-613'). 
+profesor('rogelio', 'Gonzalez Quiros', '6-545-614'). 
 curso('fundamentos', 'normal', 3, 1, 2). 
 curso('introduccion', 'normal', 3, 1, 2). 
 curso('taller', 'laboratorio', 3, 1, 1). 

@@ -34,6 +34,7 @@ public class SingletonProlog {
     private static SingletonProlog metodosProlog = null;
     public JIPEngine interpreteProlog = new JIPEngine(); 
     public Boolean datosCargados = false;
+    public Boolean consulta2 = false;
     private SingletonProlog(){
     }
     
@@ -93,8 +94,8 @@ public class SingletonProlog {
                     }
                     soluciones.add(tabla);
                 }
-                else{
-                    System.out.println("Si se seleccionan muchos datos prolog buscara una solucion pero dura mas tiempo!!");
+                else if(consulta2){
+                    JOptionPane.showMessageDialog(null,"Si se seleccionan muchos datos prolog buscara una solucion pero dura mas tiempo!!");
                 }
             }
             return soluciones;
