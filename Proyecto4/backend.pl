@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %REGLAS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- dynamic reservado/8.
@@ -19,131 +19,131 @@ solucion(Profesor, Curso, Semestre, Dia) :-
     disponibilidad(Profesor, Dia).
 
 %regla para saber si existe disponibilidad en un horario
-disponible(Profesor,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+disponible(Profesor,Dia1,Dia2, Leccion1,Leccion2, Aula) :-
     %si el profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_)),
 
     %si el profesor no ha reservado ambos dias con las mismas lecciones en otra aula
-    not(reservado(Profesor, _,Dia,Dia2, Leccion1,Leccion2, _,_)),
-    not(reservado(Profesor, _,Dia,Dia2, Leccion2,Leccion1, _,_)),
+    not(reservado(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, _,_)),
+    not(reservado(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, _,_)),
     not(reservado(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, _,_)),
     not(reservado(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, _,_)),
 
     %si el profesor no ha reservado algun dia almenos una leccion en otra aula
-    not(reservado(Profesor, _,Dia,_, Leccion1,_, _,_)),
-    not(reservado(Profesor, _,Dia,_, Leccion2,_, _,_)),
+    not(reservado(Profesor, _,Dia1,_, Leccion1,_, _,_)),
+    not(reservado(Profesor, _,Dia1,_, Leccion2,_, _,_)),
     not(reservado(Profesor, _,_,Dia2, Leccion1,_, _,_)),
     not(reservado(Profesor, _,_,Dia2, Leccion2,_, _,_)),
 
     not(reservado(Profesor, _,Dia2,_, _,Leccion1, _,_)),
     not(reservado(Profesor, _,Dia2,_, _,Leccion2, _,_)),
-    not(reservado(Profesor, _,_,Dia, _,Leccion1, _,_)),
-    not(reservado(Profesor, _,_,Dia, _,Leccion2, _,_)),
+    not(reservado(Profesor, _,_,Dia1, _,Leccion1, _,_)),
+    not(reservado(Profesor, _,_,Dia1, _,Leccion2, _,_)),
 
     %si el aula se encuentra disponible
-    not(reservado(_, _,Dia,_, Leccion1,_, Aula,_)),
-    not(reservado(_, _,Dia,_, Leccion2,_, Aula,_)),
+    not(reservado(_, _,Dia1,_, Leccion1,_, Aula,_)),
+    not(reservado(_, _,Dia1,_, Leccion2,_, Aula,_)),
     not(reservado(_, _,_,Dia2, Leccion1,_, Aula,_)),
     not(reservado(_, _,_,Dia2, Leccion2,_, Aula,_)),
 
     not(reservado(_, _,Dia2,_, _,Leccion1, Aula,_)),
     not(reservado(_, _,Dia2,_, _,Leccion2, Aula,_)),
-    not(reservado(_, _,_,Dia, _,Leccion1, Aula,_)),
-    not(reservado(_, _,_,Dia, _,Leccion2, Aula,_)),
+    not(reservado(_, _,_,Dia1, _,Leccion1, Aula,_)),
+    not(reservado(_, _,_,Dia1, _,Leccion2, Aula,_)),
 
     %si algun otro profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado(_, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado(_, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado(_, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado(_, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_))
     .
 
 %regla para saber si existe disponibilidad en un horario
-disponible2(Profesor,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+disponible2(Profesor,Dia1,Dia2, Leccion1,Leccion2, Aula) :-
         %si el profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado2(Profesor, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado2(Profesor, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado2(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado2(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado2(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado2(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_)),
 
     %si el profesor no ha reservado ambos dias con las mismas lecciones en otra aula
-    not(reservado2(Profesor, _,Dia,Dia2, Leccion1,Leccion2, _,_)),
-    not(reservado2(Profesor, _,Dia,Dia2, Leccion2,Leccion1, _,_)),
+    not(reservado2(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, _,_)),
+    not(reservado2(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, _,_)),
     not(reservado2(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, _,_)),
     not(reservado2(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, _,_)),
 
     %si el profesor no ha reservado algun dia almenos una leccion en otra aula
-    not(reservado2(Profesor, _,Dia,_, Leccion1,_, _,_)),
-    not(reservado2(Profesor, _,Dia,_, Leccion2,_, _,_)),
+    not(reservado2(Profesor, _,Dia1,_, Leccion1,_, _,_)),
+    not(reservado2(Profesor, _,Dia1,_, Leccion2,_, _,_)),
     not(reservado2(Profesor, _,_,Dia2, Leccion1,_, _,_)),
     not(reservado2(Profesor, _,_,Dia2, Leccion2,_, _,_)),
 
     not(reservado2(Profesor, _,Dia2,_, _,Leccion1, _,_)),
     not(reservado2(Profesor, _,Dia2,_, _,Leccion2, _,_)),
-    not(reservado2(Profesor, _,_,Dia, _,Leccion1, _,_)),
-    not(reservado2(Profesor, _,_,Dia, _,Leccion2, _,_)),
+    not(reservado2(Profesor, _,_,Dia1, _,Leccion1, _,_)),
+    not(reservado2(Profesor, _,_,Dia1, _,Leccion2, _,_)),
 
     %si el aula se encuentra disponible
-    not(reservado2(_, _,Dia,_, Leccion1,_, Aula,_)),
-    not(reservado2(_, _,Dia,_, Leccion2,_, Aula,_)),
+    not(reservado2(_, _,Dia1,_, Leccion1,_, Aula,_)),
+    not(reservado2(_, _,Dia1,_, Leccion2,_, Aula,_)),
     not(reservado2(_, _,_,Dia2, Leccion1,_, Aula,_)),
     not(reservado2(_, _,_,Dia2, Leccion2,_, Aula,_)),
 
     not(reservado2(_, _,Dia2,_, _,Leccion1, Aula,_)),
     not(reservado2(_, _,Dia2,_, _,Leccion2, Aula,_)),
-    not(reservado2(_, _,_,Dia, _,Leccion1, Aula,_)),
-    not(reservado2(_, _,_,Dia, _,Leccion2, Aula,_)),
+    not(reservado2(_, _,_,Dia1, _,Leccion1, Aula,_)),
+    not(reservado2(_, _,_,Dia1, _,Leccion2, Aula,_)),
 
     %si algun otro profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado2(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado2(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado2(_, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado2(_, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado2(_, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado2(_, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_))
 
     .
 
 %regla para saber si existe disponibilidad en un horario
-disponible3(Profesor,Dia,Dia2, Leccion1,Leccion2, Aula) :-
+disponible3(Profesor,Dia1,Dia2, Leccion1,Leccion2, Aula) :-
         %si el profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado3(Profesor, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado3(Profesor, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado3(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado3(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado3(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado3(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_)),
 
     %si el profesor no ha reservado ambos dias con las mismas lecciones en otra aula
-    not(reservado3(Profesor, _,Dia,Dia2, Leccion1,Leccion2, _,_)),
-    not(reservado3(Profesor, _,Dia,Dia2, Leccion2,Leccion1, _,_)),
+    not(reservado3(Profesor, _,Dia1,Dia2, Leccion1,Leccion2, _,_)),
+    not(reservado3(Profesor, _,Dia1,Dia2, Leccion2,Leccion1, _,_)),
     not(reservado3(Profesor, _,Dia2,Dia1, Leccion1,Leccion2, _,_)),
     not(reservado3(Profesor, _,Dia2,Dia1, Leccion2,Leccion1, _,_)),
 
     %si el profesor no ha reservado algun dia almenos una leccion en otra aula
-    not(reservado3(Profesor, _,Dia,_, Leccion1,_, _,_)),
-    not(reservado3(Profesor, _,Dia,_, Leccion2,_, _,_)),
+    not(reservado3(Profesor, _,Dia1,_, Leccion1,_, _,_)),
+    not(reservado3(Profesor, _,Dia1,_, Leccion2,_, _,_)),
     not(reservado3(Profesor, _,_,Dia2, Leccion1,_, _,_)),
     not(reservado3(Profesor, _,_,Dia2, Leccion2,_, _,_)),
 
     not(reservado3(Profesor, _,Dia2,_, _,Leccion1, _,_)),
     not(reservado3(Profesor, _,Dia2,_, _,Leccion2, _,_)),
-    not(reservado3(Profesor, _,_,Dia, _,Leccion1, _,_)),
-    not(reservado3(Profesor, _,_,Dia, _,Leccion2, _,_)),
+    not(reservado3(Profesor, _,_,Dia1, _,Leccion1, _,_)),
+    not(reservado3(Profesor, _,_,Dia1, _,Leccion2, _,_)),
 
     %si el aula se encuentra disponible
-    not(reservado3(_, _,Dia,_, Leccion1,_, Aula,_)),
-    not(reservado3(_, _,Dia,_, Leccion2,_, Aula,_)),
+    not(reservado3(_, _,Dia1,_, Leccion1,_, Aula,_)),
+    not(reservado3(_, _,Dia1,_, Leccion2,_, Aula,_)),
     not(reservado3(_, _,_,Dia2, Leccion1,_, Aula,_)),
     not(reservado3(_, _,_,Dia2, Leccion2,_, Aula,_)),
 
     not(reservado3(_, _,Dia2,_, _,Leccion1, Aula,_)),
     not(reservado3(_, _,Dia2,_, _,Leccion2, Aula,_)),
-    not(reservado3(_, _,_,Dia, _,Leccion1, Aula,_)),
-    not(reservado3(_, _,_,Dia, _,Leccion2, Aula,_)),
+    not(reservado3(_, _,_,Dia1, _,Leccion1, Aula,_)),
+    not(reservado3(_, _,_,Dia1, _,Leccion2, Aula,_)),
 
     %si algun otro profesor no ha reservado ambos dias con las mismas lecciones en esa misma aula
-    not(reservado3(_, _,Dia,Dia2, Leccion1,Leccion2, Aula,_)),
-    not(reservado3(_, _,Dia,Dia2, Leccion2,Leccion1, Aula,_)),
+    not(reservado3(_, _,Dia1,Dia2, Leccion1,Leccion2, Aula,_)),
+    not(reservado3(_, _,Dia1,Dia2, Leccion2,Leccion1, Aula,_)),
     not(reservado3(_, _,Dia2,Dia1, Leccion1,Leccion2, Aula,_)),
     not(reservado3(_, _,Dia2,Dia1, Leccion2,Leccion1, Aula,_))
 

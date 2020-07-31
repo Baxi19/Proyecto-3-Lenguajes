@@ -31,7 +31,7 @@ import patterns.Singleton;
 public class SingletonProlog {
     /*------------------------------------------------------------------------*/
     /*Variables*/
-    private static SingletonProlog metodosProlog = null;
+    private static SingletonProlog instance = null;
     public JIPEngine interpreteProlog = new JIPEngine(); 
     public Boolean datosCargados = false;
     public Boolean consulta2 = false;
@@ -41,10 +41,10 @@ public class SingletonProlog {
     /*------------------------------------------------------------------------*/
     //Patron de diseno: Singleton
     public static SingletonProlog getInstance(){
-        if(metodosProlog == null){
-            metodosProlog = new SingletonProlog();
+        if(instance == null){
+            instance = new SingletonProlog();
         }
-        return metodosProlog;
+        return instance;
     }
     
     /*------------------------------------------------------------------------*/
@@ -322,10 +322,9 @@ public class SingletonProlog {
     /*Metodo para guardar los hechos*/
     private String guardarHechos(){
         cargarDatosListas();
-        SingletonProlog.getInstance().crearArchivo("hechos",Singleton.getInstance().listaHechos);
+        crearArchivo("hechos",Singleton.getInstance().listaHechos);
         System.out.println("->Hechos guardados en archivo con extencion .pl");
         return "->Hechos guardados en archivo con extencion .pl";
-    }
-    
+    } 
 }
 

@@ -9,8 +9,7 @@ package patterns;
  *
  * @author Baxi
  */
-public class PruebaPatronFactory {
-    
+public class PruebaPatronFactory { 
     //Carga los datos de prueba para el factory
     public void probarDatos(){
         PruebaPatronFactory ejemplo1 = new PruebaPatronFactory();
@@ -43,6 +42,5 @@ public class PruebaPatronFactory {
     public void nombreClase(String tipoClase) {
         Factory clase = ClaseFactory.getClase(tipoClase);
         clase.getClase();
-
     }
 }
