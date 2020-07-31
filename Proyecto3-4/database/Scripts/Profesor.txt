@@ -1,0 +1,71 @@
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    1,
+    "alejandro", "Alfaro Quesada", "1-846-952"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    2,
+    "rocio", "Quiros Oviedo", "1-951-912"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    3,
+    "abel", "Mendez Porras", "7-511-626"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    4,
+    "diego", "Rojas Vega", "6-625-518"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    5,
+    "efren", "Jimenez Delgado",  "3-818-292"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    6,
+    "lorena", "Valerio Solis", "6-514-651"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    7,
+    "jorge", "Alfaro Velasco", "2-651-611"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    8,
+    "marlen", "Treviño Villalobos", "6-515-321"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    9,
+    "leo", "Viquez Acuña", "3-216-566"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    10,
+    "oscar", "Viquez Acuña", "5-616-612"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    11,
+    "vera", "Gamboa Guzman", "4-646-654"
+);
+
+INSERT INTO Profesor(id, nombre, apellidos, cedula)
+VALUES(
+    12,
+    "rogelio", "Gonzalez Quiros", "6-545-613"
+);

@@ -1,0 +1,41 @@
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    1,
+    "lab-01", 20, "laboratorio"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    2,
+    "lab-02", 20, "laboratorio"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    3,
+    "auc-01", 24, "laboratorio"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    4,
+    "mvl-01", 20, "laboratorio"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    5,
+    "e-10", 24, "normal"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    6,
+    "e-11", 24, "normal"
+);
+
+INSERT INTO Aula(id, nombre, capacidad, tipo)
+VALUES(
+    7,
+    "e-12", 28, "normal"
+);

@@ -1,9 +1,0 @@
-INSERT INTO Dia(id, dia) VALUES(1, "Lunes");
-INSERT INTO Dia(id, dia) VALUES(2, "Martes");
-INSERT INTO Dia(id, dia) VALUES(3, "Miercoles");
-INSERT INTO Dia(id, dia) VALUES(4, "Jueves");
-INSERT INTO Dia(id, dia) VALUES(5, "Viernes");
-INSERT INTO Dia(id, dia) VALUES(6, "Sabado");
-INSERT INTO Dia(id, dia) VALUES(7, "Domingo");
-
-SELECT * FROM Dia;
