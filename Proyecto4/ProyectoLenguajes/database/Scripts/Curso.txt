@@ -1,0 +1,145 @@
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    1, 
+    "fundamentos", "normal", 3,1, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    2, 
+    "introduccion", "normal", 3,1, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    3, 
+    "taller", "laboratorio", 3,1, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    4, 
+    "estructuras", "laboratorio", 4,2, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    5, 
+    "poo", "laboratorio", 3,2, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    6, 
+    "arquitectura", "normal", 4,2, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    7, 
+    "analisis", "laboratorio", 4,3, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    8, 
+    "bases1", "laboratorio", 4,3, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    9, 
+    "bases2", "laboratorio", 3,4, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    10, 
+    "lenguajes", "laboratorio", 4,4, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    11, 
+    "requerimientos", "normal", 4,4, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    12, 
+    "ap", "normal", 4,5, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    13, 
+    "compiladores", "laboratorio", 4,5, 2
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    14, 
+    "diseno", "laboratorio", 4,5, 1
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    15, 
+    "electiva1", "laboratorio", 3,6, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    16, 
+    "io", "normal", 4,6, 1
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    17, 
+    "operativos", "laboratorio", 4,6, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    18, 
+    "calidad", "laboratorio", 3,6, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    19, 
+    "compuSociedad", "normal", 2,6, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    20, 
+    "electiva2", "laboratorio", 4,7, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    21, 
+    "ia", "laboratorio", 4,7, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    22, 
+    "redes", "laboratorio", 4,7, 1 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    23, 
+    "proyectoS", "laboratorio", 3,7, 2 
+);
+
+INSERT INTO Curso(id,nombre,asignatura, creditos, semestre, cantidad_dias) 
+VALUES(
+    24, 
+    "practica", "empresa", 12,8, 2 
+);
+
+SELECT * FROM Curso;
